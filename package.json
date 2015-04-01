@@ -18,12 +18,13 @@
   ],
   "author": "Marcus Hammarberg <marcusoft.net@gmail.com> (http://www.marcusoft.net)",
   "license": "MIT",
-  "engineStrict" : true,
-  "engines" : {
-    "iojs" : "~1.6.1"
+  "engineStrict": true,
+  "engines": {
+    "iojs": "~1.6.1"
   },
   "devDependencies": {
     "mocha": "^2.2.1",
+    "semver": "^4.3.3",
     "should": "^5.2.0",
     "supertest": "^0.15.0"
   }
