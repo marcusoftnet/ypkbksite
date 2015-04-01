@@ -1,0 +1,29 @@
+{
+  "name": "YPKBKWeb",
+  "version": "1.0.0",
+  "description": "The website of the Yayasan Pelayan Kesehatan Bala Keselamatan (YPKBK)",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha -u bdd -R spec",
+    "start": "node index.js prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "."
+  },
+  "keywords": [
+    "bootstrap",
+    "koa"
+  ],
+  "author": "Marcus Hammarberg <marcusoft.net@gmail.com> (http://www.marcusoft.net)",
+  "license": "MIT",
+  "engineStrict" : true,
+  "engines" : {
+    "iojs" : "~1.6.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.1",
+    "should": "^5.2.0",
+    "supertest": "^0.15.0"
+  }
+}
