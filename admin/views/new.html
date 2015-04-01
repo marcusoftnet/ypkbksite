@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %}New chunk{% endblock %}
+
+{% block content %}
+  <h1>New chunk</h1>
+  <p>Create a new chunk.</p>
+  <form action="/chunk" method="chunk">
+    <p>Title:<input type="text" name="title" placeholder="Title"></p>
+    <p>Content:<textarea name="content"></textarea></p>
+    <p>Start publication:<input type="date" name="pub_start" placeholder="Start date"></p>
+    <p>End publication:<input type="date" name="pub_end" placeholder="End date"></p>
+    <p>Tags:<input type="text" name="tagString" placeholder="Tags"></p>
+    <p>Description:<input type="text" name="description" placeholder="Description"></p>
+    <p><input type="submit" value="Create"></p>
+  </form>
+{% endblock %}

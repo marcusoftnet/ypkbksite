@@ -27,6 +27,8 @@ In the administration part we simply administer the small content chunks
 
 ## Doing (2)
 * Structure the application using mount
+** Admin
+** Api
 
 ## Done
 * Use CDN for common files

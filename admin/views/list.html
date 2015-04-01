@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %}Chunks{% endblock %}
+
+{% block content %}
+  <h1>Chunks</h1>
+  <p><a href="/chunk/new">Create a new chunk</a></p>
+  <ul id="chunks">
+    {% for chunk in chunks %}
+      <li>
+        <h2>{{ chunk.title }}</h2>
+        <p>{{ chunk.description}}</p>
+        <p><a href="/chunk/{{ chunk._id.toString() }}">Show chunk</a></p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

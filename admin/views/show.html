@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ chunk.title }}{% endblock %}
+
+{% block content %}
+  <h1>{{ chunk.title }}</h1>
+  <p>Content: {{ chunk.content }}</p>
+  <p>Published: {{ chunk.pub_start }} -- {{ chunk.pub_end }}</p>
+  <p>Tags: {{ chunk.tagString }}</p>
+  <p>Description: {{ chunk.description }}</p>
+
+  <ul>
+  	<li><a href="/chunk/{{ chunk._id.toString() }}/edit">Edit chunk</a></li>
+  	<li><a href="/chunk/{{ chunk._id.toString() }}/delete">Delete chunk</a></li>
+  </ul>
+{% endblock %}
