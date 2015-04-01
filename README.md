@@ -27,9 +27,9 @@ In the administration part we simply administer the small content chunks
 
 ## Doing (2)
 * Structure the application using mount
-* Use CDN for common files
 
 ## Done
+* Use CDN for common files
 * Deploy first version
 
 
