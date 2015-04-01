@@ -31,7 +31,7 @@ pushHeroku:
 	git push heroku master
 
 launch:
-	open http://ypkbk.herokuapp.com
+	open http://ypkbksite.herokuapp.com
 
 deployProd: test createMinorRelease pushGithub pushHeroku launch
 

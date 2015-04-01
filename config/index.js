@@ -1,15 +1,15 @@
-var mongoProdUri = process.env.MONGOLAB_URI || 'localhost:27017/boooring_Prod';
+var mongoProdUri = process.env.MONGOLAB_URI || 'localhost:27017/ypkbksite_Prod';
 
 var config = {
 	local: {
 		mode: 'local',
 		port: 3000,
-		mongoUrl: 'localhost:27017/boooring_Dev'
+		mongoUrl: 'localhost:27017/ypkbksite_Prod'
 	},
 	staging: {
 		mode: 'staging',
 		port: 4000,
-		mongoUrl: 'localhost:27017/boooring_Test'
+		mongoUrl: 'localhost:27017/ypkbksite_Prod'
 	},
 	prod: {
 		mode: 'prod',
