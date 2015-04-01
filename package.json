@@ -10,8 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "."
+    "url": "https://github.com/marcusoftnet/ypkbksite.git"
   },
+  "bugs": {
+    "url": "https://github.com/marcusoftnet/ypkbksite/issues"
+  },
+  "homepage": "http://ypkbksite.herokuapp.com",
   "keywords": [
     "bootstrap",
     "koa"
