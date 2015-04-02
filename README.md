@@ -11,11 +11,6 @@ In the administration part we simply administer the small content chunks
 
 # Kanban
 ## Todo
-* Make a YPKBK demo site, but with real data
-** Pictures of hospitals
-** Background pictures
-** make favicon for ypkbk
-
 * Setting up the administration site
 ** CRUD for content chunks
 ** List all
@@ -26,6 +21,11 @@ In the administration part we simply administer the small content chunks
 ** Get content chunks by tag
 
 ## Doing (2)
+* Make a YPKBK demo site, but with real data
+** Pictures of hospitals
+** Background pictures
+** make favicon for ypkbk
+
 * Structure the application using mount
 ** Admin
 ** Api
