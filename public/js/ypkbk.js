@@ -24,3 +24,11 @@ $('body').scrollspy({
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
+
+
+// Opens modal windows for hospitals ... and clinics
+$(document).ready(function() {
+  if(window.location.href.indexOf('#hospital-') > 0) {
+    $(window.location.hash).modal('show');
+  }
+});
