@@ -31,7 +31,16 @@
     "mocha": "^2.2.1",
     "semver": "^4.3.3",
     "should": "^5.2.0",
-    "supertest": "^0.15.0"
+    "supertest": "^0.15.0",
+    "co-body": "0.0.1",
+    "co-views": "^0.1.0",
+    "koa": "^0.5.0",
+    "koa-logger": "^1.1.0",
+    "koa-route": "^1.0.2",
+    "swig": "^1.2.2",
+    "monk": "1.0.0",
+    "co-monk": "1.0.0",
+    "mongodb": "1.4.4"
   },
   "dependencies": {
     "koa": "^0.19.0",
