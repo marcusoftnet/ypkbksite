@@ -1,3 +1,4 @@
+"use strict";
 let monk = require('monk');
 let wrap = require('co-monk');
 

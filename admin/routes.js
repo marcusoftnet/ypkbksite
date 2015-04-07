@@ -5,7 +5,7 @@
 let parse = require('co-body');
 let render = require('./lib/render');
 
-let config = require('../../config')();
+let config = require('../config')();
 let db = require("./lib/db.js");
 let chunks = db.chunks(config.mongoUrl);
 

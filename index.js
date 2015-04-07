@@ -1,12 +1,19 @@
 "use strict";
 
-let staticnow = require("static-now");
+// dependencies
+let mount = require('koa-mount');
+let koa = require('koa');
+let app = module.exports = koa();
 let config = require("./config")();
 
-let app = staticnow({
-	log : true,
-	portnumber : config.port,
-	directory:__dirname + "/public"
-});
+// apps
+let adminApp = require('./admin/');
+let siteApp = require('./site/');
 
-module.exports = app;
+// mount'em
+app.use(mount('/', siteApp));
+app.use(mount('/admin', adminApp));
+
+// listen and all of that
+app.listen(config.port);
+console.log(`listening on port ${config.port}`);
