@@ -36,12 +36,12 @@ In the administration part we simply administer the small content chunks
 ** Get content chunks by tag
 
 ## Doing (2)
-* define hospital information
 * For each hospital
 ** find good picture (400 wide x 250 high)
 ** get information to put on hospital page
 
 ## Done
+* define hospital information
 * Use CDN for common files
 * Deploy first version
 

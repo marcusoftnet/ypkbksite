@@ -9,7 +9,6 @@ let config = require("./config")();
 let userAuth = require('./lib/authentication.js');
 
 // middleware configuration
-console.log(config.adminUser);
 app.use(userAuth.reqBasic);
 app.use(mount('/admin', auth(config.adminUser)));
 
