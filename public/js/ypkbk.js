@@ -28,7 +28,8 @@ $('.navbar-collapse ul li a').click(function() {
 
 // Opens modal windows for hospitals ... and clinics
 $(document).ready(function() {
-  if(window.location.href.indexOf('#hospital-') > 0) {
+  if((window.location.href.indexOf('#hospital-') > 0) ||
+  	(window.location.href.indexOf('#clinic-') > 0) {
     $(window.location.hash).modal('show');
   }
 });
