@@ -27,6 +27,7 @@
     "iojs": "~1.6.1"
   },
   "devDependencies": {
+    "co": "^4.5.1",
     "mocha": "^2.2.1",
     "semver": "^4.3.3",
     "should": "^5.2.0",
@@ -37,6 +38,7 @@
     "koa-logger": "^1.2.2",
     "koa-mount": "^1.3.0",
     "koa-route": "^2.4.0",
-    "koa-static": "^1.4.9"
+    "koa-static": "^1.4.9",
+    "ypkbk-admin": "file:admin"
   }
 }
