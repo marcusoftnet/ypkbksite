@@ -36,7 +36,8 @@ In the administration part we simply administer the small content chunks
 ** Get content chunks by tag
 
 ## Doing (2)
-* For each hospital
+* For example hospital
+** pictures for web, fb and emails
 ** find good picture (400 wide x 250 high)
 ** get information to put on hospital page
 

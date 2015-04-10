@@ -230,6 +230,19 @@ fieldset[disabled] .btn-xl.active {
     background-color: #cc2828;
 }
 
+.navbar-brand>img{
+    display: inline;
+    height: 50px;
+}
+
+.navbar-brand {
+  float: left;
+  height: 50px;
+  padding: 1px 15px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
 @media(min-width:768px) {
     .navbar-default {
         padding: 25px 0;
