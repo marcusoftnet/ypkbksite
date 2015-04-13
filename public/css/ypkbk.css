@@ -666,8 +666,15 @@ ul.social-buttons li a:active {
 }
 
 .hospitalDetailHeader {
-    font-size: 1.2em;
     font-weight: bolder;
+}
+
+.panel-primary {
+    border-color: #ff3333;
+}
+.panel-primary>.panel-heading {
+    background-color: #ff3333;
+    border-color: #ff3333;
 }
 
 ::-moz-selection {

@@ -12,36 +12,41 @@ In the administration part we simply administer the small content chunks
 # Kanban
 ## Todo
 * Make a YPKBK demo site, but with real data
-** Background pictures
-** make favicon for ypkbk
+	* Background pictures
+		* header image
+		* map 
+			* http://indonesiamap.facts.co/indonesiablankmap.png
+			* http://d2z7bzwflv7old.cloudfront.net/cdn_image/exH_600/images/maps/en/id/id-outline.gif
+* make favicon for ypkbk
 
 * Clinics
-** Define information
-** Good pictures (400 x 250)
-** Information
+	* Define information
+	* Good pictures (400 x 250)
+	* Information
 
 * Structure the application using mount
-** Admin
-** Api
+	* Admin
+	* Api
 
 
 * Google Analytics setup
+
 * Setting up the administration site
-** CRUD for content chunks
-** List all
-** Each chunk should have: title, id, text, publication_start, publication_end, tags, description (that doesn't show up on the page)
+	* CRUD for content chunks
+	* List all
+	* Each chunk should have: title, id, text, publication_start, publication_end, tags, description (that doesn't show up on the page)
 
 * Create API
-** Get a content chunk by key
-** Get content chunks by tag
+	* Get a content chunk by key
+	* Get content chunks by tag
 
 ## Doing (2)
+
+## Done
 * For example hospital
 ** pictures for web, fb and emails
 ** find good picture (400 wide x 250 high)
 ** get information to put on hospital page
-
-## Done
 * define hospital information
 * Use CDN for common files
 * Deploy first version
