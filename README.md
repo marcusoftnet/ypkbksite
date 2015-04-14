@@ -14,17 +14,12 @@ In the administration part we simply administer the small content chunks
 * Google Analytics setup
 * The Yayasan Pelayan Kesehatan Bala Keselamatan needs to be smaller for medium sized screens
 * make favicon for ypkbk
+* Link directly to hospital/clinic/news doesnt work
 
 
 ## Todo
-* Hardcoded example news section
-
 * Background pictures
 	* header image
-	* map
-		* http://indonesiamap.facts.co/indonesiablankmap.png
-		* http://d2z7bzwflv7old.cloudfront.net/cdn_image/exH_600/images/maps/en/id/id-outline.gif
-
 
 * Setting up the administration site
 	* Separate admin for Hospitals, Clinics, News and Lain-lain text
@@ -36,8 +31,9 @@ In the administration part we simply administer the small content chunks
 
 ## Doing (2)
 
-
 ## Done
+* Background image for contact us
+* Hardcoded example news section
 * Make the social media icons bigger using fa-2x
 * The panels for hospital doesn't have to be in <div class="row"></div> they will just overflow to the next line
 * Structure the application using mount
