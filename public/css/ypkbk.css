@@ -363,19 +363,21 @@ section h3.section-subheading {
     text-transform: none;
 }
 
-#hospitals .hospital-item {
+
+/* hospital formatting rules */
+#hospitals .institution-item {
     right: 0;
     margin: 0 0 15px;
 }
 
-#hospitals .hospital-item .hospital-link {
+#hospitals .institution-item .institution-link {
     display: block;
     position: relative;
     margin: 0 auto;
     max-width: 400px;
 }
 
-#hospitals .hospital-item .hospital-link .hospital-hover {
+#hospitals .institution-item .institution-link .institution-hover {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -386,11 +388,11 @@ section h3.section-subheading {
     transition: all ease .5s;
 }
 
-#hospitals .hospital-item .hospital-link .hospital-hover:hover {
+#hospitals .institution-item .institution-link .institution-hover:hover {
     opacity: 1;
 }
 
-#hospitals .hospital-item .hospital-link .hospital-hover .hospital-hover-content {
+#hospitals .institution-item .institution-link .institution-hover .institution-hover-content {
     position: absolute;
     top: 50%;
     width: 100%;
@@ -401,16 +403,16 @@ section h3.section-subheading {
     color: #fff;
 }
 
-#hospitals .hospital-item .hospital-link .hospital-hover .hospital-hover-content i {
+#hospitals .institution-item .institution-link .institution-hover .institution-hover-content i {
     margin-top: -12px;
 }
 
-#hospitals .hospital-item .hospital-link .hospital-hover .hospital-hover-content h3,
-#hospitals .hospital-item .hospital-link .hospital-hover .hospital-hover-content h4 {
+#hospitals .institution-item .institution-link .institution-hover .institution-hover-content h3,
+#hospitals .institution-item .institution-link .institution-hover .institution-hover-content h4 {
     margin: 0;
 }
 
-#hospitals .hospital-item .hospital-caption {
+#hospitals .institution-item .institution-caption {
     margin: 0 auto;
     padding: 25px;
     max-width: 400px;
@@ -418,12 +420,12 @@ section h3.section-subheading {
     background-color: #fff;
 }
 
-#hospitals .hospital-item .hospital-caption h4 {
+#hospitals .institution-item .institution-caption h4 {
     margin: 0;
     text-transform: none;
 }
 
-#hospitals .hospital-item .hospital-caption p {
+#hospitals .institution-item .institution-caption p {
     margin: 0;
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 16px;
@@ -435,35 +437,90 @@ section h3.section-subheading {
 }
 
 @media(min-width:767px) {
-    #hospitals .hospital-item {
+    #hospitals .institution-item {
+        margin: 0 0 30px;
+    }
+}
+
+/* Clinics formatting rules */
+#clinics .institution-item {
+    right: 0;
+    margin: 0 0 15px;
+}
+
+#clinics .institution-item .institution-link {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+#clinics .institution-item .institution-link .institution-hover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: #ff3333;
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+    transition: all ease .5s;
+}
+
+#clinics .institution-item .institution-link .institution-hover:hover {
+    opacity: 1;
+}
+
+#clinics .institution-item .institution-link .institution-hover .institution-hover-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 20px;
+    margin-top: -12px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+}
+
+#clinics .institution-item .institution-link .institution-hover .institution-hover-content i {
+    margin-top: -12px;
+}
+
+#clinics .institution-item .institution-link .institution-hover .institution-hover-content h3,
+#clinics .institution-item .institution-link .institution-hover .institution-hover-content h4 {
+    margin: 0;
+}
+
+#clinics .institution-item .institution-caption {
+    margin: 0 auto;
+    padding: 25px;
+    max-width: 400px;
+    text-align: center;
+    background-color: #fff;
+}
+
+#clinics .institution-item .institution-caption h4 {
+    margin: 0;
+    text-transform: none;
+}
+
+#clinics .institution-item .institution-caption p {
+    margin: 0;
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-style: italic;
+}
+
+#clinics * {
+    z-index: 2;
+}
+
+@media(min-width:767px) {
+    #clinics .institution-item {
         margin: 0 0 30px;
     }
 }
 
 
-.team-member {
-    margin-bottom: 50px;
-    text-align: center;
-}
-
-.team-member img {
-    margin: 0 auto;
-    border: 7px solid #fff;
-}
-
-.team-member h4 {
-    margin-top: 25px;
-    margin-bottom: 0;
-    text-transform: none;
-}
-
-.team-member p {
-    margin-top: 0;
-}
-
-aside.clients img {
-    margin: 50px auto;
-}
 
 section#contact {
     background-color: #002347;
@@ -583,7 +640,7 @@ ul.social-buttons li a:active {
 }
 
 
-.hospital-modal .modal-content {
+.institution-modal .modal-content {
     padding: 100px 0;
     min-height: 100%;
     border: 0;
@@ -593,33 +650,33 @@ ul.social-buttons li a:active {
     box-shadow: none;
 }
 
-.hospital-modal .modal-content h2 {
+.institution-modal .modal-content h2 {
     margin-bottom: 15px;
     font-size: 3em;
     text-align: center;
 }
 
-.hospital-modal .modal-content p {
+.institution-modal .modal-content p {
     margin-bottom: 30px;
 }
 
-.hospital-modal .modal-content p.item-intro {
+.institution-modal .modal-content p.item-intro {
     margin: 20px 0 30px;
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 16px;
     font-style: italic;
 }
 
-.hospital-modal .modal-content ul.list-inline {
+.institution-modal .modal-content ul.list-inline {
     margin-top: 0;
     margin-bottom: 30px;
 }
 
-.hospital-modal .modal-content img {
+.institution-modal .modal-content img {
     margin-bottom: 30px;
 }
 
-.hospital-modal .close-modal {
+.institution-modal .close-modal {
     position: absolute;
     top: 25px;
     right: 25px;
@@ -629,11 +686,11 @@ ul.social-buttons li a:active {
     cursor: pointer;
 }
 
-.hospital-modal .close-modal:hover {
+.institution-modal .close-modal:hover {
     opacity: .3;
 }
 
-.hospital-modal .close-modal .lr {
+.institution-modal .close-modal .lr {
     z-index: 1051;
     width: 1px;
     height: 75px;
@@ -644,7 +701,7 @@ ul.social-buttons li a:active {
     transform: rotate(45deg);
 }
 
-.hospital-modal .close-modal .lr .rl {
+.institution-modal .close-modal .lr .rl {
     z-index: 1052;
     width: 1px;
     height: 75px;
@@ -654,18 +711,18 @@ ul.social-buttons li a:active {
     transform: rotate(90deg);
 }
 
-.hospital-modal .modal-backdrop {
+.institution-modal .modal-backdrop {
     display: none;
     opacity: 0;
 }
 
-.hospitalHeaderImage img {
+.institutionHeaderImage img {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.hospitalDetailHeader {
+.institutionDetailHeader {
     font-weight: bolder;
 }
 

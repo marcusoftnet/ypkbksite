@@ -10,39 +10,48 @@ The root application simply returns the public static site. In the templates ret
 In the administration part we simply administer the small content chunks
 
 # Kanban
-## Todo
-* Make a YPKBK demo site, but with real data
-	* Background pictures
-		* header image
-		* map 
-			* http://indonesiamap.facts.co/indonesiablankmap.png
-			* http://d2z7bzwflv7old.cloudfront.net/cdn_image/exH_600/images/maps/en/id/id-outline.gif
+## Later
+* Google Analytics setup
+* The Yayasan Pelayan Kesehatan Bala Keselamatan needs to be smaller for medium sized screens
 * make favicon for ypkbk
 
-* Clinics
-	* Define information
-	* Good pictures (400 x 250)
-	* Information
 
+## Todo
+* Hardcoded example news section
+
+* Background pictures
+	* header image
+	* map
+		* http://indonesiamap.facts.co/indonesiablankmap.png
+		* http://d2z7bzwflv7old.cloudfront.net/cdn_image/exH_600/images/maps/en/id/id-outline.gif
+
+
+* Setting up the administration site
+	* Separate admin for Hospitals, Clinics, News and Lain-lain text
+	* Create Read Update Delete for each
+
+* Use the data to create webpage on each request
+
+# Fix
+
+## Doing (2)
+
+
+## Done
+* Make the social media icons bigger using fa-2x
+* The panels for hospital doesn't have to be in <div class="row"></div> they will just overflow to the next line
 * Structure the application using mount
 	* Admin
 	* Api
 
-
-* Google Analytics setup
-
-* Setting up the administration site
-	* CRUD for content chunks
-	* List all
-	* Each chunk should have: title, id, text, publication_start, publication_end, tags, description (that doesn't show up on the page)
-
-* Create API
-	* Get a content chunk by key
-	* Get content chunks by tag
-
-## Doing (2)
-
-## Done
+* Hardcoded, example clinic data
+	* Define information
+	** Opsir
+	** Visi Misi
+	** Pelayanan
+	** Rujukan
+	* Good pictures (400 x 250)
+	* Information
 * For example hospital
 ** pictures for web, fb and emails
 ** find good picture (400 wide x 250 high)
