@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+  <h1>Rumah sakit</h1>
+
+  	<a href="/admin/hospital/new">
+  		<button>Buat rumah sakit baru</button>
+  	</a>
+  	<ul>
+  	{% for hospital in hospitals %}
+  		<li><a href="/admin/hospital/{{ hospital.name}}">{{ hospital.name }}</a></li>
+  	{% endfor%}
+  	</ul>
+
+
+  <h1>Klinik</h1>
+  	<a href="/admin/clinic/new">
+  		<button>Buat klinik baru</button>
+  	</a>
+
+  <h1>Berita</h1>
+  	<a href="/admin/news/new">
+  		<button>Buat berita baru</button>
+  	</a>
+
+  <h1>Lain-lain</h1>
+  	<a href="/admin/text/new">
+  		<button>Buat text lain-lain baru</button>
+	</a>
+
+{% endblock %}

@@ -5,21 +5,50 @@
 
 let logger = require('koa-logger');
 let route = require('koa-route');
+let render = require('./lib/render.js');
 let koa = require('koa');
 let app = module.exports = koa();
 
 // middleware
-
-app.use(logger());
+// app.use(logger());
 
 // route middleware
-let routes = require('./routes.js');
-app.use(route.get('/', routes.list));
-app.use(route.get('/chunk/new', routes.add));
-app.use(route.get('/chunk/:id', routes.show));
-app.use(route.post('/chunk', routes.create));
-app.use(route.post('/chunk/:id', routes.update));
-app.use(route.get('/chunk/:id/edit', routes.edit));
-app.use(route.get('/chunk/:id/delete', routes.remove));
+
+// HTTP
+// GET - return some data/page
+// POST - send data to the server
+
+// routes
+// GET  / 				-> return home page of the administration
+app.use(route.get('/', showAdminHome));
+
+function *showAdminHome() {
+	let hospitals = []; // TODO: Get hospital from db
+	let vm = { hospitals : hospitals };
+
+	this.body = yield render('index', vm);
+};
+
+// GET  /hospital/new -> return create new hospital form
+// POST /hospital/    -> add new hospital information
+// GET  /hospital/:id -> show the hospital information for :id in form
+// POST /hospital/:id -> update the hospital information
+
+// GET  /clinic/new -> return create new clinic form
+// POST /clinic/    -> add new clinic information
+// GET  /clinic/:id -> show the clinic information for :id in form
+// POST /clinic/:id -> update the clinic information
+
+// GET  /news/new -> return create new news form
+// POST /news/    -> add new news information
+// GET  /news/:id -> show the news information for :id in form
+// POST /news/:id -> update the news information
+
+// GET  /text/new -> return create new text form
+// POST /text/    -> add new text information
+// GET  /text/:id -> show the text information for :id in form
+// POST /text/:id -> update the text information
+
+
 
 // don't start... this will be mounted
