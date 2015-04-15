@@ -5,7 +5,7 @@ let render = require('../lib/render.js');
 let db = require('../lib/db.js');
 
 module.exports.showNewHospitalPage = function *() {
-	this.body = yield render('hospital_new');
+	this.body = yield render('hospital'); // TODO: Reuse hospital template
 };
 
 module.exports.storeNewHospital = function *() {
@@ -14,5 +14,10 @@ module.exports.storeNewHospital = function *() {
 	let inserted = yield db.hospitalCollection.insert(parsedHospitalData);
 	let id = inserted._id;
 
-	this.redirect(`/hospital/${id}`);
+	this.redirect(`/admin/hospital/${id}`);
+};
+
+module.exports.showHospitalPage = function *(id) {
+	let h = yield db.hospitalCollection.findById(id);
+	this.body = yield render('hospital', { hospital : h });
 };

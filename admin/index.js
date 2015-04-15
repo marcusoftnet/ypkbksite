@@ -16,8 +16,9 @@ let adminRoutes = require('./routes/adminRoutes.js');
 app.use(route.get('/', adminRoutes.showAdminHome));
 
 let hospitalRoutes = require('./routes/hospitalRoutes.js');
-app.use(route.get('/hospital/new', hospitalRoutes.showNewHospitalPage));
-app.use(route.post('/hospital/new', hospitalRoutes.storeNewHospital));
+app.use(route.get('/hospital/', hospitalRoutes.showNewHospitalPage));
+app.use(route.post('/hospital/', hospitalRoutes.storeNewHospital));
+app.use(route.get('/hospital/:id', hospitalRoutes.showHospitalPage));
 
 // GET  /hospital/:id -> show the hospital information for :id in form
 // POST /hospital/:id -> update the hospital information

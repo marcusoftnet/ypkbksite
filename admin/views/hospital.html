@@ -1,0 +1,104 @@
+{% extends 'layout.html' %} 
+
+{% block title %}
+    {% if hospital %}
+        {{ hospital.name }}
+    {% else %}
+        Buat Rumah sakit
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+<h1>{% if hospital %}
+        Edit: {{ hospital.name }}
+    {% else %}
+        Buat Rumah sakit
+    {% endif %}</h1>
+<form method="post" action="/admin/hospital/{{ hospital._id }}">
+    <p><h3>Informasi Umum</h3></p>
+    <p>
+        <label for="name">Nama</label>
+        <input type="text" name="name" value="{{ hospital.name }}" placeholder="Cth. Rumah Sakit Bungsu" />
+    </p>
+    <p>
+        <label for="fokusArea">Fokus area</label>
+        <input type="text" name="fokusArea" value="{{ hospital.fokusArea }}" placeholder="Cth. Ibu dan anak" />
+    </p>
+    <p>
+        <label for="introText">Intro</label>
+        <input type="text" name="introText" value="{{ hospital.introText }}" placeholder="Cth. RS XXX adalah salah satu RS di Turen, Malang" />
+    </p>
+    <p>
+	    <label for="rsPhotoFileName">Nama File Foto RS</label>
+	    <input type="text" name="rsPhotoFileName" value="{{ hospital.rsPhotoFileName }}" placeholder="Cth. rsbu-bandung.jpg" />
+    </p>
+    <p><h3>Direktur dan opsir</h3></p>
+    <p>
+	    <label for="direkturName">Nama Direktur</label>
+	    <input type="text" name="direkturName" value="{{ hospital.direkturName }}" placeholder="Cth. Dr TB Rijanto" />
+    </p>
+    <p>
+	    <label for="direkturEmail">Email Direktur</label>
+	    <input type="email" name="direkturEmail" value="{{ hospital.direkturEmail }}" placeholder="Cth. Direktur_RS_Bungsu@ins.salvationarmy.org" />
+    </p>
+    <p>
+	    <label for="opsirName">Nama opsir</label>
+	    <input type="text" name="opsirName" value="{{ hospital.opsirName }}" placeholder="Cth. Mayor Sih Sadjiastuti Laua" />
+    </p>
+    <p>
+	    <label for="opsirEmail">Email Opsir</label>
+	    <input type="email" name="opsirEmail" value="{{ hospital.opsirEmail }}" placeholder="Cth. Pimpinan_RS_Bungsu@ins.salvationarmy.org" />
+    </p>
+    <p><h3>Kontak Informasi</h3></p>
+    <p>
+	    <label for="address">Alamat</label>
+	    <input type="text" name="address" value="{{ hospital.address }}" placeholder="Cth. Jalan Veteran 6, Bandung" />
+    </p>
+    <p>
+	    <label for="telephone">Telefon</label>
+	    <input type="text" name="telephone" value="{{ hospital.telephone }}" placeholder="Cth. +62 8 211 677 8803" />
+    </p>
+    <p>
+	    <label for="rsEmail">Email RS</label>
+	    <input type="email" name="rsEmail" value="{{ hospital.rsEmail }}" placeholder="Cth. rs_surabaya@gmail.com" />
+    </p>
+    <p>
+	    <label for="rsWebsite">Website</label>
+	    <input type="url" name="rsWebsite" value="{{ hospital.rsWebsite }}" placeholder="Cth. http://www.woodward-rs.id" />
+    </p>
+    <p>
+	    <label for="googleMapUrl">Google map</label>
+	    <input type="url" name="googleMapUrl" value="{{ hospital.googleMapUrl }}" placeholder="Cth. https://www.google.co.id/maps/place/Jl.+Veteran+No.6,+Sumur+Bandung,+Kota+Bandung,+Jawa+Bar.+40112/@-6.918564,107.6139949,17z/data=!4m7!1m4!3m3!1s0x2e68e62e1619b885:0xaee1403559149f54!2sJl.+Veteran+No.6,+Sumur+Bandung,+Kota+Bandung,+Jawa+Bar.+40112!3b1!3m1!1s0x2e68e62e1619b885:0xaee1403559149f54?hl=en" />
+    </p>
+    <p><h3>Visi / Misi</h3></p>
+    <p>
+        <label for="misiText">Misi</label>
+        <textarea name="misiText" placeholder="Cth. Untuk mendukung masyarakat dengan kesehatan yang besar dan pelayanan pastoral.">{{ hospital.misiText }}</textarea>
+    </p>
+    <p>
+	    <label for="visiText">Visi</label>
+        <textarea name="visiText" placeholder="Cth. Untuk menjadi rumah sakit terbaik di wilayah ketika datang ke perawatan dan kualitas.">{{ hospital.visiText }}</textarea>
+    </p>
+    <p><h3>Pelayanan</h3></p>
+    <p>
+	    <label for="pelayanan">Pelayanan</label>
+        <textarea name="pelayanan" placeholder="Cth. IGD 24 Jam, Poli umum, Poli specialis">{{ hospital.pelayanan }}</textarea>
+    </p>
+    <p>
+	    <label for="bpjsStatus">Status BPJS</label>
+	    <input type="text" name="bpjsStatus" value="{{ hospital.bpjsStatus }}" placeholder="Cth. Sejak 2015" />
+    </p>
+    <p>
+	    <label for="accreditationStatus">Status Akreditasi</label>
+	    <input type="text" name="accreditationStatus" value="{{ hospital.accreditationStatus }}" placeholder="Cth. Akreditasi 2015" />
+    </p>
+    <p>
+        {% if hospital %}
+            <button>Update {{ hospital.name }}</button>
+        {% else %}
+            <button>Buat rumah sakit</button>
+        {% endif %}
+    </p>
+</form>
+{% endblock %}

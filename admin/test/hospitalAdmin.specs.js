@@ -17,7 +17,7 @@ describe('Hospital administration', function(){
 
 	it('has a page to create new hospitals', function (done) {
 		request
-			.get('/hospital/new')
+			.get('/hospital/')
 			.expect(200)
 			.expect(function (res) {
 				res.text.should.containEql('<button>Buat rumah sakit</button>')
@@ -33,7 +33,7 @@ describe('Hospital administration', function(){
 			};
 
 			request
-				.post("/hospital/new")
+				.post("/hospital/")
 				.send(examplePostData)
 				.expect(302)
 				.expect('location', /\/hospital\/[0-9a-fA-F]+$/)
@@ -45,6 +45,20 @@ describe('Hospital administration', function(){
 				});
 		});
 	});
-	it('shows information about an existing hospital');
+	it('shows information about an existing hospital', function  (done) {
+		co(function * () {
+			let insertedHospital = yield db.hospitalCollection.insert({ name:'Rumah Sakit Turen'});
+
+			let url = `/hospital/${insertedHospital._id}`;
+
+			request
+				.get(url)
+				.expect(200)
+				.expect(function (res) {
+					res.text.should.containEql('Rumah Sakit Turen');
+				})
+				.end(done);
+		});
+	});
 	it('updates the information about an existing hospital');
 });
