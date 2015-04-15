@@ -10,7 +10,7 @@ let koa = require('koa');
 let app = module.exports = koa();
 
 // middleware
-// app.use(logger());
+//app.use(logger());
 
 // route middleware
 
@@ -19,7 +19,6 @@ let app = module.exports = koa();
 // POST - send data to the server
 
 // routes
-// GET  / 				-> return home page of the administration
 app.use(route.get('/', showAdminHome));
 
 function *showAdminHome() {
@@ -29,7 +28,11 @@ function *showAdminHome() {
 	this.body = yield render('index', vm);
 };
 
-// GET  /hospital/new -> return create new hospital form
+app.use(route.get('/hospital/new', showNewHospitalPage));
+
+function *showNewHospitalPage() {
+	this.body = yield render('hospital_new');
+};
 // POST /hospital/    -> add new hospital information
 // GET  /hospital/:id -> show the hospital information for :id in form
 // POST /hospital/:id -> update the hospital information
