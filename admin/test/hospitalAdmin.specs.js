@@ -2,11 +2,19 @@
 let app = require('../');
 let co = require('co');
 let db = require('../lib/db.js');
-
+let testHelpers = require('./testHelpers.js');
 let should = require('should');
 let request = require('supertest').agent(app.listen());
 
 describe('Hospital administration', function(){
+
+	beforeEach(function (done) {
+		testHelpers.removeAllDocs(done);
+	});
+	afterEach(function (done) {
+		testHelpers.removeAllDocs(done);
+	});
+
 	it('has a page to create new hospitals', function (done) {
 		request
 			.get('/hospital/new')
@@ -37,5 +45,6 @@ describe('Hospital administration', function(){
 				});
 		});
 	});
+	it('shows information about an existing hospital');
 	it('updates the information about an existing hospital');
 });
