@@ -5,11 +5,6 @@ let co = require('co');
 let should = require('should');
 let request = require('supertest').agent(app.listen());
 
-let monk = require('monk');
-let wrap = require('co-monk');
-let db = monk('localhost/koaBlog');
-let chunks = wrap(db.get('chunks'));
-
 describe('Administration site home page', function(){
 	it('shows up without errors', function (done) {
 		request

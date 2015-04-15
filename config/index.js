@@ -9,13 +9,13 @@ var config = {
 	local: {
 		mode: 'local',
 		port: 3000,
-		mongoUrl: 'localhost:27017/ypkbksite_Prod',
+		mongoUrl: 'localhost:27017/ypkbksite_dev',
 		adminUser : adminUser
 	},
 	staging: {
 		mode: 'staging',
 		port: 4000,
-		mongoUrl: 'localhost:27017/ypkbksite_Prod',
+		mongoUrl: 'localhost:27017/ypkbksite_staging',
 		adminUser : adminUser
 	},
 	prod: {

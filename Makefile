@@ -18,10 +18,7 @@ createMinorRelease:
 	@$(call release,minor)
 
 test:
-	@$(BIN)/mocha \
-		-u bdd \
-		-R dot \
-		-b
+	npm test
 
 pushGithub:
 	git push --tags origin HEAD:master
@@ -33,4 +30,3 @@ launch:
 	open http://ypkbksite.herokuapp.com
 
 deployProd: test createMinorRelease pushGithub pushHeroku launch
-
