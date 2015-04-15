@@ -60,5 +60,26 @@ describe('Hospital administration', function(){
 				.end(done);
 		});
 	});
-	it('updates the information about an existing hospital');
+	it('updates the information about an existing hospital', function (done) {
+		co(function * () {
+			let insertedHospital = yield db.hospitalCollection.insert({ name:'Rumah Sakit Turen'});
+			let url = `/hospital/${insertedHospital._id}`;
+
+			let updatedHospitalData = {
+				name : 'RS Bungsu'
+			};
+
+			request
+				.post(url)
+				.send(updatedHospitalData)
+				.expect(302)
+				.expect('location', `/admin${url}`)
+				.end(function () {
+					co(function *() {
+						let hospital = yield db.hospitalCollection.findById(insertedHospital._id);
+						hospital.name.should.equal('RS Bungsu');
+					})(done());
+				});
+		});
+	});
 });

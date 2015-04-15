@@ -15,7 +15,7 @@
     {% else %}
         Buat Rumah sakit
     {% endif %}</h1>
-<form method="post" action="/admin/hospital/{{ hospital._id }}">
+<form method="post" action="/admin/hospital/{{ hospital._id.toString() }}">
     <p><h3>Informasi Umum</h3></p>
     <p>
         <label for="name">Nama</label>

@@ -21,3 +21,11 @@ module.exports.showHospitalPage = function *(id) {
 	let h = yield db.hospitalCollection.findById(id);
 	this.body = yield render('hospital', { hospital : h });
 };
+
+module.exports.updateHospital = function *(id) {
+	let parsedHospitalData = yield parse(this);
+
+	yield db.hospitalCollection.updateById(id, parsedHospitalData);
+
+	this.redirect(`/admin/hospital/${id}`);
+};
