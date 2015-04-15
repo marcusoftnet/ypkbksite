@@ -20,7 +20,7 @@ describe('Hospital administration', function(){
 			.get('/hospital/')
 			.expect(200)
 			.expect(function (res) {
-				res.text.should.containEql('<button>Buat rumah sakit</button>')
+				res.text.should.containEql('Buat rumah sakit')
 			})
 			.end(done);
 	});

@@ -9,7 +9,7 @@ let koa = require('koa');
 let app = module.exports = koa();
 
 // middleware
-app.use(logger());
+//app.use(logger());
 
 // routes
 let adminRoutes = require('./routes/adminRoutes.js');
