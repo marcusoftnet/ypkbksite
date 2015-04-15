@@ -12,10 +12,10 @@ var config = {
 		mongoUrl: 'localhost:27017/ypkbksite_dev',
 		adminUser : adminUser
 	},
-	staging: {
-		mode: 'staging',
+	testing: {
+		mode: 'testing',
 		port: 4000,
-		mongoUrl: 'localhost:27017/ypkbksite_staging',
+		mongoUrl: 'localhost:27017/ypkbksite_test',
 		adminUser : adminUser
 	},
 	prod: {

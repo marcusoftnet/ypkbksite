@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha test ./admin/test -u bdd -R spec",
     "start": "node index.js prod",
-    "startLocal": "nodemon index.js"
+    "startLocal": "nodemon index.js testing"
   },
   "repository": {
     "type": "git",
