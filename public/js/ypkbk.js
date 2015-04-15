@@ -25,11 +25,20 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
 
+// Set the url of the clicked link
+$(function(){
+  var hash = window.location.hash;
+  $('a').click(function (e) {
+    window.location.hash = this.hash;
+  });
+});
 
 // Opens modal windows for hospitals ... and clinics
 $(document).ready(function() {
-  if((window.location.href.indexOf('#hospital-') > 0) ||
-  	(window.location.href.indexOf('#clinic-') > 0) {
-    $(window.location.hash).modal('show');
+  if(
+    (window.location.href.indexOf('#modallink-') > 0) ||
+    (window.location.href.indexOf('#institution-') > 0) ||
+  	(window.location.href.indexOf('#news-') > 0)) {
+      $(window.location.hash).modal('show');
   }
 });

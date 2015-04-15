@@ -4,7 +4,7 @@
   "description": "The website of the Yayasan Pelayan Kesehatan Bala Keselamatan (YPKBK)",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha -u bdd -R spec && ./node_modules/mocha/bin/mocha ./admin/test -u bdd -R spec",
+    "test": "./node_modules/mocha/bin/mocha test ./admin/test  -u bdd -R spec",
     "start": "node index.js prod",
     "startLocal": "nodemon index.js"
   },

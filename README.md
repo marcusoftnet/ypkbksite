@@ -21,17 +21,18 @@ In the administration part we simply administer the small content chunks
 * Background pictures
 	* header image
 
+* Use the data to create webpage on each request
+
+# Fix
+* closing modal windows should set URL (ex. #institution-rsbungsu -> #hospitals)
+
+## Doing (2)
 * Setting up the administration site
 	* Separate admin for Hospitals, Clinics, News and Lain-lain text
 	* Create Read Update Delete for each
 
-* Use the data to create webpage on each request
-
-# Fix
-
-## Doing (2)
-
 ## Done
+* Fixed... again the linking to the to modal windows
 * Background image for contact us
 * Hardcoded example news section
 * Make the social media icons bigger using fa-2x
