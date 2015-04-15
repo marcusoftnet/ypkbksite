@@ -8,7 +8,7 @@
   	</a>
   	<ul>
   	{% for hospital in hospitals %}
-  		<li><a href="/admin/hospital/{{ hospital.name}}">{{ hospital.name }}</a></li>
+  		<li><a href="/admin/hospital/{{ hospital._id.toString() }}">{{ hospital.name }}</a></li>
   	{% endfor%}
   	</ul>
 

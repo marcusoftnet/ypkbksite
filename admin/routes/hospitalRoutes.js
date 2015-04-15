@@ -5,7 +5,7 @@ let render = require('../lib/render.js');
 let db = require('../lib/db.js');
 
 module.exports.showNewHospitalPage = function *() {
-	this.body = yield render('hospital'); // TODO: Reuse hospital template
+	this.body = yield render('hospital');
 };
 
 module.exports.storeNewHospital = function *() {
