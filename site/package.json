@@ -1,0 +1,36 @@
+{
+  "name": "ypkbksite",
+  "version": "1.0.0",
+  "description": "The site part of the ypkbk site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "koa",
+    "web",
+    "swig"
+  ],
+  "author": "Marcus Hammarberg <marcusoft.net@gmail.com> (http://www.marcusoft.net)",
+  "license": "MIT",
+  "engineStrict": true,
+  "engines": {
+    "iojs": "~1.6.1"
+  },
+  "devDependencies": {
+    "co": "^4.5.1",
+    "mocha": "^2.2.4",
+    "should": "^6.0.1",
+    "supertest": "^0.15.0"
+  },
+  "dependencies": {
+    "koa": "^0.19.1",
+    "koa-route": "^1.0.2",
+    "koa-static": "^1.4.9",
+    "co-views": "^0.1.0",
+    "swig": "^1.2.2",
+    "monk": "1.0.0",
+    "co-monk": "1.0.0",
+    "mongodb": "1.4.4"
+  }
+}

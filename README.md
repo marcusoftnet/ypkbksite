@@ -30,6 +30,7 @@ In the administration part we simply administer the small content chunks
 * Use blog data on the site
 
 ## Fix
+* remove unsed files in admin
 * Set the app name of the site when doing Add to homescreen
 
 ## Doing (2)
