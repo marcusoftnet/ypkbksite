@@ -35,10 +35,9 @@ In the administration part we simply administer the small content chunks
 ## Fix
 
 ## Doing (2)
-* closing modal windows should set URL (ex. #institution-rsbungsu -> #hospitals)
-
 
 ## Done
+* closing modal windows should set URL (ex. #institution-rsbungsu -> #hospitals)
 * make favicon for ypkbk
 * Admin hospitals
 * Fixed... again the linking to the to modal windows
