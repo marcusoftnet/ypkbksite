@@ -13,25 +13,34 @@ In the administration part we simply administer the small content chunks
 ## Later
 * Google Analytics setup
 * The Yayasan Pelayan Kesehatan Bala Keselamatan needs to be smaller for medium sized screens
-* make favicon for ypkbk
 * Link directly to hospital/clinic/news doesnt work
 
 
 ## Todo
+* Set up github
+	* Deny
+	* Org for YPKBK
 * Background pictures
 	* header image
 
-* Use the data to create webpage on each request
+* Administration Clinics
+* Administration Lain-lain
+* Administration Blog
 
-# Fix
-* closing modal windows should set URL (ex. #institution-rsbungsu -> #hospitals)
+* Use hospital data on the site
+* Use clinic data on the site
+* Use lain-lain texts on the site
+* Use blog data on the site
+
+## Fix
 
 ## Doing (2)
-* Setting up the administration site
-	* Separate admin for Hospitals, Clinics, News and Lain-lain text
-	* Create Read Update Delete for each
+* closing modal windows should set URL (ex. #institution-rsbungsu -> #hospitals)
+
 
 ## Done
+* make favicon for ypkbk
+* Admin hospitals
 * Fixed... again the linking to the to modal windows
 * Background image for contact us
 * Hardcoded example news section
