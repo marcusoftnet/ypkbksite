@@ -1,4 +1,4 @@
-The website of YPKBK, including a very simple CMS
+The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including a very simple CMS
 
 # Application structure
 / - the site
