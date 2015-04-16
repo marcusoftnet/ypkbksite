@@ -30,14 +30,14 @@ In the administration part we simply administer the small content chunks
 * Use blog data on the site
 
 ## Fix
-* add city property for hospitals
-* remove unsed files in admin
 * Set the app name of the site when doing Add to homescreen
 
 ## Doing (2)
 * Use hospital data on the site
+* add city and id property for hospitals
 
 ## Done
+* remove unsed files in admin
 * make favicon for ypkbk
 * Set up github
 	* Deny
