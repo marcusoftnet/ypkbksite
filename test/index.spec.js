@@ -11,7 +11,7 @@ let request = supertest.agent(app.listen());
 describe('Mounting of parts', function () {
     it('the site shows up nicely', function (done) {
         request
-            .get('/index.html')
+            .get('/')
             .expect(200)
             .end(done);
     });
