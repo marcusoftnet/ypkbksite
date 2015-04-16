@@ -16,6 +16,7 @@ In the administration part we simply administer the small content chunks
 
 
 ## Todo
+* Contact form should send proper emails
 
 * Background pictures
 	* header image
@@ -24,18 +25,18 @@ In the administration part we simply administer the small content chunks
 * Administration Lain-lain
 * Administration Blog
 
-* Use hospital data on the site
 * Use clinic data on the site
 * Use lain-lain texts on the site
 * Use blog data on the site
 
 ## Fix
+* Set the app name of the site when doing Add to homescreen
 
 ## Doing (2)
-* make favicon for ypkbk
-
+* Use hospital data on the site
 
 ## Done
+* make favicon for ypkbk
 * Set up github
 	* Deny
 	* Org for YPKBK
