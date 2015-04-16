@@ -160,101 +160,23 @@
                 </div>
             </div>
             <div class="row">
+                {% for hospital in hospitals %}
                 <div class="col-md-4 col-sm-6 institution-item">
-                    <ul>
-                    {% for hospital in hospitals %}
-                        <li>{{ hospital.name }}</li>
-                    {% endfor%}
-                    </ul>
-                    <a href="#institution-rsbungsu" class="modal-link" data-toggle="modal">
+                    <a href="#institution-{{ hospital.name }}" class="modal-link" data-toggle="modal">
                         <div class="institution-hover">
                             <div class="institution-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/hospitals/rsbu-bandung.jpg" class="img-responsive" alt="">
+                        <img src="img/hospitals/{{ hospital.rsPhotoFileName }}" class="img-responsive" alt="">
                     </a>
                     <div class="institution-caption">
-                        <h4>Rumah Sakit Bungsu</h4>
-                        <p class="text-muted">Kota Bandung</p>
-                        <p class="text-muted">Area Fokus: Umum dan Ibu & Anak</p>
+                        <h4>{{ hospital.name }}</h4>
+                        <p class="text-muted">Kota: {{ hospital.city }}</p>
+                        <p class="text-muted">Area Fokus: {{ hospital.fokusArea }}</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#institution-rsbo-turen" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/hospitals/rsbo-turen.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Rumah Sakit Bokor</h4>
-                        <p class="text-muted">Turen-Malang</p>
-                        <p class="text-muted">Area Fokus: Umum dan Trauma</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#institution-hospitalModal3" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/hospitals/rscb-makasar.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Rumah Sakit Catherine Booth</h4>
-                        <p class="text-muted">Kota Makasar</p>
-                        <p class="text-muted">Area Fokus: Ibu dan Anak</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#institution-hospitalModal4" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/hospitals/rswb-semarang.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Rumah Sakit William Booth</h4>
-                        <p class="text-muted">Kota Semarang</p>
-                        <p class="text-muted">Area Fokus: Umum dan Mata</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#institution-hospitalModal5" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/hospitals/rswb-surabaya.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Rumah Sakit William Booth</h4>
-                        <p class="text-muted">Kota Surabaya</p>
-                        <p class="text-muted">Area Fokus: Umum</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#institution-hospitalModal6" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/hospitals/rsww-palu.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Rumah Sakit Woodward</h4>
-                        <p class="text-muted">Kota Palu</p>
-                        <p class="text-muted">Area Fokus: Umum</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
