@@ -1,17 +1,51 @@
 "use strict";
 
 let supertest = require('supertest');
+let co = require('co');
+let should = require('should');
 
-let app = require("../");
+let app = require('../');
+let db = require('../lib/db.js');
 let config = require('../../config')();
+let testHelpers = require('./testHelpers.js');
 
 let request = supertest.agent(app.listen());
 
-describe('Site rendering', function () {
-    it('the site shows up nicely', function (done) {
+describe('The main site', function () {
+
+	beforeEach(function (done) {
+		testHelpers.removeAllDocs(done);
+	});
+
+	afterEach(function (done) {
+		testHelpers.removeAllDocs(done);
+	});
+
+    it('renders without errors', function (done) {
         request
             .get('/')
             .expect(200)
             .end(done);
+    });
+
+    it('list all the hospitals', function  (done) {
+    	co(function *() {
+    		yield [
+    			db.hospitalCollection.insert({name: "RS 1"}),
+    			db.hospitalCollection.insert({name: "RS 2"}),
+    			db.hospitalCollection.insert({name: "RS 3"}),
+    			db.hospitalCollection.insert({name: "RS 4"})
+    		];
+
+    		request
+	            .get('/')
+	            .expect(function (res) {
+	            	res.text.should.containEql("RS 1");
+	            	res.text.should.containEql("RS 2");
+	            	res.text.should.containEql("RS 3");
+	            	res.text.should.containEql("RS 4");
+	            })
+	            .end(done);
+	    });
     });
 });

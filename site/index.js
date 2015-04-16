@@ -6,17 +6,17 @@ let route = require('koa-route');
 let serve = require('koa-static');
 
 let render = require('./lib/render.js');
+let db = require('./lib/db.js');
 
 let app = module.exports = koa();
 
 // configuration
-app.use(serve('./public'));
+app.use(serve(__dirname + '/public'));
 
 // routes
 app.use(route.get('/', function *renderSite() {
-	// get content data from database
 	let vm = {};
+	vm.hospitals = yield db.hospitalCollection.find({});
 
-	//  render site with data
 	this.body = yield render('index', vm);
 }));

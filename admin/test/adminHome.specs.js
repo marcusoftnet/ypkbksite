@@ -62,7 +62,6 @@ describe('Administration site home page', function(){
 					db.hospitalCollection.insert({name: "RS 3"}),
 					db.hospitalCollection.insert({name: "RS 4"})
 				];
-			});
 
 			request
 				.get('/')
@@ -73,6 +72,7 @@ describe('Administration site home page', function(){
 					res.text.should.containEql("RS 4");
 				})
 				.end(done);
+			});
 		});
 		it('clinics');
 		it('news');
