@@ -34,9 +34,9 @@ In the administration part we simply administer the small content chunks
 
 ## Doing (2)
 * Use hospital data on the site
-* add city and id property for hospitals
 
 ## Done
+* add city and id property for hospitals
 * remove unsed files in admin
 * make favicon for ypkbk
 * Set up github

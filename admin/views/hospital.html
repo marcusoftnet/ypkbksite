@@ -20,8 +20,16 @@
 <form method="post" action="/admin/hospital/{{ hospital._id.toString() }}">
     <p><h3>Informasi Umum</h3></p>
     <p>
+        <label for="slug">ID</label>
+        <input readonly type="text" name="slug" value="{{ hospital.slug }}" />
+    </p>
+    <p>
         <label for="name">Nama</label>
         <input type="text" name="name" value="{{ hospital.name }}" placeholder="Cth. Rumah Sakit Bungsu" />
+    </p>
+    <p>
+        <label for="city">Kota</label>
+        <input type="text" name="city" value="{{ hospital.city }}" placeholder="Cth. Ibu dan anak" />
     </p>
     <p>
         <label for="fokusArea">Fokus area</label>

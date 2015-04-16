@@ -24,10 +24,12 @@ describe('Hospital administration', function(){
 			})
 			.end(done);
 	});
+
 	it('stores data for a new hospital in the database', function (done) {
 		co(function *() {
 			let examplePostData = {
 				name : "RS Bungsu",
+				city : "Bandung",
 				fokusArea : "Ibu dan Anak",
 				rsPhotoFileName : "rsbu-bandung.jpg"
 			};
@@ -40,11 +42,34 @@ describe('Hospital administration', function(){
 				.end(function () {
 					co(function *() {
 						let hospital = yield db.hospitalCollection.findOne({ name: hospitalName});
+						hospital.city.should.equal(examplePostData.city);
 						hospital.fokusArea.should.equal(examplePostData.fokusArea);
 					})(done());
 				});
 		});
 	});
+
+	it('creates a slug for the hospital based on the name', function (done) {
+		co(function *() {
+			let examplePostData = {
+				name : "Rumah Sakit William Booth Semarang"
+			};
+
+			// TODO: The expectation below doesn't work
+
+			request
+				.post("/hospital/")
+				.send(examplePostData)
+				.end(function () {
+					co(function *() {
+						let hospital = yield [db.hospitalCollection.findOne({ name: hospitalName})];
+						hospital.slug.should.equal("Rumah-Sakit-William-Booth-Semarang");
+						console.log("YES!");
+					})(done());
+				});
+		});
+	});
+
 	it('shows information about an existing hospital', function  (done) {
 		co(function * () {
 			let insertedHospital = yield db.hospitalCollection.insert({ name:'Rumah Sakit Turen'});
@@ -60,6 +85,7 @@ describe('Hospital administration', function(){
 				.end(done);
 		});
 	});
+
 	it('updates the information about an existing hospital', function (done) {
 		co(function * () {
 			let insertedHospital = yield db.hospitalCollection.insert({ name:'Rumah Sakit Turen'});
