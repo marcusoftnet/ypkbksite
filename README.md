@@ -3,7 +3,6 @@ The website of YPKBK, including a very simple CMS
 # Application structure
 / - the site
 /admin - the administration
-/api - the api for the application
 
 The root application simply returns the public static site. In the templates returned will call back to the /api and get the content for the different parts of the page.
 
@@ -17,9 +16,7 @@ In the administration part we simply administer the small content chunks
 
 
 ## Todo
-* Set up github
-	* Deny
-	* Org for YPKBK
+
 * Background pictures
 	* header image
 
@@ -39,6 +36,9 @@ In the administration part we simply administer the small content chunks
 
 
 ## Done
+* Set up github
+	* Deny
+	* Org for YPKBK
 * closing modal windows should set URL (ex. #institution-rsbungsu -> #hospitals)
 * Admin hospitals
 * Fixed... again the linking to the to modal windows
