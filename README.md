@@ -8,6 +8,11 @@ The root application simply returns the public static site. In the templates ret
 
 In the administration part we simply administer the small content chunks
 
+index.html before template: 705 lines (674 sloc)  39.011 kb
+index.html after  template: ???
+
+
+
 # Kanban
 ## Later
 * Google Analytics setup
@@ -21,21 +26,23 @@ In the administration part we simply administer the small content chunks
 * Background pictures
 	* header image
 
-* Administration Clinics
-* Administration Lain-lain
 * Administration Blog
-
-* Use clinic data on the site
-* Use lain-lain texts on the site
 * Use blog data on the site
+
+* Administration Clinics
+* Use clinic data on the site
 
 ## Fix
 * Set the app name of the site when doing Add to homescreen
+* Test that **doesn't** verify the database content.
 
 ## Doing (2)
-* Use hospital data on the site
+* Administration Lain-lain
+* Use lain-lain texts on the site
 
 ## Done
+* Use hospital data on the site
+* Server images from Dropbox / Google Drive - DOESN'T WORK
 * add city and id property for hospitals
 * remove unsed files in admin
 * make favicon for ypkbk

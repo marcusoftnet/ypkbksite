@@ -162,7 +162,7 @@
             <div class="row">
                 {% for hospital in hospitals %}
                 <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#institution-{{ hospital.name }}" class="modal-link" data-toggle="modal">
+                    <a href="#institution-{{ hospital.slug }}" class="modal-link" data-toggle="modal">
                         <div class="institution-hover">
                             <div class="institution-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
@@ -409,7 +409,8 @@
 
     <!-- Hospital "pages" -->
     <!-- Hospital Modal - hospital rs-bungsu -->
-    <div class="institution-modal modal fade" id="institution-rsbungsu" tabindex="-1" role="dialog" aria-hidden="true">
+    {% for hospital in hospitals %}
+    <div class="institution-modal modal fade" id="institution-{{ hospital.slug }}" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <a href="#hospitals" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
@@ -418,12 +419,12 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="modal-header">
-                            <h2>Rumah Sakit Bungsu</h2>
+                            <h2>{{ hospital.name }}</h2>
                             <div class="col-lg-offset-2">
-                                <p class="item-intro text-muted">Rumah Sakit Bungsu di Bandung adalah Rumah Sakit Umum yang berfokus pada Pelayanan Ibu dan Anak</p>
+                                <p class="item-intro text-muted">{{hospital.introText}}</p>
                             </div>
                             <div class="institutionHeaderImage">
-                                <img class="img-responsive" src="img/hospitals/rsbu-bandung.jpg" alt="">
+                                <img class="img-responsive" src="img/hospitals/{{ hospital.rsPhotoFileName }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -439,43 +440,43 @@
                                     <div class="panel-body">
                                         <div class="row">
                                             <div class="col-lg-6 institutionDetailHeader">Direktur</div>
-                                            <div class="col-lg-6"><a href="mailto:Direktur_RS_Bungsu@ins.salvationarmy.org?subject=Dari website YPKBK" target="_blank">Dr Lilian Nore</a></div>
+                                            <div class="col-lg-6"><a href="mailto:{{ hospital.direkturEmail }}?subject=Dari website YPKBK" target="_blank">{{ hospital.direkturName}}</a></div>
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-6 institutionDetailHeader">Bala Keselamatan Opsir Pembina</div>
-                                            <div class="col-lg-6"><a href="mailto:Pimpinan_RS_Bungsu@ins.salvationarmy.org?subject=Dari website YPKBK" target="_blank">Mayor Sih Sadjiastuti Laua</a></div>
+                                            <div class="col-lg-6"><a href="mailto:{{ hospital.opsirEmail }}?subject=Dari website YPKBK" target="_blank">{{ hospital.opsirName}}</a></div>
                                         </div>
                                         <div class="row"><hr></div>
                                         <div class="row">
-                                            <div class="col-lg-6 institutionDetailHeader">Address</div>
-                                            <div class="col-lg-6">Jalan Veteran 6, Bandung</div>
+                                            <div class="col-lg-6 institutionDetailHeader">Alamat</div>
+                                            <div class="col-lg-6">{{ hospital.address }}</div>
                                         </div>
                                         <div class="row">&nbsp;</div>
                                         <div class="row">
                                             <div class="col-xs-3">
                                                 <button type="button" class="btn btn-default btn-lg">
-                                                    <a href="tel:+6282116778803"  target="_blank">
+                                                    <a href="tel:{{ hospital.telephone }}" target="_blank">
                                                         <span class="fa fa-phone fa-2x" aria-hidden="true"></span>
                                                     </a>
                                                 </button>
                                             </div>
                                             <div class="col-xs-3">
                                                 <button type="button" class="btn btn-default btn-lg">
-                                                    <a href="mailto:rsu_bungsu@yahoo.com?subject=Dari website YPKBK" target="_blank">
+                                                    <a href="mailto:{{ hospital.rsEmail }}?subject=Dari website YPKBK" target="_blank">
                                                         <span class="fa fa-envelope fa-2x" aria-hidden="true"></span>
                                                     </a>
                                                 </button>
                                             </div>
                                             <div class="col-xs-3">
                                                 <button type="button" class="btn btn-default btn-lg">
-                                                    <a href="https://www.facebook.com/pages/RSU-Bungsu-Bala-Keselamatan-Jl-Veteran-no-6-Bandung/349927368351308" target="_blank">
+                                                    <a href="{{ hospital.rsWebsite }}" target="_blank">
                                                         <span class="fa fa-globe fa-2x" aria-hidden="true"></span>
                                                     </a>
                                                 </button>
                                             </div>
                                             <div class="col-xs-3">
                                                 <button type="button" class="btn btn-default btn-lg">
-                                                    <a href="https://www.google.co.id/maps/place/Jl.+Veteran+No.6,+Sumur+Bandung,+Kota+Bandung,+Jawa+Bar.+40112/@-6.9185644,107.6139958,17z/data=!3m1!4b1!4m2!3m1!1s0x2e68e62e1619b885:0xaee1403559149f54?hl=en" target="_blank">
+                                                    <a href="{{ hospital.googleMapUrl }}" target="_blank">
                                                         <span class="fa fa-map-marker fa-2x" aria-hidden="true"></span>
                                                     </a>
                                                 </button>
@@ -490,17 +491,10 @@
                                         <div class="panel-title">Misi / Visi</div>
                                     </div>
                                     <div class="panel-body">
-                                        <h4>Visi</h4>
-                                        <p>To become the best hospital in Bandung in regards to nursing, services and pastoral care</p>
                                         <h4>Misi</h4>
-                                        <p>
-                                            <ul>
-                                                <li>Some text describing mission point 1</li>
-                                                <li>Some text describing mission point 2</li>
-                                                <li>Some text describing mission point 3</li>
-                                                <li>Some text describing mission point 4</li>
-                                            </ul>
-                                        </p>
+                                        <p>{{ hospital.misiText }}</p>
+                                        <h4>Visi</h4>
+                                        <p>{{ hospital.visiText }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -509,22 +503,7 @@
                                     <div class="panel-heading">
                                         <div class="panel-title">Pelayanan</div>
                                     </div>
-                                    <div class="panel-body">
-                                        <ul>
-                                            <li>IGD 24 Jam</li>
-                                            <li>Poli umum</li>
-                                            <li>Poli specialis</li>
-                                            <li>Poli gigi</li>
-                                            <li>Laboratorium</li>
-                                            <li>Fisiotherapy</li>
-                                            <li>USG</li>
-                                            <li>Farmasi</li>
-                                            <li>Radiologi</li>
-                                            <li>Pastoral Konseling</li>
-                                            <li>Rawat Inap - icu</li>
-                                            <li>Ambulance</li>
-                                        </ul>
-                                    </div>
+                                    <div class="panel-body">{{ hospital.pelayanan }}</div>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -534,8 +513,8 @@
                                     </div>
                                     <div class="panel-body">
                                         <ul>
-                                            <li>BPJS</li>
-                                            <li>Akreditasi 2007</li>
+                                            <li>BPJS: {{ hospital.bpjsStatus }}</li>
+                                            <li>Akreditasi: {{ hospital.accreditationStatus }}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -555,6 +534,7 @@
             </div>
         </div>
     </div>
+    {% endfor %}
 
     <!-- Clinics "pages" -->
 
