@@ -76,6 +76,25 @@ describe('Administration site home page', function(){
 		});
 		it('clinics');
 		it('news');
-		it('texts');
+		it('texts', function (done) {
+			co(function *() {
+				yield [
+					db.textsCollection.insert({slug: "slug_1"}),
+					db.textsCollection.insert({slug: "slug_2"}),
+					db.textsCollection.insert({slug: "slug_3"}),
+					db.textsCollection.insert({slug: "slug_4"})
+				];
+
+			request
+				.get('/')
+				.expect(function (res) {
+					res.text.should.containEql("slug_1");
+					res.text.should.containEql("slug_2");
+					res.text.should.containEql("slug_3");
+					res.text.should.containEql("slug_4");
+				})
+				.end(done);
+			});
+		});
 	});	
 });

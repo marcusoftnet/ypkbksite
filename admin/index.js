@@ -31,7 +31,8 @@ app.use(route.post('/hospital/:id', hospitalRoutes.updateHospital));
 // GET  /news/:id -> show the news information for :id in form
 // POST /news/:id -> update the news information
 
-// GET  /text/new -> return create new text form
-// POST /text/    -> add new text information
-// GET  /text/:id -> show the text information for :id in form
-// POST /text/:id -> update the text information
+let textRoutes = require('./routes/textRoutes.js');
+app.use(route.get('/text/', textRoutes.showNewTextPage));
+app.use(route.post('/text/', textRoutes.storeNewText));
+app.use(route.get('/text/:id', textRoutes.showTextPage));
+app.use(route.post('/text/:id', textRoutes.updateText));

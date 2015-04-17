@@ -1,0 +1,39 @@
+{% extends 'layout.html' %} 
+
+{% block title %}
+    {% if text %}
+        {{ text.slug }}
+    {% else %}
+        Buat Teks Lain-Lain
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+<h1>{% if text %}
+        {{ text.slug }}
+    {% else %}
+        Buat Teks Lain-Lain
+    {% endif %}</h1>
+    <a href="/admin">Kembali</a>
+
+<form method="post" action="/admin/text/{{ text._id.toString() }}">
+    <p><h3>Informasi Umum</h3></p>
+    <p>
+        <label for="slug">Slug</label>
+        <input type="text" name="slug" value="{{ text.slug }}" placeholder="Cth. ypkbk_name" />
+    </p>
+    <p>
+        <label for="text">Teks</label>
+        <textarea name="text" placeholder="Cth. Yayasan Pelayanan Kesehatan Bala Keselamatan">{{ text.text }}</textarea>
+    </p>
+    <p>
+        {% if text %}
+            <button type="submit">Update {{ text.slug }}</button>
+        {% else %}
+            <button type="submit">Buat teks lain-lain</button>
+        {% endif %}
+        <a href="/admin">Kembali</a>
+    </p>
+</form>
+{% endblock %}
