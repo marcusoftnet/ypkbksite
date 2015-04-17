@@ -28,7 +28,7 @@ describe('The main site', function () {
             .end(done);
     });
 
-    it('list all the hospitals', function  (done) {
+    it('outputs dynamic hospital information', function  (done) {
     	co(function *() {
     		yield [
     			db.hospitalCollection.insert({name: "RS 1"}),
@@ -48,4 +48,20 @@ describe('The main site', function () {
 	            .end(done);
 	    });
     });
+
+    it('outputs dynamic texts', function  (done) {
+        co(function *() {
+            yield [
+                db.textsCollection.insert({slug: "ypkbk_name", text: "Yayasan"})
+            ];
+
+            request
+                .get('/')
+                .expect(function (res) {
+                    res.text.should.containEql("Yayasan");
+                })
+                .end(done);
+        });
+    });
+
 });

@@ -18,5 +18,17 @@ app.use(route.get('/', function *renderSite() {
 	let vm = {};
 	vm.hospitals = yield db.hospitalCollection.find({});
 
+	let textsArray = yield db.textsCollection.find({});
+	vm.texts = createTextsObject(textsArray);
+
 	this.body = yield render('index', vm);
 }));
+
+function createTextsObject(textsArray) {
+	let result = {};
+	for (var i = 0; i < textsArray.length; i++) {
+		result[textsArray[i].slug] = textsArray[i].text;
+	};
+
+	return result;
+};
