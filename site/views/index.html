@@ -9,7 +9,7 @@
     <meta name="description" content="The website of the Yayasan Pelayanan Kesehatan Bala Keselamatan">
     <meta name="author" content="Marcus Hammarberg Deni Laua">
 
-    <title>{{ texts.ypkbk_name }}</title>
+    <title>{{ texts.ypkbk_name | safe }}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
@@ -66,7 +66,7 @@
                 </button>
                 <a class="navbar-brand page-scroll" href="#page-top">
                     <img src="img/logos/{{ texts.ypkbk_logo_file }}" class="">
-                    {{ texts.ypkbk_name }}
+                    {{ texts.ypkbk_name | safe }}
                 </a>
             </div>
 
@@ -102,9 +102,9 @@
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">{{ texts.site_welcome }}</div>
-                <div class="intro-heading">{{ texts.ypkbk_name }}</div>
-                <a href="#about" class="page-scroll btn btn-xl">{{ texts.ypkbk_about_button }}</a>
+                <div class="intro-lead-in">{{ texts.site_welcome | safe }}</div>
+                <div class="intro-heading">{{ texts.ypkbk_name | safe }}</div>
+                <a href="#about" class="page-scroll btn btn-xl">{{ texts.ypkbk_about_button | safe }}</a>
             </div>
         </div>
     </header>
@@ -311,8 +311,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">{{ texts.kontak_heading }}</h2>
-                    <h3 class="section-subheading text-muted">{{ texts.kontak_intro }}</h3>
+                    <h2 class="section-heading">{{ texts.kontak_heading | safe }}</h2>
+                    <h3 class="section-subheading text-muted">{{ texts.kontak_intro | safe }}</h3>
                 </div>
             </div>
             <div class="row">
@@ -357,56 +357,70 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Tentang</h2>
-                    <h3 class="section-subheading text-muted">{{ texts.ypkbk_name }}</h3>
+                    <h3 class="section-subheading text-muted">{{ texts.ypkbk_name | safe }}</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
+                    <center>
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa-list-alt fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </center>
                     <h4 class="service-heading">Misi</h4>
-                    <p class="text-muted">{{ texts.ypkbk_misi }}</p>
+                    <p class="text-muted">{{ texts.ypkbk_misi | safe }}</p>
                 </div>
                 <div class="col-md-6">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
+                    <center>
+                        <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa-road fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </center>
                     <h4 class="service-heading">Visi</h4>
-                    <p class="text-muted">{{ texts.ypkbk_visi }}</p>
+                    <p class="text-muted">{{ texts.ypkbk_visi | safe }}</p>
                 </div>
             </div>
             <div class="row"><div class="col-md-12"><hr></div></div>
             <div class="row">
+                <div class="col-md-12">
+                    <center>
+                        <span class="fa-stack fa-4x">
+                                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                                <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                        </span>
+                    </center>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-4">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <div class="panel-title">Dewan Pembina</div>
+                            <div class="panel-title">{{ texts.ypkbk_dewanPembina_name | safe }}</div>
                         </div>
                         <div class="panel-body">
-                            Names here
+                            {{ texts.ypkbk_dewanPembina_members | safe }}
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <div class="panel-title">Dewan Pengurus</div>
+                            <div class="panel-title">{{ texts.ypkbk_dewanPengurus_name | safe }}</div>
                         </div>
                         <div class="panel-body">
-                            Names here
+                            {{ texts.ypkbk_dewanPengurus_members | safe }}
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <div class="panel-title">Dewan Pengawas</div>
+                            <div class="panel-title">{{ texts.ypkbk_dewanPengawas_name | safe }}</div>
                         </div>
                         <div class="panel-body">
-                            Names here
+                            {{ texts.ypkbk_dewanPengawas_members | safe }}
                         </div>
                     </div>
                 </div>
@@ -421,34 +435,34 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6 institutionDetailHeader">Alamat</div>
-                                <div class="col-lg-6">{{ hospital.address }}</div>
+                                <div class="col-lg-6">{{ texts.ypkbk_address | safe }}</div>
                             </div>
                             <div class="row"><hr></div>
                             <div class="row">
                                 <div class="col-xs-3">
                                     <button type="button" class="btn btn-default btn-lg">
-                                        <a href="tel:{{ hospital.telephone }}" target="_blank">
+                                        <a href="tel:{{ texts.ypkbk_telephone }}" target="_blank">
                                             <span class="fa fa-phone fa-2x" aria-hidden="true"></span>
                                         </a>
                                     </button>
                                 </div>
                                 <div class="col-xs-3">
                                     <button type="button" class="btn btn-default btn-lg">
-                                        <a href="mailto:{{ hospital.rsEmail }}?subject=Dari website YPKBK" target="_blank">
+                                        <a href="mailto:{{ texts.ypkbk_email }}?subject=Dari website YPKBK" target="_blank">
                                             <span class="fa fa-envelope fa-2x" aria-hidden="true"></span>
                                         </a>
                                     </button>
                                 </div>
                                 <div class="col-xs-3">
                                     <button type="button" class="btn btn-default btn-lg">
-                                        <a href="{{ hospital.rsWebsite }}" target="_blank">
+                                        <a href="{{ texts.ypkbk_website }}" target="_blank">
                                             <span class="fa fa-globe fa-2x" aria-hidden="true"></span>
                                         </a>
                                     </button>
                                 </div>
                                 <div class="col-xs-3">
                                     <button type="button" class="btn btn-default btn-lg">
-                                        <a href="{{ hospital.googleMapUrl }}" target="_blank">
+                                        <a href="{{ texts.ypkbk_googleMapUrl }}" target="_blank">
                                             <span class="fa fa-map-marker fa-2x" aria-hidden="true"></span>
                                         </a>
                                     </button>
@@ -465,15 +479,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <span class="copyright">Copyright &copy; Yayasan Pelayan Kesehatan Bala Keselamatan 2014</span>
-                </div>
-                <div class="col-md-6">
-                    <ul class="list-inline social-buttons">
-                        <li><a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-envelope"></i></a>
-                        </li>
-                    </ul>
+                    <span class="copyright">Copyright &copy; {{ texts.ypkbk_name | safe }} 2015</span>
                 </div>
             </div>
         </div>
