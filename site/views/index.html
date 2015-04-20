@@ -440,6 +440,7 @@
                                         </div>
                                         <div class="row">&nbsp;</div>
                                         <div class="row">
+                                            {% if hospital.telephone %}
                                             <div class="col-xs-3">
                                                 <button type="button" class="btn btn-default btn-lg">
                                                     <a href="tel:{{ hospital.telephone }}" target="_blank">
@@ -447,6 +448,8 @@
                                                     </a>
                                                 </button>
                                             </div>
+                                            {% endif %}
+                                            {% if hospital.rsEmail %}
                                             <div class="col-xs-3">
                                                 <button type="button" class="btn btn-default btn-lg">
                                                     <a href="mailto:{{ hospital.rsEmail }}?subject=Dari website YPKBK" target="_blank">
@@ -454,6 +457,8 @@
                                                     </a>
                                                 </button>
                                             </div>
+                                            {% endif %}
+                                            {% if hospital.rsWebsite %}
                                             <div class="col-xs-3">
                                                 <button type="button" class="btn btn-default btn-lg">
                                                     <a href="{{ hospital.rsWebsite }}" target="_blank">
@@ -461,6 +466,8 @@
                                                     </a>
                                                 </button>
                                             </div>
+                                            {% endif %}
+                                            {% if hospital.googleMapUrl %}
                                             <div class="col-xs-3">
                                                 <button type="button" class="btn btn-default btn-lg">
                                                     <a href="{{ hospital.googleMapUrl }}" target="_blank">
@@ -468,6 +475,7 @@
                                                     </a>
                                                 </button>
                                             </div>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
