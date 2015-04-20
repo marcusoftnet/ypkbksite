@@ -17,9 +17,12 @@ index.html after  template: ???
 ## Later
 * Google Analytics setup
 * The Yayasan Pelayan Kesehatan Bala Keselamatan needs to be smaller for medium sized screens
+* Set the app name of the site when doing Add to homescreen
 
 
 ## Todo
+* Tests that **doesn't** verify the database content.
+
 * Contact form should send proper emails
 
 * Background pictures
@@ -32,16 +35,15 @@ index.html after  template: ???
 * Use clinic data on the site
 
 ## Fix
-* Set safe output ({{ apa | safe }}) for all textarea fields for hospitals
+
+## Doing (2)
 * Sorting of lain-lain texts in the admin UI
-* Set the app name of the site when doing Add to homescreen
-* Test that **doesn't** verify the database content.
 * Refactor lib (render and db) to one place
 * Change to hospital*s*Collection
 
-## Doing (2)
 
 ## Done
+* Set safe output ({{ apa | safe }}) for all textarea fields for hospitals
 * Add kantor information
 * Administration Lain-lain
 * Use lain-lain texts on the site

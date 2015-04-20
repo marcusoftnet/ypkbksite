@@ -575,9 +575,9 @@
                                     </div>
                                     <div class="panel-body">
                                         <h4>Misi</h4>
-                                        <p>{{ hospital.misiText }}</p>
+                                        <p>{{ hospital.misiText | safe  }}</p>
                                         <h4>Visi</h4>
-                                        <p>{{ hospital.visiText }}</p>
+                                        <p>{{ hospital.visiText | safe  }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -586,7 +586,7 @@
                                     <div class="panel-heading">
                                         <div class="panel-title">Pelayanan</div>
                                     </div>
-                                    <div class="panel-body">{{ hospital.pelayanan }}</div>
+                                    <div class="panel-body">{{ hospital.pelayanan | safe }}</div>
                                 </div>
                             </div>
                             <div class="col-lg-5">
