@@ -33,7 +33,7 @@ describe('Administration site home page', function(){
 		request
 			.get('/')
 			.expect(function (res) {
-				res.text.should.containEql("<button>Buat berita baru</button>")
+				res.text.should.containEql("<button>Buat artikel baru</button>")
 			})
 			.end(done);
 	});
@@ -94,7 +94,27 @@ describe('Administration site home page', function(){
 				.end(done);
 			});
 		});
-		it('news');
+		it('articles', function (done) {
+			co(function *() {
+				yield [
+					db.articlesCollection.insert({title: "Title with number 1"}),
+					db.articlesCollection.insert({title: "Title with number 2"}),
+					db.articlesCollection.insert({title: "Title with number 3"}),
+					db.articlesCollection.insert({title: "Title with number 4"})
+				];
+
+			request
+				.get('/')
+				.expect(function (res) {
+					res.text.should.containEql("Title with number 1");
+					res.text.should.containEql("Title with number 2");
+					res.text.should.containEql("Title with number 3");
+					res.text.should.containEql("Title with number 4");
+				})
+				.end(done);
+			});
+		});
+
 		it('texts', function (done) {
 			co(function *() {
 				yield [
@@ -115,5 +135,5 @@ describe('Administration site home page', function(){
 				.end(done);
 			});
 		});
-	});	
+	});
 });
