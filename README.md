@@ -32,16 +32,19 @@ index.html after  template: ???
 * Use clinic data on the site
 
 ## Fix
+* Set safe output ({{ apa | safe }}) for all textarea fields for hospitals
+* Sorting of lain-lain texts in the admin UI
 * Set the app name of the site when doing Add to homescreen
 * Test that **doesn't** verify the database content.
 * Refactor lib (render and db) to one place
 * Change to hospital*s*Collection
 
 ## Doing (2)
-* Administration Lain-lain
-* Use lain-lain texts on the site
 
 ## Done
+* Add kantor information
+* Administration Lain-lain
+* Use lain-lain texts on the site
 * Link directly to hospital/clinic/news doesnt work
 * Use hospital data on the site
 * Server images from Dropbox / Google Drive - DOESN'T WORK
