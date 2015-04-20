@@ -5,7 +5,7 @@ let co = require('co');
 let should = require('should');
 
 let app = require('../');
-let db = require('../lib/db.js');
+let db = require('../../lib/db.js');
 let config = require('../../config')();
 let testHelpers = require('./testHelpers.js');
 
@@ -31,10 +31,10 @@ describe('The main site', function () {
     it('outputs dynamic hospital information', function  (done) {
     	co(function *() {
     		yield [
-    			db.hospitalCollection.insert({name: "RS 1"}),
-    			db.hospitalCollection.insert({name: "RS 2"}),
-    			db.hospitalCollection.insert({name: "RS 3"}),
-    			db.hospitalCollection.insert({name: "RS 4"})
+    			db.hospitalsCollection.insert({name: "RS 1"}),
+    			db.hospitalsCollection.insert({name: "RS 2"}),
+    			db.hospitalsCollection.insert({name: "RS 3"}),
+    			db.hospitalsCollection.insert({name: "RS 4"})
     		];
 
     		request
