@@ -1,7 +1,7 @@
 "use strict";
 let app = require('../');
 let co = require('co');
-let db = require('../lib/db.js');
+let db = require('../../lib/db.js');
 let testHelpers = require('./testHelpers.js');
 let should = require('should');
 let request = require('supertest').agent(app.listen());
@@ -41,7 +41,7 @@ describe('Hospital administration', function(){
 				.expect('location', /\/hospital\/[0-9a-fA-F]+$/)
 				.end(function () {
 					co(function *() {
-						let hospital = yield db.hospitalCollection.findOne({ name: hospitalName});
+						let hospital = yield db.hospitalsCollection.findOne({ name: hospitalName});
 						hospital.city.should.equal(examplePostData.city);
 						hospital.fokusArea.should.equal(examplePostData.fokusArea);
 					})(done());
@@ -62,7 +62,7 @@ describe('Hospital administration', function(){
 				.send(examplePostData)
 				.end(function () {
 					co(function *() {
-						let hospital = yield [db.hospitalCollection.findOne({ name: hospitalName})];
+						let hospital = yield [db.hospitalsCollection.findOne({ name: hospitalName})];
 						hospital.slug.should.equal("Rumah-Sakit-William-Booth-Semarang");
 						console.log("YES!");
 					})(done());
@@ -72,7 +72,7 @@ describe('Hospital administration', function(){
 
 	it('shows information about an existing hospital', function  (done) {
 		co(function * () {
-			let insertedHospital = yield db.hospitalCollection.insert({ name:'Rumah Sakit Turen'});
+			let insertedHospital = yield db.hospitalsCollection.insert({ name:'Rumah Sakit Turen'});
 
 			let url = `/hospital/${insertedHospital._id}`;
 
@@ -88,7 +88,7 @@ describe('Hospital administration', function(){
 
 	it('updates the information about an existing hospital', function (done) {
 		co(function * () {
-			let insertedHospital = yield db.hospitalCollection.insert({ name:'Rumah Sakit Turen'});
+			let insertedHospital = yield db.hospitalsCollection.insert({ name:'Rumah Sakit Turen'});
 			let url = `/hospital/${insertedHospital._id}`;
 
 			let updatedHospitalData = {
@@ -102,7 +102,7 @@ describe('Hospital administration', function(){
 				.expect('location', `/admin${url}`)
 				.end(function () {
 					co(function *() {
-						let hospital = yield db.hospitalCollection.findById(insertedHospital._id);
+						let hospital = yield db.hospitalsCollection.findById(insertedHospital._id);
 						hospital.name.should.equal('RS Bungsu');
 					})(done());
 				});

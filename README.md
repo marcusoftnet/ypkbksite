@@ -38,10 +38,10 @@ index.html after  template: ???
 
 ## Doing (2)
 * Refactor lib (render and db) to one place
-* Change to hospital*s*Collection
 
 
 ## Done
+* Change to hospital*s*Collection
 * Sorting of lain-lain texts in the admin UI
 * Set safe output ({{ apa | safe }}) for all textarea fields for hospitals
 * Add kantor information

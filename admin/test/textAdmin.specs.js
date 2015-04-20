@@ -1,7 +1,7 @@
 "use strict";
 let app = require('../');
 let co = require('co');
-let db = require('../lib/db.js');
+let db = require('../../lib/db.js');
 let testHelpers = require('./testHelpers.js');
 let should = require('should');
 let request = require('supertest').agent(app.listen());

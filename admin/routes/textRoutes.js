@@ -2,7 +2,7 @@
 let parse = require('co-body');
 
 let render = require('../lib/render.js');
-let db = require('../lib/db.js');
+let db = require('../../lib/db.js');
 
 module.exports.showNewTextPage = function *() {
 	this.body = yield render('text');
