@@ -115,12 +115,53 @@ describe('Administration site home page', function(){
 			});
 		});
 
+		it('articles are sorted on publish start date', function (done) {
+			co(function *() {
+				yield [
+					db.articlesCollection.insert({title: "Title with number 1", publishStart : new Date("2015-04-04")}),
+					db.articlesCollection.insert({title: "Title with number 3", publishStart : new Date("2015-04-02")}),
+					db.articlesCollection.insert({title: "Title with number 2", publishStart : new Date("2015-04-03")}),
+					db.articlesCollection.insert({title: "Title with number 4", publishStart : new Date("2015-04-01")})
+				];
+
+			request
+				.get('/')
+				.expect(function (res) {
+					res.text.should.containEql("Title with number 1");
+					res.text.should.containEql("Title with number 2");
+					res.text.should.containEql("Title with number 3");
+					res.text.should.containEql("Title with number 4");
+				})
+				.end(done);
+			});
+		});
+
 		it('texts', function (done) {
 			co(function *() {
 				yield [
 					db.textsCollection.insert({slug: "slug_1"}),
 					db.textsCollection.insert({slug: "slug_2"}),
 					db.textsCollection.insert({slug: "slug_3"}),
+					db.textsCollection.insert({slug: "slug_4"})
+				];
+
+			request
+				.get('/')
+				.expect(function (res) {
+					res.text.should.containEql("slug_1");
+					res.text.should.containEql("slug_2");
+					res.text.should.containEql("slug_3");
+					res.text.should.containEql("slug_4");
+				})
+				.end(done);
+			});
+		});
+		it('texts are sorted alphabetical on slugs', function (done) {
+			co(function *() {
+				yield [
+					db.textsCollection.insert({slug: "slug_2"}),
+					db.textsCollection.insert({slug: "slug_3"}),
+					db.textsCollection.insert({slug: "slug_1"}),
 					db.textsCollection.insert({slug: "slug_4"})
 				];
 
