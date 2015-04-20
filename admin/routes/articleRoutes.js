@@ -14,7 +14,7 @@ module.exports.showNewArticlePage = function *() {
 		publishEnd 	 : formatDate(sixMonthsAway)
 	};
 
-	this.body = yield render('article', { article : dates});
+	this.body = yield render('article', { article : dates });
 };
 
 module.exports.storeNewArticle = function *() {

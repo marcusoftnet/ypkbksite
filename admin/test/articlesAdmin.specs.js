@@ -6,7 +6,7 @@ let testHelpers = require('../../test/testHelpers.js');
 let should = require('should');
 let request = require('supertest').agent(app.listen());
 
-describe('Hospital administration', function(){
+describe('Articles administration', function(){
 
 	beforeEach(function (done) {
 		testHelpers.removeAllDocs(done);
@@ -15,95 +15,93 @@ describe('Hospital administration', function(){
 		testHelpers.removeAllDocs(done);
 	});
 
-	it('has a page to create new hospitals', function (done) {
+	it('has a page to create new articles', function (done) {
 		request
-			.get('/hospital/')
+			.get('/article/')
 			.expect(200)
 			.expect(function (res) {
-				res.text.should.containEql('Buat rumah sakit')
+				res.text.should.containEql('Buat artikel baru')
 			})
 			.end(done);
 	});
 
-	it('stores data for a new hospital in the database', function (done) {
+	it('stores data for a new article in the database', function (done) {
 		co(function *() {
 			let examplePostData = {
-				name : "RS Bungsu",
-				city : "Bandung",
-				fokusArea : "Ibu dan Anak",
-				rsPhotoFileName : "rsbu-bandung.jpg"
+				title : "Title title",
+				intro : "Intro intro",
+				content : "content"
 			};
 
 			request
-				.post("/hospital/")
+				.post("/article/")
 				.send(examplePostData)
 				.expect(302)
-				.expect('location', /\/hospital\/[0-9a-fA-F]+$/)
+				.expect('location', /\/article\/[0-9a-fA-F]+$/)
 				.end(function () {
 					co(function *() {
-						let hospital = yield db.hospitalsCollection.findOne({ name: hospitalName});
-						hospital.city.should.equal(examplePostData.city);
-						hospital.fokusArea.should.equal(examplePostData.fokusArea);
+						let article = yield db.articlesCollection.findOne({ title: examplePostData.title});
+						article.intro.should.equal(examplePostData.intro);
+						article.content.should.equal(examplePostData.content);
 					})(done());
 				});
 		});
 	});
 
-	it('creates a slug for the hospital based on the name', function (done) {
+	it('creates a slug for the article based on the title', function (done) {
 		co(function *() {
 			let examplePostData = {
-				name : "Rumah Sakit William Booth Semarang"
+				title : "Title Title Title"
 			};
 
 			// TODO: The expectation below doesn't work
 
 			request
-				.post("/hospital/")
+				.post("/article/")
 				.send(examplePostData)
 				.end(function () {
 					co(function *() {
-						let hospital = yield [db.hospitalsCollection.findOne({ name: hospitalName})];
-						hospital.slug.should.equal("Rumah-Sakit-William-Booth-Semarang");
-						console.log("YES!");
+						let article = yield db.articlesCollection.findOne({ title: examplePostData.title });
+						article.slug.should.equal("Title-Title-Title");
 					})(done());
 				});
 		});
 	});
 
-	it('shows information about an existing hospital', function  (done) {
+	it('shows information about an existing article', function  (done) {
 		co(function * () {
-			let insertedHospital = yield db.hospitalsCollection.insert({ name:'Rumah Sakit Turen'});
+			let insertedArticle = yield db.articlesCollection.insert({ title:'Title title'});
 
-			let url = `/hospital/${insertedHospital._id}`;
+			let url = `/article/${insertedArticle._id}`;
 
 			request
 				.get(url)
 				.expect(200)
 				.expect(function (res) {
-					res.text.should.containEql('Rumah Sakit Turen');
+					res.text.should.containEql('Title title');
 				})
 				.end(done);
 		});
 	});
 
-	it('updates the information about an existing hospital', function (done) {
+	it('updates the information about an existing article', function (done) {
 		co(function * () {
-			let insertedHospital = yield db.hospitalsCollection.insert({ name:'Rumah Sakit Turen'});
-			let url = `/hospital/${insertedHospital._id}`;
+			let insertedArticle = yield db.articlesCollection.insert({ title:'Title title'});
+			let url = `/article/${insertedArticle._id}`;
 
-			let updatedHospitalData = {
-				name : 'RS Bungsu'
+			let updatedArticleData = {
+				title : 'Title'
 			};
 
 			request
 				.post(url)
-				.send(updatedHospitalData)
+				.send(updatedArticleData)
 				.expect(302)
 				.expect('location', `/admin${url}`)
 				.end(function () {
 					co(function *() {
-						let hospital = yield db.hospitalsCollection.findById(insertedHospital._id);
-						hospital.name.should.equal('RS Bungsu');
+						let article = yield db.articlesCollection.findById(insertedArticle._id);
+						article.title.should.equal('Title');
 					})(done());
 				});
 		});

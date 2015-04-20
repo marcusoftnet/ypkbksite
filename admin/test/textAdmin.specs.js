@@ -80,14 +80,8 @@ describe('Text administration', function(){
 				.expect('location', `/admin${url}`)
 				.end(function () {
 					co(function *() {
-						try {
-							let text = yield db.textsCollection.findById(insertedText._id);
-							text.slug.should.equal(updatedTextData.slug);
-							console.log("CHECKED DB");
-						}
-						catch(e){
-							console.log("THAT'S AN ERROR");
-						}
+						let text = yield db.textsCollection.findById(insertedText._id);
+						text.slug.should.equal(updatedTextData.slug);
 					})(done());
 				});
 		});

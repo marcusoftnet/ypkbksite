@@ -1,7 +1,7 @@
 {% extends 'layout.html' %} 
 
 {% block title %}
-    {% if article %}
+    {% if article.title %}
         {{ article.title }}
     {% else %}
         Buat Artikel
@@ -10,7 +10,7 @@
 
 
 {% block content %}
-<h1>{% if article %}
+<h1>{% if article.title %}
         Edit: {{ article.title }}
     {% else %}
         Buat Artikel
@@ -52,10 +52,10 @@
         <input type="date" name="publishEnd" value="{{ article.publishEnd }}" placeholder="Cth. https://dl.dropboxusercontent.com/u/2408484/YPKBKSite/yayasan.png" />
     </p>
     <p>
-        {% if hospital %}
-            <button type="submit">Update {{ hospital.name }}</button>
+        {% if article.title %}
+            <button type="submit">Update {{ article.title }}</button>
         {% else %}
-            <button type="submit">Buat rumah sakit</button>
+            <button type="submit">Buat artikel baru</button>
         {% endif %}
         <a href="/admin">Kembali</a>
     </p>
