@@ -21,10 +21,11 @@ app.use(route.post('/hospital/', hospitalRoutes.storeNewHospital));
 app.use(route.get('/hospital/:id', hospitalRoutes.showHospitalPage));
 app.use(route.post('/hospital/:id', hospitalRoutes.updateHospital));
 
-// GET  /clinic/new -> return create new clinic form
-// POST /clinic/    -> add new clinic information
-// GET  /clinic/:id -> show the clinic information for :id in form
-// POST /clinic/:id -> update the clinic information
+let clinicRoutes = require('./routes/clinicRoutes.js');
+app.use(route.get('/clinic/', clinicRoutes.showNewClinicPage));
+app.use(route.post('/clinic/', clinicRoutes.storeNewClinic));
+app.use(route.get('/clinic/:id', clinicRoutes.showClinicPage));
+app.use(route.post('/clinic/:id', clinicRoutes.updateClinic));
 
 // GET  /news/new -> return create new news form
 // POST /news/    -> add new news information

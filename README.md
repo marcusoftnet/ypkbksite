@@ -31,12 +31,14 @@ index.html after  template: ???
 * Administration Blog
 * Use blog data on the site
 
-* Administration Clinics
-* Use clinic data on the site
 
-## Fix
+
+## Refactoring ideas
+* function getSlugFromName is duplicated
 
 ## Doing (2)
+* Administration Clinics
+* Use clinic data on the site
 
 
 ## Done

@@ -11,6 +11,11 @@
 </p>
 <hr>
 <h1>Klinik</h1>
+<ul>
+    {% for clinic in clinics %}
+    <li><a href="/admin/clinic/{{ clinic._id.toString() }}">{{ clinic.name }}</a></li>
+    {% endfor%}
+</ul>
 <p>
   <a href="/admin/clinic/"><button>Buat klinik baru</button></a>
 </p>
