@@ -37,12 +37,12 @@ index.html after  template: ???
 ## Fix
 
 ## Doing (2)
-* Sorting of lain-lain texts in the admin UI
 * Refactor lib (render and db) to one place
 * Change to hospital*s*Collection
 
 
 ## Done
+* Sorting of lain-lain texts in the admin UI
 * Set safe output ({{ apa | safe }}) for all textarea fields for hospitals
 * Add kantor information
 * Administration Lain-lain
