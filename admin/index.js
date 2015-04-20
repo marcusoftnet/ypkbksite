@@ -9,7 +9,7 @@ let koa = require('koa');
 let app = module.exports = koa();
 
 // middleware
-//app.use(logger());
+// app.use(logger());
 
 // routes
 let adminRoutes = require('./routes/adminRoutes.js');
@@ -27,10 +27,11 @@ app.use(route.post('/clinic/', clinicRoutes.storeNewClinic));
 app.use(route.get('/clinic/:id', clinicRoutes.showClinicPage));
 app.use(route.post('/clinic/:id', clinicRoutes.updateClinic));
 
-// GET  /news/new -> return create new news form
-// POST /news/    -> add new news information
-// GET  /news/:id -> show the news information for :id in form
-// POST /news/:id -> update the news information
+let articleRoutes = require('./routes/articleRoutes.js');
+app.use(route.get('/article/', articleRoutes.showNewArticlePage));
+app.use(route.post('/article/', articleRoutes.storeNewArticle));
+app.use(route.get('/article/:id', articleRoutes.showArticlePage));
+app.use(route.post('/article/:id', articleRoutes.updateArticle));
 
 let textRoutes = require('./routes/textRoutes.js');
 app.use(route.get('/text/', textRoutes.showNewTextPage));

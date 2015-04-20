@@ -28,16 +28,13 @@ index.html after  template: ???
 * Background pictures
 	* header image
 
-* Administration Blog
 * Use blog data on the site
-
-
 
 ## Refactoring ideas
 * function getSlugFromName is duplicated
 
 ## Doing (2)
-
+* Administration Blog
 
 ## Done
 * Administration Clinics
