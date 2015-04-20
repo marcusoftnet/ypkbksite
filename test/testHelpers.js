@@ -1,5 +1,5 @@
 'use strict';
-let db = require('../../lib/db.js');
+let db = require('../lib/db.js');
 let co = require('co');
 
 module.exports.removeAllDocs = function(done){

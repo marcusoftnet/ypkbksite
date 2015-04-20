@@ -2,7 +2,7 @@
 let app = require('../');
 let co = require('co');
 let db = require('../../lib/db.js');
-let testHelpers = require('./testHelpers.js');
+let testHelpers = require('../../test/testHelpers.js');
 let should = require('should');
 let request = require('supertest').agent(app.listen());
 

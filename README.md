@@ -40,6 +40,7 @@ index.html after  template: ???
 
 
 ## Done
+* created one test helpers
 * Refactor lib (render and db) to one place
 * Change to hospital*s*Collection
 * Sorting of lain-lain texts in the admin UI

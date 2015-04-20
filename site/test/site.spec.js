@@ -7,7 +7,7 @@ let should = require('should');
 let app = require('../');
 let db = require('../../lib/db.js');
 let config = require('../../config')();
-let testHelpers = require('./testHelpers.js');
+let testHelpers = require('../../test/testHelpers.js');
 
 let request = supertest.agent(app.listen());
 
