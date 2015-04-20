@@ -190,119 +190,23 @@
                     <h3 class="section-subheading text-muted">Throughout Indonesia we also have 14 clinics</h3>
                 </div>
             </div>
-            <div class="row"> <!-- Clinics listing start -->
+            <div class="row">
+                {% for clinic in clinics %}
                 <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-ambon" class="modal-link" data-toggle="modal">
+                    <a href="#clinic-{{ clinic.slug }}" class="modal-link" data-toggle="modal">
                         <div class="institution-hover">
                             <div class="institution-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/clinics/ambon.jpg" class="img-responsive" alt="">
+                        <img src="img/clinics/{{ clinic.clinicPhotoFileName }}" class="img-responsive" alt="">
                     </a>
                     <div class="institution-caption">
-                        <h4>Ambon Evangeline Booth</h4>
-                        <p class="text-muted">Kota Ambon</p>
+                        <h4>{{ clinic.name }}</h4>
+                        <p class="text-muted">{{ clinic.city }}</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-ampera" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/clinics/ampera.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Ampera</h4>
-                        <p class="text-muted">Desa Ampera, Palu</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-amurang" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/clinics/amurang.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Amurang Catherine Booth</h4>
-                        <p class="text-muted">Amurang, Manado</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-gimpu" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/clinics/gimpu.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Gimpu</h4>
-                        <p class="text-muted">Desa Gimpu, Palu</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-kantewu" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/clinics/kantewu.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Kantewu</h4>
-                        <p class="text-muted">Desa Kantewu, Palu</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-kulawi" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/clinics/kulawi.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Kulawi</h4>
-                        <p class="text-muted">Desa Kulawi, Palu</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-kumelembuai" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/clinics/kumelembuai.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Kumelembuai</h4>
-                        <p class="text-muted">Desa Kumelembuai, Manado</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-longmerah" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/clinics/longmerah.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Long Merah</h4>
-                        <p class="text-muted">Desa Long Merah, Kalimantan</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div> <!-- Clinics listing end -->
         </div>
     </section>

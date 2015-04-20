@@ -17,6 +17,7 @@ app.use(serve(__dirname + '/public'));
 app.use(route.get('/', function *renderSite() {
 	let vm = {};
 	vm.hospitals = yield db.hospitalsCollection.find({});
+	vm.clinics = yield db.clinicsCollection.find({});
 
 	let textsArray = yield db.textsCollection.find({});
 	vm.texts = createTextsObject(textsArray);
