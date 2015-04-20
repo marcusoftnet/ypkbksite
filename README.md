@@ -37,11 +37,11 @@ index.html after  template: ???
 * function getSlugFromName is duplicated
 
 ## Doing (2)
-* Administration Clinics
-* Use clinic data on the site
 
 
 ## Done
+* Administration Clinics
+* Use clinic data on the site
 * created one test helpers
 * Refactor lib (render and db) to one place
 * Change to hospital*s*Collection
