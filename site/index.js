@@ -22,10 +22,23 @@ app.use(route.get('/', function *renderSite() {
 	let textsArray = yield db.textsCollection.find({});
 	vm.texts = createTextsObject(textsArray);
 
-	vm.articles = yield db.articlesCollection.find({}); //TODO Filter on Date
+	let today = new Date();
+	today.setHours(0,0,0,0);
+
+	let articleArray = yield db.articlesCollection.find(
+		{
+			publishStart : { "$lte": today },
+			publishEnd   : { "$gte": today }
+		}
+	);
+	vm.articles = prepareArticles(articleArray);
 
 	this.body = yield render('index', vm);
 }));
+
+function prepareArticles (articles) {
+	return articles;
+};
 
 function createTextsObject(textsArray) {
 	let result = {};

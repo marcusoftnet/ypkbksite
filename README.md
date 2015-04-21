@@ -35,9 +35,6 @@ index.html after  template: ???
 
 ## Doing (2)
 * tests for artikels on site
-	* write tests for filtering news
-	* write tests for missing imgURL
-	* write tests for missing intro
 
 ## Done
 * Use article data on the site

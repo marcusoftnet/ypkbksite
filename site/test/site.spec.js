@@ -28,7 +28,7 @@ describe('The main site', function () {
             .end(done);
     });
 
-    it('outputs dynamic hospital information', function  (done) {
+    it('output hospitals from database', function  (done) {
     	co(function *() {
     		yield [
     			db.hospitalsCollection.insert({name: "RS 1"}),
@@ -49,7 +49,7 @@ describe('The main site', function () {
 	    });
     });
 
-    it('outputs dynamic clinic information', function  (done) {
+    it('output clinics from database', function  (done) {
         co(function *() {
             yield [
                 db.clinicsCollection.insert({name: "Klinik 1"}),
@@ -70,28 +70,7 @@ describe('The main site', function () {
         });
     });
 
-    it('outputs dynamic articles', function  (done) {
-        co(function *() {
-            yield [
-                db.articlesCollection.insert({title: "Article 1"}),
-                db.articlesCollection.insert({title: "Article 2"}),
-                db.articlesCollection.insert({title: "Article 3"}),
-                db.articlesCollection.insert({title: "Article 4"})
-            ];
-
-            request
-                .get('/')
-                .expect(function (res) {
-                    res.text.should.containEql("Article 1");
-                    res.text.should.containEql("Article 2");
-                    res.text.should.containEql("Article 3");
-                    res.text.should.containEql("Article 4");
-                })
-                .end(done);
-        });
-    });
-
-    it('outputs dynamic texts', function  (done) {
+    it('output texts from database', function  (done) {
         co(function *() {
             yield [
                 db.textsCollection.insert({slug: "ypkbk_name", text: "Yayasan"})
@@ -106,4 +85,102 @@ describe('The main site', function () {
         });
     });
 
+
+    describe('Articles are special. They: ', function  () {
+        let today = new Date();
+        let tomorrow = new Date();
+        let yesterday = new Date();
+
+        beforeEach(function (done) {
+            today.setHours(0,0,0,0);
+            tomorrow.setDate(today.getDate()+1);
+            yesterday.setDate(today.getDate()- 1);
+            tomorrow.setHours(0,0,0,0);
+            yesterday.setHours(0,0,0,0);
+            done();
+        });
+
+        it('output articles from database', function  (done) {
+            co(function *() {
+                yield [
+                    db.articlesCollection.insert({title: "Article 1", publishStart : today, publishEnd : tomorrow }),
+                    db.articlesCollection.insert({title: "Article 2", publishStart : today, publishEnd : tomorrow }),
+                    db.articlesCollection.insert({title: "Article 3", publishStart : today, publishEnd : tomorrow }),
+                    db.articlesCollection.insert({title: "Article 4", publishStart : today, publishEnd : tomorrow })
+                ];
+
+                request
+                    .get('/')
+                    .expect(function (res) {
+                        res.text.should.containEql("Article 1");
+                        res.text.should.containEql("Article 2");
+                        res.text.should.containEql("Article 3");
+                        res.text.should.containEql("Article 4");
+                    })
+                    .end(done);
+            });
+        });
+
+        it('only show up when they are published', function  (done) {
+            co(function *() {
+                yield [
+                    db.articlesCollection.insert({title: "should show - published today", publishStart : today, publishEnd : tomorrow }),
+                    db.articlesCollection.insert({title: "should not be shown - enddate passed", publishStart : yesterday, publishEnd : yesterday}),
+                    db.articlesCollection.insert({title: "should not be shown - started not yet occurred", publishStart : tomorrow, publishEnd : tomorrow})
+                ];
+
+                request
+                    .get('/')
+                    .expect(function (res) {
+                        res.text.should.containEql("should show - published today");
+                        res.text.should.not.containEql("should not be shown - enddate passed");
+                        res.text.should.not.containEql("should not be shown - started not yet occurred");
+                    })
+                    .end(done);
+            });
+        });
+
+        it('articles are NOT shown if start date is after today', function  (done) {
+            co(function *() {
+                yield db.articlesCollection.insert({title: "should not be shown - started not yet occurred", publishStart : tomorrow, publishEnd : tomorrow});
+
+                request
+                    .get('/')
+                    .expect(function (res) {
+                        res.text.should.not.containEql("should not be shown - started not yet occurred");
+                    })
+                    .end(done);
+            });
+        });
+
+        it('articles are NOT shown if end date is before today', function  (done) {
+            co(function *() {
+                yield db.articlesCollection.insert({title: "should not be shown - enddate passed", publishStart : yesterday, publishEnd : yesterday});
+
+                request
+                    .get('/')
+                    .expect(function (res) {
+                        res.text.should.not.containEql("should not be shown - enddate passed");
+                    })
+                    .end(done);
+            });
+        });
+
+        it('articles are shown only if start date is before today and end date is after today', function  (done) {
+            co(function *() {
+                yield db.articlesCollection.insert({title: "should show - published today", publishStart : today, publishEnd : tomorrow });
+
+                request
+                    .get('/')
+                    .expect(function (res) {
+                        res.text.should.containEql("should show - published today");
+                    })
+                    .end(done);
+            });
+        });
+
+        
+        it('have a default image if no image is supplied');
+        it('uses the start of the content as intro if no intro is supplied');
+    });
 });

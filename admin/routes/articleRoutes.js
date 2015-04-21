@@ -8,6 +8,8 @@ module.exports.showNewArticlePage = function *() {
 	let today = new Date();
 	let sixMonthsAway = new Date();
 	sixMonthsAway.setDate(today.getDate()+180);
+	today.setHours(0,0,0,0);
+	sixMonthsAway.setHours(0,0,0,0);
 
 	let dates = {
 		publishStart : formatDate(today),
