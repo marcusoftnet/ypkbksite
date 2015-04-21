@@ -37,6 +37,12 @@ app.use(route.get('/', function *renderSite() {
 }));
 
 function prepareArticles (articles) {
+	for (var i = 0; i < articles.length; i++) {
+		if(!exists(articles[i].imgURL)){
+			articles[i].imgURL = "/img/news/defaultNews.png";
+		}
+	};
+	// console.log(articles);
 	return articles;
 };
 
@@ -47,4 +53,12 @@ function createTextsObject(textsArray) {
 	};
 
 	return result;
+};
+
+var exists = function (value) {
+	if(value === undefined)
+		return false;
+	if(value === null)
+		return false;
+	return true;
 };

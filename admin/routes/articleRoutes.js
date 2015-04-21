@@ -12,8 +12,8 @@ module.exports.showNewArticlePage = function *() {
 	sixMonthsAway.setHours(0,0,0,0);
 
 	let dates = {
-		publishStart : formatDate(today),
-		publishEnd 	 : formatDate(sixMonthsAway)
+		publishStartString  : formatDate(today),
+		publishEndString 	: formatDate(sixMonthsAway)
 	};
 
 	this.body = yield render('article', { article : dates });
@@ -21,9 +21,9 @@ module.exports.showNewArticlePage = function *() {
 
 module.exports.storeNewArticle = function *() {
 	let parsedArticleData = yield parse(this);
-	parsedArticleData.slug = getSlugFromName(parsedArticleData.title);
+	let articleToStore = createArticleFromPostedData(parsedArticleData);
 
-	let inserted = yield db.articlesCollection.insert(parsedArticleData);
+	let inserted = yield db.articlesCollection.insert(articleToStore);
 	let id = inserted._id;
 
 	this.redirect(`/admin/article/${id}`);
@@ -31,16 +31,33 @@ module.exports.storeNewArticle = function *() {
 
 module.exports.showArticlePage = function *(id) {
 	let a = yield db.articlesCollection.findById(id);
+
+	a.publishStartString = formatDate(a.publishStart);
+	a.publishEndString = formatDate(a.publishEnd);
+
 	this.body = yield render('article', { article : a });
 };
 
 module.exports.updateArticle = function *(id) {
 	let parsedArticleData = yield parse(this);
-	parsedArticleData.slug = getSlugFromName(parsedArticleData.title);
+	let articleToStore = createArticleFromPostedData(parsedArticleData);
 
-	yield db.articlesCollection.updateById(id, parsedArticleData);
+	yield db.articlesCollection.updateById(id, articleToStore);
 
 	this.redirect(`/admin/article/${id}`);
+};
+
+function createArticleFromPostedData(parsedArticleData){
+	let articleToStore = parsedArticleData;
+
+	articleToStore.publishStart = new Date(parsedArticleData.publishStartString);
+	articleToStore.publishEnd = new Date(parsedArticleData.publishEndString);
+	articleToStore.slug = getSlugFromName(articleToStore.title);
+
+	delete articleToStore.publishStartString;
+	delete articleToStore.publishEndString;
+
+	return articleToStore;
 };
 
 function getSlugFromName(name) {
@@ -55,6 +72,5 @@ function formatDate (dateToFormat) {
     if(mm<10){ mm='0'+mm };
     if(dd<10){ dd='0'+dd };
 
-    let a = `${yyyy}-${mm}-${dd}`;
-    return a;
+    return `${yyyy}-${mm}-${dd}`;
 };

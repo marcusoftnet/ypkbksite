@@ -179,8 +179,22 @@ describe('The main site', function () {
             });
         });
 
-        
-        it('have a default image if no image is supplied');
+        it('have a default image if no image is supplied', function  () {
+            co(function *() {
+                yield [
+                    db.articlesCollection.insert({imgURL : "/img/header-bg.jpg", title: "has image", publishStart : today, publishEnd : tomorrow }),
+                    db.articlesCollection.insert({title: "doesnt have image", publishStart : today, publishEnd : tomorrow })
+                ];
+
+                request
+                    .get('/')
+                    .expect(function (res) {
+                        res.text.should.containEql("/img/header-bg.jpg");
+                        res.text.should.containEql("/img/new/defaultNews2.png");
+                    })
+                    .end(done);
+            });
+        });
         it('uses the start of the content as intro if no intro is supplied');
     });
 });
