@@ -72,7 +72,7 @@ describe('Articles administration', function(){
 
 	it('shows information about an existing article', function  (done) {
 		co(function * () {
-			let insertedArticle = yield db.articlesCollection.insert({ title:'Title title',publishStart : new Date("2015-01-01"), publishEnd : new Date("2015-10-01") });
+			let insertedArticle = yield db.articlesCollection.insert({ title:'Title title', publishStart : new Date("2015-01-01"), publishEnd : new Date("2015-10-01") });
 
 			let url = `/article/${insertedArticle._id}`;
 
@@ -110,6 +110,7 @@ describe('Articles administration', function(){
 				});
 		});
 	});
+
 	it('updates the publication start date for an existing article', function (done) {
 		co(function * () {
 			let insertedArticle = yield db.articlesCollection.insert({ title:'Title title', publishStart : new Date("2015-01-01"), publishEnd : new Date("2015-10-01")});
@@ -134,6 +135,7 @@ describe('Articles administration', function(){
 				});
 		});
 	});
+
 	it('updates the publication end date for existing article', function (done) {
 		co(function * () {
 			let insertedArticle = yield db.articlesCollection.insert({ title:'Title title', publishStart : new Date("2015-01-01"), publishEnd : new Date("2015-10-01")});

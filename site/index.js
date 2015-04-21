@@ -39,7 +39,7 @@ app.use(route.get('/', function *renderSite() {
 function prepareArticles (articles) {
 	for (var i = 0; i < articles.length; i++) {
 		if(!exists(articles[i].imgURL)){
-			articles[i].imgURL = "/img/news/defaultNews.png";
+			articles[i].imgURL = "/img/articles/defaultNews.png";
 		}
 	};
 	// console.log(articles);
@@ -59,6 +59,8 @@ var exists = function (value) {
 	if(value === undefined)
 		return false;
 	if(value === null)
+		return false;
+	if(value === "")
 		return false;
 	return true;
 };

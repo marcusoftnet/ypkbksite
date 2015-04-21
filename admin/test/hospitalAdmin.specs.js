@@ -64,7 +64,6 @@ describe('Hospital administration', function(){
 					co(function *() {
 						let hospital = yield [db.hospitalsCollection.findOne({ name: hospitalName})];
 						hospital.slug.should.equal("Rumah-Sakit-William-Booth-Semarang");
-						console.log("YES!");
 					})(done());
 				});
 		});
