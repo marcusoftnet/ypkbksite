@@ -23,22 +23,26 @@ index.html after  template: ???
 * Test for sorting articles should verify that the articles are sorted
 
 ## Todo
+* Move all pictures to flickr
 * Tests that **doesn't** verify the database content.
-
 * Contact form should send proper emails
-
 * Background pictures
 	* header image
 
-* Use blog data on the site
-
 ## Refactoring ideas
+* change css style name service-heading to be articles-heading
 * function getSlugFromName is duplicated
 
 ## Doing (2)
-* Administration Blog
+* tests for artikels on site
+	* write tests for filtering news
+	* write tests for missing imgURL
+	* write tests for missing intro
 
 ## Done
+* Use article data on the site
+* Create Flickr Account (ypkbk, https://www.flickr.com/photos/131918734@N03/?, https://farm8.staticflickr.com/7584/16596141074_afeebb86ed_m_d.jpg)
+* Administration Article
 * Administration Clinics
 * Use clinic data on the site
 * created one test helpers

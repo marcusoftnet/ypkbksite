@@ -22,6 +22,8 @@ app.use(route.get('/', function *renderSite() {
 	let textsArray = yield db.textsCollection.find({});
 	vm.texts = createTextsObject(textsArray);
 
+	vm.articles = yield db.articlesCollection.find({}); //TODO Filter on Date
+
 	this.body = yield render('index', vm);
 }));
 

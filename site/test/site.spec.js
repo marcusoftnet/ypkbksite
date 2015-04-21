@@ -49,6 +49,48 @@ describe('The main site', function () {
 	    });
     });
 
+    it('outputs dynamic clinic information', function  (done) {
+        co(function *() {
+            yield [
+                db.clinicsCollection.insert({name: "Klinik 1"}),
+                db.clinicsCollection.insert({name: "Klinik 2"}),
+                db.clinicsCollection.insert({name: "Klinik 3"}),
+                db.clinicsCollection.insert({name: "Klinik 4"})
+            ];
+
+            request
+                .get('/')
+                .expect(function (res) {
+                    res.text.should.containEql("Klinik 1");
+                    res.text.should.containEql("Klinik 2");
+                    res.text.should.containEql("Klinik 3");
+                    res.text.should.containEql("Klinik 4");
+                })
+                .end(done);
+        });
+    });
+
+    it('outputs dynamic articles', function  (done) {
+        co(function *() {
+            yield [
+                db.articlesCollection.insert({title: "Article 1"}),
+                db.articlesCollection.insert({title: "Article 2"}),
+                db.articlesCollection.insert({title: "Article 3"}),
+                db.articlesCollection.insert({title: "Article 4"})
+            ];
+
+            request
+                .get('/')
+                .expect(function (res) {
+                    res.text.should.containEql("Article 1");
+                    res.text.should.containEql("Article 2");
+                    res.text.should.containEql("Article 3");
+                    res.text.should.containEql("Article 4");
+                })
+                .end(done);
+        });
+    });
+
     it('outputs dynamic texts', function  (done) {
         co(function *() {
             yield [

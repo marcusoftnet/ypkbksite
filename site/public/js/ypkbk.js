@@ -38,7 +38,7 @@ $(document).ready(function() {
   if(
     (window.location.href.indexOf('#modallink-') > 0) ||
     (window.location.href.indexOf('#institution-') > 0) ||
-  	(window.location.href.indexOf('#news-') > 0)) {
+  	(window.location.href.indexOf('#article-') > 0)) {
       $(window.location.hash).modal('show');
   }
 });
