@@ -31,9 +31,9 @@ index.html after  template: ???
 ## Refactoring ideas
 * change css style name service-heading to be articles-heading
 * function getSlugFromName is duplicated
-* create a separate file for site routes
 
 ## Doing (2)
+* create a separate file for site routes
 * Contact form should send proper emails
 
 
