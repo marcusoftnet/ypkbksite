@@ -32,9 +32,10 @@ index.html after  template: ???
 ## Refactoring ideas
 * change css style name service-heading to be articles-heading
 * function getSlugFromName is duplicated
+* create a separate file for site routes
 
 ## Doing (2)
-* tests for artikels on site
+* tests for articles on site
 
 ## Done
 * Use article data on the site
