@@ -21,11 +21,10 @@ index.html after  template: ???
 * Create list of old articles in admin-ui
 * Test for sorting texts should verify that the text are sorted
 * Test for sorting articles should verify that the articles are sorted
+* Consider move all pictures to flickr
 
 ## Todo
-* Move all pictures to flickr
 * Tests that **doesn't** verify the database content.
-* Contact form should send proper emails
 * Background pictures
 	* header image
 
@@ -35,9 +34,11 @@ index.html after  template: ???
 * create a separate file for site routes
 
 ## Doing (2)
-* tests for articles on site
+* Contact form should send proper emails
+
 
 ## Done
+* tests for articles on site
 * Use article data on the site
 * Create Flickr Account (ypkbk, https://www.flickr.com/photos/131918734@N03/?, https://farm8.staticflickr.com/7584/16596141074_afeebb86ed_m_d.jpg)
 * Administration Article

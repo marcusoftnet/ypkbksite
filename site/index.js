@@ -14,6 +14,7 @@ let app = module.exports = koa();
 app.use(serve(__dirname + '/public'));
 
 // routes
+let siteRoutes = require("./siteRoutes.js");
 app.use(route.get('/', function *renderSite() {
 	let vm = {};
 	vm.hospitals = yield db.hospitalsCollection.find({});
@@ -35,6 +36,7 @@ app.use(route.get('/', function *renderSite() {
 
 	this.body = yield render('index', vm);
 }));
+app.use(route.post('/sendemail', siteRoutes.sendEmail))
 
 function prepareArticles (articles) {
 	for (var i = 0; i < articles.length; i++) {
