@@ -33,11 +33,11 @@ index.html after  template: ???
 * function getSlugFromName is duplicated
 
 ## Doing (2)
-* create a separate file for site routes
-* Contact form should send proper emails
 
 
 ## Done
+* Contact form should send proper emails
+* create a separate file for site routes
 * tests for articles on site
 * Use article data on the site
 * Create Flickr Account (ypkbk, https://www.flickr.com/photos/131918734@N03/?, https://farm8.staticflickr.com/7584/16596141074_afeebb86ed_m_d.jpg)
