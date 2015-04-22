@@ -1,8 +1,8 @@
 var mongoProdUri = process.env.MONGOLAB_URI || 'localhost:27017/ypkbksite_Prod';
 
 var sendGridUser = {
-	name : process.env.SENDGRID_USERNAME || 'app35431955@heroku.com',
-	pass : process.env.SENDGRID_PASSWORD || 'on7qfnof'
+	name : process.env.SENDGRID_USERNAME || '',
+	pass : process.env.SENDGRID_PASSWORD || ''
 };
 
 var adminUser = {
