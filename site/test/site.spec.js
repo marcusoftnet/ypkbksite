@@ -195,6 +195,36 @@ describe('The main site', function () {
                     .end(done);
             });
         });
-        it('uses the start of the content as intro if no intro is supplied');
+        it('uses the start of the content as intro if no intro is supplied', function (done) {
+            co(function *() {
+                yield [
+                    db.articlesCollection.insert(
+                        {
+                            title: "no intro",
+                            content: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut a",
+                            publishStart : today,
+                            publishEnd : tomorrow
+                        }
+                    ),
+                    db.articlesCollection.insert(
+                        {
+                            title: "has intro",
+                            content: "Lorem ipsum",
+                            intro: "The intro text is short and sweet",
+                            publishStart : today,
+                            publishEnd : tomorrow
+                        }
+                    )
+                ];
+
+                request
+                    .get('/')
+                    .expect(function (res) {
+                        res.text.should.containEql("The intro text is short and sweet");
+                        res.text.should.containEql("Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore...");
+                    })
+                    .end(done);
+            });
+        });
     });
 });

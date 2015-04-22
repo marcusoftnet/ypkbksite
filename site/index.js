@@ -41,6 +41,12 @@ function prepareArticles (articles) {
 		if(!exists(articles[i].imgURL)){
 			articles[i].imgURL = "/img/articles/defaultNews.png";
 		}
+
+		if(!exists(articles[i].intro) && exists(articles[i].content)){
+			let newIntro = articles[i].content.substring(0,100) + "...";
+			console.log("INTRO: " + newIntro);
+			articles[i].intro = newIntro;
+		}
 	};
 	// console.log(articles);
 	return articles;
