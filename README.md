@@ -1,17 +1,5 @@
 The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including a very simple CMS
 
-# Application structure
-/ - the site
-/admin - the administration
-
-The root application simply returns the public static site. In the templates returned will call back to the /api and get the content for the different parts of the page.
-
-In the administration part we simply administer the small content chunks
-
-index.html before template: 705 lines (674 sloc)  39.011 kb
-index.html after  template: ???
-
-
 
 # Kanban
 ## Later
@@ -24,23 +12,24 @@ index.html after  template: ???
 * Consider move all pictures to flickr
 
 ## Todo
+* input data in production database
 * Tests that **doesn't** verify the database content.
 * Background pictures
 	* header image
 
 ## Refactoring ideas
 * change css style name service-heading to be articles-heading
-* function getSlugFromName is duplicated
 
 ## Doing (2)
 
 
 ## Done
+* function getSlugFromName is duplicated
 * Contact form should send proper emails
 * create a separate file for site routes
 * tests for articles on site
 * Use article data on the site
-* Create Flickr Account (ypkbk, https://www.flickr.com/photos/131918734@N03/?, https://farm8.staticflickr.com/7584/16596141074_afeebb86ed_m_d.jpg)
+* Create Flickr Account (https://www.flickr.com/photos/131918734@N03/?, https://farm8.staticflickr.com/7584/16596141074_afeebb86ed_m_d.jpg)
 * Administration Article
 * Administration Clinics
 * Use clinic data on the site

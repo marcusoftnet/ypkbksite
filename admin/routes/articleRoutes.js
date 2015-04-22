@@ -4,6 +4,8 @@ let parse = require('co-body');
 let render = require('../lib/render.js');
 let db = require('../../lib/db.js');
 
+let helpers = require("./routeHelpers.js");
+
 module.exports.showNewArticlePage = function *() {
 	let today = new Date();
 	let sixMonthsAway = new Date();
@@ -52,7 +54,7 @@ function createArticleFromPostedData(parsedArticleData){
 
 	articleToStore.publishStart = new Date(parsedArticleData.publishStartString);
 	articleToStore.publishEnd = new Date(parsedArticleData.publishEndString);
-	articleToStore.slug = getSlugFromName(articleToStore.title);
+	articleToStore.slug = helpers.getSlugFromName(articleToStore.title);
 
 	delete articleToStore.publishStartString;
 	delete articleToStore.publishEndString;
@@ -60,9 +62,6 @@ function createArticleFromPostedData(parsedArticleData){
 	return articleToStore;
 };
 
-function getSlugFromName(name) {
-	return name.split(' ').join('-');
-};
 
 function formatDate (dateToFormat) {
 	let dd = dateToFormat.getDate();

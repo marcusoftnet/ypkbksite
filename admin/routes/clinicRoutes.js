@@ -4,13 +4,15 @@ let parse = require('co-body');
 let render = require('../lib/render.js');
 let db = require('../../lib/db.js');
 
+let helpers = require("./routeHelpers.js");
+
 module.exports.showNewClinicPage = function *() {
 	this.body = yield render('clinic');
 };
 
 module.exports.storeNewClinic = function *() {
 	let parsedClinicData = yield parse(this);
-	parsedClinicData.slug = getSlugFromName(parsedClinicData.name);
+	parsedClinicData.slug = helpers.getSlugFromName(parsedClinicData.name);
 
 	let inserted = yield db.clinicsCollection.insert(parsedClinicData);
 	let id = inserted._id;
@@ -25,13 +27,9 @@ module.exports.showClinicPage = function *(id) {
 
 module.exports.updateClinic = function *(id) {
 	let parsedClinicData = yield parse(this);
-	parsedClinicData.slug = getSlugFromName(parsedClinicData.name);
+	parsedClinicData.slug = helpers.getSlugFromName(parsedClinicData.name);
 
 	yield db.clinicsCollection.updateById(id, parsedClinicData);
 
 	this.redirect(`/admin/clinic/${id}`);
 };
-
-function getSlugFromName(name) {
-	return name.split(' ').join('-');
-}

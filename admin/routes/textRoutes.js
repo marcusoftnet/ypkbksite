@@ -28,7 +28,3 @@ module.exports.updateText = function *(id) {
 
 	this.redirect(`/admin/text/${id}`);
 };
-
-function getSlugFromName(name) {
-	return name.split(' ').join('-');
-}

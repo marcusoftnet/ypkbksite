@@ -61,18 +61,23 @@ module.exports.sendEmail = function *() {
 
 function prepareArticles (articles) {
 	for (var i = 0; i < articles.length; i++) {
-		if(!exists(articles[i].imgURL)){
-			articles[i].imgURL = "/img/articles/defaultNews.png";
-		}
-
-		if(!exists(articles[i].intro) && exists(articles[i].content)){
-			let newIntro = articles[i].content.substring(0,100) + "...";
-			console.log("INTRO: " + newIntro);
-			articles[i].intro = newIntro;
-		}
+		updateImgUrl(articles[i]);
+		updateIntroText(articles[i]);
 	};
-	// console.log(articles);
 	return articles;
+};
+
+function updateIntroText(article){
+	if(!exists(article.intro) && exists(article.content)){
+		let newIntro = article.content.substring(0,100) + "...";
+		article.intro = newIntro;
+	}
+};
+
+function updateImgUrl(article){
+	if(!exists(article.imgURL)){
+		article.imgURL = "/img/articles/defaultNews.png";
+	};
 };
 
 function createTextsObject(textsArray) {
