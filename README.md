@@ -12,18 +12,17 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 * Consider move all pictures to flickr
 
 ## Todo
-* input data in production database
 * Tests that **doesn't** verify the database content.
+
+## Refactoring ideas
+
+## Doing (2)
+* input data in production database
 * Background pictures
 	* header image
 
-## Refactoring ideas
-* change css style name service-heading to be articles-heading
-
-## Doing (2)
-
-
 ## Done
+* change css style name service-heading to be articles-heading
 * function getSlugFromName is duplicated
 * Contact form should send proper emails
 * create a separate file for site routes

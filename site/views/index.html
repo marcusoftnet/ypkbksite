@@ -120,7 +120,7 @@
             <div class="row">
                 {% for article in articles %}
                 <div class="col-md-4">
-                    <h4 class="service-heading text-centered">{{ article.title }}</h4>
+                    <h4 class="article-heading text-centered">{{ article.title }}</h4>
                     <img src="{{ article.imgURL }}" class="img-responsive">
                     <p class="text-muted">{{ article.intro }}</p>
                     <a href="#article-{{ article.slug }}" class="modal-link" data-toggle="modal">Baca lagi...</a>
@@ -253,7 +253,7 @@
                             <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
                         </span>
                     </center>
-                    <h4 class="service-heading">Misi</h4>
+                    <h4 class="article-heading">Misi</h4>
                     <p class="text-muted">{{ texts.ypkbk_misi | safe }}</p>
                 </div>
                 <div class="col-md-6">
@@ -263,7 +263,7 @@
                             <i class="fa fa-road fa-stack-1x fa-inverse"></i>
                         </span>
                     </center>
-                    <h4 class="service-heading">Visi</h4>
+                    <h4 class="article-heading">Visi</h4>
                     <p class="text-muted">{{ texts.ypkbk_visi | safe }}</p>
                 </div>
             </div>
