@@ -1,0 +1,63 @@
+{% extends 'layout.html' %} 
+
+{% block title %}
+    {% if article.title %}
+        {{ article.title }}
+    {% else %}
+        Buat Artikel
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+<h1>{% if article.title %}
+        Edit: {{ article.title }}
+    {% else %}
+        Buat Artikel
+    {% endif %}</h1>
+    <a href="/admin">Kembali</a>
+
+<form method="post" action="/admin/article/{{ article._id.toString() }}">
+    <p>
+        <label for="slug">ID</label>
+        <input readonly type="text" name="slug" value="{{ article.slug }}" />
+    </p>
+    <p>
+        <label for="title">Judul</label>
+        <input type="text" name="title" value="{{ article.title }}" placeholder="Cth. Klinik baru di Kendari" />
+    </p>
+    <p>
+        <label for="intro">Intro</label>
+        <input type="text" name="intro" value="{{ article.intro }}" placeholder="Cth. Klinik baru di Kendari" />
+    </p>
+    <p>
+        <label for="content">Konten</label>
+        <textarea name="content" placeholder="Cth. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.">{{ article.content }}</textarea>
+    </p>
+    <p>
+        <label for="imgURL">URL Foto</label>
+        <input type="url" name="imgURL" value="{{ article.imgURL }}" placeholder="Cth. https://dl.dropboxusercontent.com/u/2408484/YPKBKSite/yayasan.png" />
+    </p>
+    <p>
+        <label for="publishStartString">Tanggal publish</label>
+        <input type="date" name="publishStartString" value="{{ article.publishStartString }}" placeholder="Cth. https://dl.dropboxusercontent.com/u/2408484/YPKBKSite/yayasan.png" />
+    </p>
+    <p>
+        <label for="publishEndString">Tanggal publish berakhir</label>
+        <input type="date" name="publishEndString" value="{{ article.publishEndString }}" placeholder="Cth. https://dl.dropboxusercontent.com/u/2408484/YPKBKSite/yayasan.png" />
+    </p>
+    <p>
+        {% if article.title %}
+            <button type="submit">Update {{ article.title }}</button>
+        {% else %}
+            <button type="submit">Buat artikel baru</button>
+        {% endif %}
+        <a href="/admin">Kembali</a>
+    </p>
+</form>
+{% endblock %}

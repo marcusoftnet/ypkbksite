@@ -11,13 +11,23 @@
 </p>
 <hr>
 <h1>Klinik</h1>
+<ul>
+    {% for clinic in clinics %}
+    <li><a href="/admin/clinic/{{ clinic._id.toString() }}">{{ clinic.name }}</a></li>
+    {% endfor%}
+</ul>
 <p>
   <a href="/admin/clinic/"><button>Buat klinik baru</button></a>
 </p>
 <hr>
-<h1>Berita</h1>
+<h1>Artikel</h1>
+<ul>
+    {% for article in articles %}
+    <li><a href="/admin/article/{{ article._id.toString() }}">{{ article.title }}</a></li>
+    {% endfor%}
+</ul>
 <p>
-  <a href="/admin/news/"><button>Buat berita baru</button></a>
+  <a href="/admin/article/"><button>Buat artikel baru</button></a>
 </p>
 <hr>
 <h1>Teks Lain-lain</h1>

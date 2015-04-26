@@ -1,33 +1,37 @@
 The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including a very simple CMS
 
-# Application structure
-/ - the site
-/admin - the administration
-
-The root application simply returns the public static site. In the templates returned will call back to the /api and get the content for the different parts of the page.
-
-In the administration part we simply administer the small content chunks
-
-index.html before template: 705 lines (674 sloc)  39.011 kb
-index.html after  template: ???
-
-
 
 # Kanban
 ## Later
 * Google Analytics setup
 * The Yayasan Pelayan Kesehatan Bala Keselamatan needs to be smaller for medium sized screens
-
+* Set the app name of the site when doing Add to homescreen
+* Create list of old articles in admin-ui
+* Test for sorting texts should verify that the text are sorted
+* Test for sorting articles should verify that the articles are sorted
+* Consider move all pictures to flickr
 
 ## Todo
-* Contact form should send proper emails
+* Make sure that clinics/hospitals can alternate between local and http images
+* List the pictures in folders on the page of the clinics/hosptials
+* Tests that **doesn't** verify the database content.
 
+## Refactoring ideas
+
+## Doing (2)
+* input data in production database
 * Background pictures
 	* header image
 
-* Administration Blog
-* Use blog data on the site
-
+## Done
+* change css style name service-heading to be articles-heading
+* function getSlugFromName is duplicated
+* Contact form should send proper emails
+* create a separate file for site routes
+* tests for articles on site
+* Use article data on the site
+* Create Flickr Account (https://www.flickr.com/photos/131918734@N03/?, https://farm8.staticflickr.com/7584/16596141074_afeebb86ed_m_d.jpg)
+* Administration Article
 * Administration Clinics
 * Use clinic data on the site
 
@@ -42,6 +46,13 @@ index.html after  template: ???
 ## Doing (2)
 
 ## Done
+=======
+* created one test helpers
+* Refactor lib (render and db) to one place
+* Change to hospital*s*Collection
+* Sorting of lain-lain texts in the admin UI
+* Set safe output ({{ apa | safe }}) for all textarea fields for hospitals
+* Add kantor information
 * Administration Lain-lain
 * Use lain-lain texts on the site
 * Link directly to hospital/clinic/news doesnt work

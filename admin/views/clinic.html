@@ -1,0 +1,103 @@
+{% extends 'layout.html' %} 
+
+{% block title %}
+    {% if clinic %}
+        {{ clinic.name }}
+    {% else %}
+        Buat Klinik
+    {% endif %}
+{% endblock %}
+
+
+{% block content %}
+<h1>{% if clinic %}
+        Edit: {{ clinic.name }}
+    {% else %}
+        Buat Klinik
+    {% endif %}</h1>
+    <a href="/admin">Kembali</a>
+
+<form method="post" action="/admin/clinic/{{ clinic._id.toString() }}">
+    <p><h3>Informasi Umum</h3></p>
+    <p>
+        <label for="slug">ID</label>
+        <input readonly type="text" name="slug" value="{{ clinic.slug }}" />
+    </p>
+    <p>
+        <label for="name">Nama</label>
+        <input type="text" name="name" value="{{ clinic.name }}" placeholder="Cth. Klinik Ambon" />
+    </p>
+    <p>
+        <label for="city">Kota</label>
+        <input type="text" name="city" value="{{ clinic.city }}" placeholder="Cth. Ambon" />
+    </p>
+    <p>
+        <label for="introText">Intro</label>
+        <input type="text" name="introText" value="{{ clinic.introText }}" placeholder="Cth. Klinik XXX adalah salah satu Klinik di Ambon" />
+    </p>
+    <p>
+	    <label for="clinicPhotoFileName">Nama File Foto Klinik</label>
+	    <input type="text" name="clinicPhotoFileName" value="{{ clinic.clinicPhotoFileName }}" placeholder="Cth. klinik-ambon.jpg" />
+    </p>
+    <p><h3>Kontakt informasi</h3></p>
+    <p>
+	    <label for="opsirName">Nama opsir</label>
+	    <input type="text" name="opsirName" value="{{ clinic.opsirName }}" placeholder="Cth. Mayor Sih Sadjiastuti Laua" />
+    </p>
+    <p>
+	    <label for="opsirEmail">Email Opsir</label>
+	    <input type="email" name="opsirEmail" value="{{ clinic.opsirEmail }}" placeholder="Cth. Pimpinan_RS_Bungsu@ins.salvationarmy.org" />
+    </p>
+    <p><h3>Kontak Informasi</h3></p>
+    <p>
+	    <label for="address">Alamat</label>
+	    <input type="text" name="address" value="{{ clinic.address }}" placeholder="Cth. Jalan Veteran 6, Bandung" />
+    </p>
+    <p>
+	    <label for="telephone">Telefon</label>
+	    <input type="text" name="telephone" value="{{ clinic.telephone }}" placeholder="Cth. +62 8 211 677 8803" />
+    </p>
+    <p>
+	    <label for="clinicEmail">Email klinik</label>
+	    <input type="email" name="clinicEmail" value="{{ clinic.clinicEmail }}" placeholder="Cth. klinik_ambon@gmail.com" />
+    </p>
+    <p>
+	    <label for="clinicWebsite">Website</label>
+	    <input type="url" name="clinicWebsite" value="{{ clinic.clinicWebsite }}" placeholder="Cth. http://www.woodward-rs.id" />
+    </p>
+    <p>
+	    <label for="googleMapUrl">Google map</label>
+	    <input type="url" name="googleMapUrl" value="{{ clinic.googleMapUrl }}" placeholder="Cth. https://www.google.co.id/maps/place/Jl.+Veteran+No.6,+Sumur+Bandung,+Kota+Bandung,+Jawa+Bar.+40112/@-6.918564,107.6139949,17z/data=!4m7!1m4!3m3!1s0x2e68e62e1619b885:0xaee1403559149f54!2sJl.+Veteran+No.6,+Sumur+Bandung,+Kota+Bandung,+Jawa+Bar.+40112!3b1!3m1!1s0x2e68e62e1619b885:0xaee1403559149f54?hl=en" />
+    </p>
+    <p><h3>Visi / Misi</h3></p>
+    <p>
+        <label for="misiText">Misi</label>
+        <textarea name="misiText" placeholder="Cth. Untuk mendukung masyarakat dengan kesehatan yang besar dan pelayanan pastoral.">{{ clinic.misiText }}</textarea>
+    </p>
+    <p>
+	    <label for="visiText">Visi</label>
+        <textarea name="visiText" placeholder="Cth. Untuk menjadi rumah sakit terbaik di wilayah ketika datang ke perawatan dan kualitas.">{{ clinic.visiText }}</textarea>
+    </p>
+    <p><h3>Pelayanan</h3></p>
+    <p>
+	    <label for="pelayanan">Pelayanan</label>
+        <textarea name="pelayanan" placeholder="Cth. IGD 24 Jam, Poli umum, Poli specialis">{{ clinic.pelayanan }}</textarea>
+    </p>
+    <p>
+	    <label for="cooperationOrgs">Rujukan</label>
+	    <textarea name="cooperationOrgs" placeholder="Cth. Rumah Sakit Catherine Booth">{{ clinic.cooperationOrgs }}</textarea>
+    </p>
+    <p>
+        <label for="bpjsStatus">Status BPJS</label>
+        <input type="text" name="bpjsStatus" value="{{ clinic.bpjsStatus }}" placeholder="Cth. Sejak 2015" />
+    </p>
+    <p>
+        {% if clinic %}
+            <button type="submit">Update {{ clinic.name }}</button>
+        {% else %}
+            <button type="submit">Buat klinik</button>
+        {% endif %}
+        <a href="/admin">Kembali</a>
+    </p>
+</form>
+{% endblock %}

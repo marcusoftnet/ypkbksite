@@ -1,6 +1,6 @@
 {
   "name": "YPKBKWeb",
-  "version": "1.22.0",
+  "version": "1.24.0",
   "description": "The website of the Yayasan Pelayan Kesehatan Bala Keselamatan (YPKBK)",
   "main": "index.js",
   "scripts": {
@@ -29,6 +29,7 @@
   "devDependencies": {
     "co": "^4.5.1",
     "mocha": "^2.2.4",
+    "semver": "^4.3.3",
     "should": "^6.0.1",
     "supertest": "^0.15.0"
   },
@@ -44,6 +45,7 @@
     "koa-static": "^1.4.9",
     "mongodb": "1.4.4",
     "monk": "1.0.1",
+    "sendgrid": "^1.6.1",
     "swig": "^1.4.2"
   }
 }

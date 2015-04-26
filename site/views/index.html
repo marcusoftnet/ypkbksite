@@ -9,7 +9,7 @@
     <meta name="description" content="The website of the Yayasan Pelayanan Kesehatan Bala Keselamatan">
     <meta name="author" content="Marcus Hammarberg Deni Laua">
 
-    <title>{{ texts.ypkbk_name | safe }}</title>
+    <title>{{ texts.ypkbk_name }}</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
@@ -77,7 +77,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#news">Berita</a>
+                        <a class="page-scroll" href="#articles">Artikel</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#hospitals">Rumah Sakit</a>
@@ -109,43 +109,23 @@
         </div>
     </header>
 
-    <!-- News Section -->
-    <section id="news">
+    <!-- Article grid section -->
+    <section id="articles">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Berita</h2>
+                    <h2 class="section-heading">Artikel</h2>
                 </div>
             </div>
             <div class="row">
+                {% for article in articles %}
                 <div class="col-md-4">
-                    <h4 class="service-heading text-centered">Raker 2015 di Surabaya</h4>
-                    <img src="/img/news/raker2015_2.jpg" class="img-responsive">
-                    <p class="text-muted">Selama 22-24 Maret semua rumah sakit dan prinsip masing-masing rumah sakit bertemu untuk Raker tahunan Yayasan Pelayanan Kesehatan Bala Keselamatan. </p>
-                    <p class="text-muted">Tahun ini acara ini diselenggarakan oleh Rumah Sakit William Booth Surabaya dan direktur Dr TB Rianto.</p>
-                    <a href="#news-1" class="modal-link" data-toggle="modal">Read More</a>
+                    <h4 class="article-heading text-centered">{{ article.title }}</h4>
+                    <img src="{{ article.imgURL }}" class="img-responsive">
+                    <p class="text-muted">{{ article.intro }}</p>
+                    <a href="#article-{{ article.slug }}" class="modal-link" data-toggle="modal">Baca lagi...</a>
                 </div>
-                <div class="col-md-4">
-                    <h4 class="service-heading text-centered">Raker 2015 di Surabaya</h4>
-                    <img src="/img/news/raker2015.jpg" class="img-responsive">
-                    <p class="text-muted">Selama 22-24 Maret semua rumah sakit dan prinsip masing-masing rumah sakit bertemu untuk Raker tahunan Yayasan Pelayanan Kesehatan Bala Keselamatan. </p>
-                    <p class="text-muted">Tahun ini acara ini diselenggarakan oleh Rumah Sakit William Booth Surabaya dan direktur Dr TB Rianto.</p>
-                    <a href="#news-1" class="modal-link" data-toggle="modal">Read More</a>
-                </div>
-                <div class="col-md-4">
-                    <h4 class="service-heading text-centered">Raker 2015 di Surabaya</h4>
-                    <img src="/img/news/raker2015.jpg" class="img-responsive">
-                    <p class="text-muted">Selama 22-24 Maret semua rumah sakit dan prinsip masing-masing rumah sakit bertemu untuk Raker tahunan Yayasan Pelayanan Kesehatan Bala Keselamatan. </p>
-                    <p class="text-muted">Tahun ini acara ini diselenggarakan oleh Rumah Sakit William Booth Surabaya dan direktur Dr TB Rianto.</p>
-                    <a href="#news-1" class="modal-link" data-toggle="modal">Read More</a>
-                </div>
-                <div class="col-md-4">
-                    <h4 class="service-heading text-centered">Raker 2015 di Surabaya</h4>
-                    <img src="/img/news/raker2015_2.jpg" class="img-responsive">
-                    <p class="text-muted">Selama 22-24 Maret semua rumah sakit dan prinsip masing-masing rumah sakit bertemu untuk Raker tahunan Yayasan Pelayanan Kesehatan Bala Keselamatan. </p>
-                    <p class="text-muted">Tahun ini acara ini diselenggarakan oleh Rumah Sakit William Booth Surabaya dan direktur Dr TB Rianto.</p>
-                    <a href="#news-1" class="modal-link" data-toggle="modal">Read More</a>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -190,119 +170,23 @@
                     <h3 class="section-subheading text-muted">Throughout Indonesia we also have 14 clinics</h3>
                 </div>
             </div>
-            <div class="row"> <!-- Clinics listing start -->
+            <div class="row">
+                {% for clinic in clinics %}
                 <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-ambon" class="modal-link" data-toggle="modal">
+                    <a href="#institution-{{ clinic.slug }}" class="modal-link" data-toggle="modal">
                         <div class="institution-hover">
                             <div class="institution-hover-content">
                                 <i class="fa fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img src="img/clinics/ambon.jpg" class="img-responsive" alt="">
+                        <img src="img/clinics/{{ clinic.clinicPhotoFileName }}" class="img-responsive" alt="">
                     </a>
                     <div class="institution-caption">
-                        <h4>Ambon Evangeline Booth</h4>
-                        <p class="text-muted">Kota Ambon</p>
+                        <h4>{{ clinic.name }}</h4>
+                        <p class="text-muted">{{ clinic.city }}</p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-ampera" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/clinics/ampera.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Ampera</h4>
-                        <p class="text-muted">Desa Ampera, Palu</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-amurang" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/clinics/amurang.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Amurang Catherine Booth</h4>
-                        <p class="text-muted">Amurang, Manado</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-gimpu" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/clinics/gimpu.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Gimpu</h4>
-                        <p class="text-muted">Desa Gimpu, Palu</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-kantewu" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/clinics/kantewu.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Kantewu</h4>
-                        <p class="text-muted">Desa Kantewu, Palu</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-kulawi" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/clinics/kulawi.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Kulawi</h4>
-                        <p class="text-muted">Desa Kulawi, Palu</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-kumelembuai" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/clinics/kumelembuai.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Kumelembuai</h4>
-                        <p class="text-muted">Desa Kumelembuai, Manado</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 institution-item">
-                    <a href="#clinic-longmerah" class="modal-link" data-toggle="modal">
-                        <div class="institution-hover">
-                            <div class="institution-hover-content">
-                                <i class="fa fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img src="img/clinics/longmerah.jpg" class="img-responsive" alt="">
-                    </a>
-                    <div class="institution-caption">
-                        <h4>Long Merah</h4>
-                        <p class="text-muted">Desa Long Merah, Kalimantan</p>
-                    </div>
-                </div>
+                {% endfor %}
             </div> <!-- Clinics listing end -->
         </div>
     </section>
@@ -317,25 +201,26 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form name="sentMessage" id="contactForm" action="/sendemail" method="post" novalidate>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="{{ texts.kontak_placeholder_name }} *" id="name" required data-validation-required-message="Please enter your name.">
+                                    <input type="hidden" id="to" value="{{ texts.ypkbk_email }}">
+                                    <input type="text" class="form-control" placeholder="{{ texts.kontak_placeholder_name }} *" id="name" required data-validation-required-message="Silahkan isi nama anda">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="{{ texts.kontak_placeholder_email }} *" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <input type="email" class="form-control" placeholder="{{ texts.kontak_placeholder_email }} *" id="email" required data-validation-required-message="Silahkan isi email anda">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="tel" class="form-control" placeholder="{{ texts.kontak_placeholder_tel }} *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                    <input type="tel" class="form-control" placeholder="{{ texts.kontak_placeholder_tel }} *" id="phone" required data-validation-required-message="Silahkan isi nomor telefon anda">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="{{ texts.kontak_placeholder_message }} *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <textarea class="form-control" placeholder="{{ texts.kontak_placeholder_message }} *" id="message" required data-validation-required-message="Silahkan isi pesan anda."></textarea>
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -368,7 +253,7 @@
                             <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
                         </span>
                     </center>
-                    <h4 class="service-heading">Misi</h4>
+                    <h4 class="article-heading">Misi</h4>
                     <p class="text-muted">{{ texts.ypkbk_misi | safe }}</p>
                 </div>
                 <div class="col-md-6">
@@ -378,7 +263,7 @@
                             <i class="fa fa-road fa-stack-1x fa-inverse"></i>
                         </span>
                     </center>
-                    <h4 class="service-heading">Visi</h4>
+                    <h4 class="article-heading">Visi</h4>
                     <p class="text-muted">{{ texts.ypkbk_visi | safe }}</p>
                 </div>
             </div>
@@ -436,6 +321,11 @@
                             <div class="row">
                                 <div class="col-lg-6 institutionDetailHeader">Alamat</div>
                                 <div class="col-lg-6">{{ texts.ypkbk_address | safe }}</div>
+                            </div>
+                            <div class="row"><hr></div>
+                            <div class="row">
+                                <div class="col-lg-6 institutionDetailHeader">Kantor</div>
+                                <div class="col-lg-6">{{ texts.ypkbk_kantor | safe }}</div>
                             </div>
                             <div class="row"><hr></div>
                             <div class="row">
@@ -531,6 +421,7 @@
                                         </div>
                                         <div class="row">&nbsp;</div>
                                         <div class="row">
+                                            {% if hospital.telephone %}
                                             <div class="col-xs-3">
                                                 <button type="button" class="btn btn-default btn-lg">
                                                     <a href="tel:{{ hospital.telephone }}" target="_blank">
@@ -538,6 +429,8 @@
                                                     </a>
                                                 </button>
                                             </div>
+                                            {% endif %}
+                                            {% if hospital.rsEmail %}
                                             <div class="col-xs-3">
                                                 <button type="button" class="btn btn-default btn-lg">
                                                     <a href="mailto:{{ hospital.rsEmail }}?subject=Dari website YPKBK" target="_blank">
@@ -545,6 +438,8 @@
                                                     </a>
                                                 </button>
                                             </div>
+                                            {% endif %}
+                                            {% if hospital.rsWebsite %}
                                             <div class="col-xs-3">
                                                 <button type="button" class="btn btn-default btn-lg">
                                                     <a href="{{ hospital.rsWebsite }}" target="_blank">
@@ -552,6 +447,8 @@
                                                     </a>
                                                 </button>
                                             </div>
+                                            {% endif %}
+                                            {% if hospital.googleMapUrl %}
                                             <div class="col-xs-3">
                                                 <button type="button" class="btn btn-default btn-lg">
                                                     <a href="{{ hospital.googleMapUrl }}" target="_blank">
@@ -559,6 +456,7 @@
                                                     </a>
                                                 </button>
                                             </div>
+                                            {% endif %}
                                         </div>
                                     </div>
                                 </div>
@@ -570,9 +468,9 @@
                                     </div>
                                     <div class="panel-body">
                                         <h4>Misi</h4>
-                                        <p>{{ hospital.misiText }}</p>
+                                        <p>{{ hospital.misiText | safe  }}</p>
                                         <h4>Visi</h4>
-                                        <p>{{ hospital.visiText }}</p>
+                                        <p>{{ hospital.visiText | safe  }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -581,7 +479,7 @@
                                     <div class="panel-heading">
                                         <div class="panel-title">Pelayanan</div>
                                     </div>
-                                    <div class="panel-body">{{ hospital.pelayanan }}</div>
+                                    <div class="panel-body">{{ hospital.pelayanan | safe }}</div>
                                 </div>
                             </div>
                             <div class="col-lg-5">
@@ -615,20 +513,158 @@
     {% endfor %}
 
     <!-- Clinics "pages" -->
-
-    <!-- News "pages" -->
-    <div class="institution-modal modal fade" id="news-1" tabindex="-1" role="dialog" aria-hidden="true">
+    {% for clinic in clinics %}
+    <div class="institution-modal modal fade" id="institution-{{ clinic.slug }}" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
-                <a href="#news" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
+                <a href="#clinics" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="modal-header">
-                            <h2>Raker 2015 di Surabaya</h2>
+                            <h2>{{ clinic.name }}</h2>
+                            <div class="col-lg-offset-2">
+                                <p class="item-intro text-muted">{{clinic.introText}}</p>
+                            </div>
                             <div class="institutionHeaderImage">
-                                <img src="/img/news/raker2015.jpg" class="img-responsive">
+                                <img class="img-responsive" src="img/clinics/{{ clinic.clinicPhotoFileName }}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <div class="modal-body">
+                            <div class="col-lg-5">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading institution-panel">
+                                        <div class="panel-title">Kontak</div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-lg-6 institutionDetailHeader">Bala Keselamatan Opsir Pembina</div>
+                                            <div class="col-lg-6"><a href="mailto:{{ clinic.opsirEmail }}?subject=Dari website YPKBK" target="_blank">{{ clinic.opsirName}}</a></div>
+                                        </div>
+                                        <div class="row"><hr></div>
+                                        <div class="row">
+                                            <div class="col-lg-6 institutionDetailHeader">Alamat</div>
+                                            <div class="col-lg-6">{{ clinic.address }}</div>
+                                        </div>
+                                        <div class="row">&nbsp;</div>
+                                        <div class="row">
+                                            {% if clinic.telephone %}
+                                            <div class="col-xs-3">
+                                                <button type="button" class="btn btn-default btn-lg">
+                                                    <a href="tel:{{ clinic.telephone }}" target="_blank">
+                                                        <span class="fa fa-phone fa-2x" aria-hidden="true"></span>
+                                                    </a>
+                                                </button>
+                                            </div>
+                                            {% endif %}
+                                            {% if clinic.clinicEmail %}
+                                            <div class="col-xs-3">
+                                                <button type="button" class="btn btn-default btn-lg">
+                                                    <a href="mailto:{{ clinic.clinicEmail }}?subject=Dari website YPKBK" target="_blank">
+                                                        <span class="fa fa-envelope fa-2x" aria-hidden="true"></span>
+                                                    </a>
+                                                </button>
+                                            </div>
+                                            {% endif %}
+                                            {% if clinic.clinicWebsite %}
+                                            <div class="col-xs-3">
+                                                <button type="button" class="btn btn-default btn-lg">
+                                                    <a href="{{ clinic.clinicWebsite }}" target="_blank">
+                                                        <span class="fa fa-globe fa-2x" aria-hidden="true"></span>
+                                                    </a>
+                                                </button>
+                                            </div>
+                                            {% endif %}
+                                            {% if clinic.googleMapUrl %}
+                                            <div class="col-xs-3">
+                                                <button type="button" class="btn btn-default btn-lg">
+                                                    <a href="{{ clinic.googleMapUrl }}" target="_blank">
+                                                        <span class="fa fa-map-marker fa-2x" aria-hidden="true"></span>
+                                                    </a>
+                                                </button>
+                                            </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">Misi / Visi</div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <h4>Misi</h4>
+                                        <p>{{ clinic.misiText | safe  }}</p>
+                                        <h4>Visi</h4>
+                                        <p>{{ clinic.visiText | safe  }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">Pelayanan</div>
+                                    </div>
+                                    <div class="panel-body">{{ clinic.pelayanan | safe }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">Rujukan</div>
+                                    </div>
+                                    <div class="panel-body">{{ clinic.cooperationOrgs | safe }}</div>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <div class="panel-title">Informasi lain</div>
+                                    </div>
+                                    <div class="panel-body">
+                                        <ul>
+                                            <li>BPJS: {{ clinic.bpjsStatus }}</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <div class="modal-body">
+                            <div class="col-lg-5">
+                                <a href="#hospitals" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- Articles "pages" -->
+    {% for article in articles %}
+    <div class="institution-modal modal fade" id="article-{{ article.slug }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <a href="#articles" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="modal-header">
+                            <h2>{{ article.title }}</h2>
+                            <div class="institutionHeaderImage">
+                                <img src="{{ article.imgURL }}" class="img-responsive">
                             </div>
                         </div>
                     </div>
@@ -638,18 +674,8 @@
                         <div class="modal-body">
                             <div class="panel panel-primary">
                                 <div class="panel-body">
-                                    <p>Selama 22-24 Maret semua rumah sakit dan prinsip masing-masing rumah sakit bertemu untuk Raker tahunan Yayasan Pelayanan Kesehatan Bala Keselamatan.
-
-                                    Tahun ini acara ini diselenggarakan oleh Rumah Sakit William Booth Surabaya dan direktur Dr TB Rianto.
-                                    </p>
-                                    <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                    </p>
+                                    <p class="text-muted">{{ article.intro }}</p>
+                                    <p>{{ article.content }}</p>
                                 </div>
                             </div>
                         </div>
@@ -658,13 +684,14 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="modal-body">
-                            <a href="#news" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
+                            <a href="#article" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {% endfor %}
 
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>

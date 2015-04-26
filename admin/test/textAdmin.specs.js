@@ -1,8 +1,8 @@
 "use strict";
 let app = require('../');
 let co = require('co');
-let db = require('../lib/db.js');
-let testHelpers = require('./testHelpers.js');
+let db = require('../../lib/db.js');
+let testHelpers = require('../../test/testHelpers.js');
 let should = require('should');
 let request = require('supertest').agent(app.listen());
 
@@ -80,14 +80,8 @@ describe('Text administration', function(){
 				.expect('location', `/admin${url}`)
 				.end(function () {
 					co(function *() {
-						try {
-							let text = yield db.textsCollection.findById(insertedText._id);
-							text.slug.should.equal(updatedTextData.slug);
-							console.log("CHECKED DB");
-						}
-						catch(e){
-							console.log("THAT'S AN ERROR");
-						}
+						let text = yield db.textsCollection.findById(insertedText._id);
+						text.slug.should.equal(updatedTextData.slug);
 					})(done());
 				});
 		});

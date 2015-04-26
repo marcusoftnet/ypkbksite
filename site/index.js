@@ -5,30 +5,12 @@ let koa = require('koa');
 let route = require('koa-route');
 let serve = require('koa-static');
 
-let render = require('./lib/render.js');
-let db = require('./lib/db.js');
-
 let app = module.exports = koa();
 
 // configuration
 app.use(serve(__dirname + '/public'));
 
 // routes
-app.use(route.get('/', function *renderSite() {
-	let vm = {};
-	vm.hospitals = yield db.hospitalCollection.find({});
-
-	let textsArray = yield db.textsCollection.find({});
-	vm.texts = createTextsObject(textsArray);
-
-	this.body = yield render('index', vm);
-}));
-
-function createTextsObject(textsArray) {
-	let result = {};
-	for (var i = 0; i < textsArray.length; i++) {
-		result[textsArray[i].slug] = textsArray[i].text;
-	};
-
-	return result;
-};
+let siteRoutes = require("./siteRoutes.js");
+app.use(route.get('/', siteRoutes.renderSite));
+app.use(route.post('/sendemail', siteRoutes.sendEmail));
