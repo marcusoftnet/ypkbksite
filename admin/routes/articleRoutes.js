@@ -1,5 +1,6 @@
 "use strict";
 let parse = require('co-body');
+let fs = require('co-fs');
 
 let render = require('../lib/render.js');
 let db = require('../../lib/db.js');
@@ -18,7 +19,9 @@ module.exports.showNewArticlePage = function *() {
 		publishEndString 	: formatDate(sixMonthsAway)
 	};
 
-	this.body = yield render('article', { article : dates });
+	let pictures = yield getStandardPictures();
+
+	this.body = yield render('article', { article : dates, standardPictures: pictures});
 };
 
 module.exports.storeNewArticle = function *() {
@@ -37,7 +40,9 @@ module.exports.showArticlePage = function *(id) {
 	a.publishStartString = formatDate(a.publishStart);
 	a.publishEndString = formatDate(a.publishEnd);
 
-	this.body = yield render('article', { article : a });
+	let pictures = yield getStandardPictures();
+
+	this.body = yield render('article', { article : a, standardPictures: pictures});
 };
 
 module.exports.updateArticle = function *(id) {
@@ -62,8 +67,13 @@ function createArticleFromPostedData(parsedArticleData){
 	return articleToStore;
 };
 
+function *getStandardPictures() {
+	let files = yield fs.readdir(__dirname + '/../../site/public/img/articles');
+	return files;
+}
 
-function formatDate (dateToFormat) {
+
+function formatDate(dateToFormat) {
 	let dd = dateToFormat.getDate();
     let mm = dateToFormat.getMonth()+1; //January is 0!
     let yyyy = dateToFormat.getFullYear();

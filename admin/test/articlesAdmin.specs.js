@@ -25,6 +25,18 @@ describe('Articles administration', function(){
 			.end(done);
 	});
 
+	it('lists the standard pictures for articles', function (done) {
+		request
+			.get('/article/')
+			.expect(200)
+			.expect(function (res) {
+				res.text.should.containEql('defaultNews.png');
+				res.text.should.containEql('raker2015.jpg');
+				res.text.should.containEql('raker2015_2.jpg');
+			})
+			.end(done);
+	});
+
 	it('stores data for a new article in the database', function (done) {
 		co(function *() {
 			let examplePostData = {

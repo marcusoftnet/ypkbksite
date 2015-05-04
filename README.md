@@ -13,7 +13,6 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 * Add copy URL button for sharing
 
 ## Todo
-* split index.html to smaller views
 * Google Analytics setup
 * Add sharing buttons on all modal windows
 
@@ -25,6 +24,7 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 ## Refactoring ideas
 
 ## Doing (2)
+* split index.html to smaller views
 * List the pictures in folders on the page of the clinics/hosptials
 
 ## Done

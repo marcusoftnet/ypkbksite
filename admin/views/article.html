@@ -44,6 +44,12 @@
         <input type="url" name="imgURL" value="{{ article.imgURL }}" placeholder="Cth. https://dl.dropboxusercontent.com/u/2408484/YPKBKSite/yayasan.png" />
     </p>
     <p>
+        <label>Foto standard</label>
+        {%for picture in standardPictures %}
+            <a href="/img/articles/{{ picture }}" target="_blank">{{ picture }}</a>
+        {%endfor%}
+    </p>
+    <p>
         <label for="publishStartString">Tanggal publish</label>
         <input type="date" name="publishStartString" value="{{ article.publishStartString }}" placeholder="Cth. https://dl.dropboxusercontent.com/u/2408484/YPKBKSite/yayasan.png" />
     </p>
