@@ -18,7 +18,7 @@ module.exports.renderSite = function *renderSite() {
 
 	let vm = {
 		hospitals : createHospitalsViewModel(hospitalsFromDb),
-		clinics : clinicsFromDb,
+		clinics : createClinicsViewModel(clinicsFromDb),
 		texts : createTextsObject(textsFromDb),
 		articles : prepareArticles(articlesFromDb)
 	};
@@ -42,6 +42,17 @@ function createHospitalsViewModel(hospitals) {
 	};
 
 	return hospitals;
+};
+
+function createClinicsViewModel(clinics) {
+	for (var i = clinics.length - 1; i >= 0; i--) {
+		if(clinics[i].clinicPhotoFileName.substring(0,4)!="http") {
+			clinics[i].clinicPhotoFileName =  
+				"img/clinics/" + clinics[i].clinicPhotoFileName;
+		}
+	};
+
+	return clinics;
 };
 
 module.exports.sendEmail = function *() {

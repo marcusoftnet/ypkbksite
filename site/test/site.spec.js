@@ -86,10 +86,10 @@ describe('The main site', function () {
         it('from database', function  (done) {
             co(function *() {
                 yield [
-                    db.clinicsCollection.insert({name: "Klinik 1"}),
-                    db.clinicsCollection.insert({name: "Klinik 2"}),
-                    db.clinicsCollection.insert({name: "Klinik 3"}),
-                    db.clinicsCollection.insert({name: "Klinik 4"})
+                    db.clinicsCollection.insert({name: "Klinik 1", clinicPhotoFileName : ""}),
+                    db.clinicsCollection.insert({name: "Klinik 2", clinicPhotoFileName : ""}),
+                    db.clinicsCollection.insert({name: "Klinik 3", clinicPhotoFileName : ""}),
+                    db.clinicsCollection.insert({name: "Klinik 4", clinicPhotoFileName : ""})
                 ];
 
                 request
