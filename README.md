@@ -25,10 +25,10 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 ## Refactoring ideas
 
 ## Doing (2)
-* Make sure that clinics/hospitals can alternate between local and http images
 * List the pictures in folders on the page of the clinics/hosptials
 
 ## Done
+* Make sure that clinics/hospitals can alternate between local and http images
 * change css style name service-heading to be articles-heading
 * function getSlugFromName is duplicated
 * Contact form should send proper emails
