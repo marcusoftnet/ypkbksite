@@ -31,8 +31,6 @@ describe('Articles administration', function(){
 			.expect(200)
 			.expect(function (res) {
 				res.text.should.containEql('defaultNews.png');
-				res.text.should.containEql('raker2015.jpg');
-				res.text.should.containEql('raker2015_2.jpg');
 			})
 			.end(done);
 	});

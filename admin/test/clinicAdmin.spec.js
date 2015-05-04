@@ -25,6 +25,19 @@ describe('Clinic administration', function(){
 			.end(done);
 	});
 
+	it('lists the standard pictures for articles', function (done) {
+		request
+			.get('/clinic/')
+			.expect(200)
+			.expect(function (res) {
+				res.text.should.containEql('klinik.jpg');
+				res.text.should.containEql('longmerah.jpg');
+				res.text.should.containEql('muaramujan.jpg');
+				res.text.should.containEql('gimpu.jpg');
+			})
+			.end(done);
+	});
+
 	it('stores data for a new clinic in the database', function (done) {
 		co(function *() {
 			let examplePostData = {

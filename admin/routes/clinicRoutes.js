@@ -7,7 +7,8 @@ let db = require('../../lib/db.js');
 let helpers = require("./routeHelpers.js");
 
 module.exports.showNewClinicPage = function *() {
-	this.body = yield render('clinic');
+	let pictures = yield helpers.getStandardPictures('clinics');
+	this.body = yield render('clinic', { standardPictures : pictures });
 };
 
 module.exports.storeNewClinic = function *() {
@@ -22,7 +23,9 @@ module.exports.storeNewClinic = function *() {
 
 module.exports.showClinicPage = function *(id) {
 	let c = yield db.clinicsCollection.findById(id);
-	this.body = yield render('clinic', { clinic : c });
+	let pictures = yield helpers.getStandardPictures('clinics');
+
+	this.body = yield render('clinic', { clinic : c, standardPictures : pictures });
 };
 
 module.exports.updateClinic = function *(id) {

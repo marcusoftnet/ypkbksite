@@ -39,6 +39,12 @@
 	    <label for="clinicPhotoFileName">Nama File Foto Klinik</label>
 	    <input type="text" name="clinicPhotoFileName" value="{{ clinic.clinicPhotoFileName }}" placeholder="Cth. klinik-ambon.jpg" />
     </p>
+    <p>
+        <label>Foto standard</label>
+        {%for picture in standardPictures %}
+            <a href="/img/clinics/{{ picture }}" target="_blank">{{ picture }}</a>
+        {%endfor%}
+    </p>
     <p><h3>Kontakt informasi</h3></p>
     <p>
 	    <label for="opsirName">Nama opsir</label>
