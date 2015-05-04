@@ -28,94 +28,100 @@ describe('The main site', function () {
             .end(done);
     });
 
-    it('output hospitals from database', function  (done) {
-    	co(function *() {
-    		yield [
-    			db.hospitalsCollection.insert({name: "RS 1", rsPhotoFileName:""}),
-    			db.hospitalsCollection.insert({name: "RS 2", rsPhotoFileName:""}),
-    			db.hospitalsCollection.insert({name: "RS 3", rsPhotoFileName:""}),
-    			db.hospitalsCollection.insert({name: "RS 4", rsPhotoFileName:""})
-    		];
+    describe('renders hospital', function () {
+            
+        it('from database', function  (done) {
+        	co(function *() {
+        		yield [
+        			db.hospitalsCollection.insert({name: "RS 1", rsPhotoFileName:""}),
+        			db.hospitalsCollection.insert({name: "RS 2", rsPhotoFileName:""}),
+        			db.hospitalsCollection.insert({name: "RS 3", rsPhotoFileName:""}),
+        			db.hospitalsCollection.insert({name: "RS 4", rsPhotoFileName:""})
+        		];
 
-    		request
-	            .get('/')
-	            .expect(function (res) {
-	            	res.text.should.containEql("RS 1");
-	            	res.text.should.containEql("RS 2");
-	            	res.text.should.containEql("RS 3");
-	            	res.text.should.containEql("RS 4");
-	            })
-	            .end(done);
-	    });
-    });
-
-    it('hospital images using filesnames only gets the /img/hospitals prefix', function (done) {
-        co(function *() {
-            yield db.hospitalsCollection.insert(
-                {name: "RS 1", rsPhotoFileName : 'rs1picture.jpg'}
-            );
-
-            request
-                .get('/')
-                .expect(function (res) {
-                    res.text.should.containEql('<img src="img/hospitals/rs1picture.jpg"');
-                })
-                .end(done);
+        		request
+    	            .get('/')
+    	            .expect(function (res) {
+    	            	res.text.should.containEql("RS 1");
+    	            	res.text.should.containEql("RS 2");
+    	            	res.text.should.containEql("RS 3");
+    	            	res.text.should.containEql("RS 4");
+    	            })
+    	            .end(done);
+    	    });
         });
-    });
-    it('hospital images using http-links are outputted raw', function (done) {
-        co(function *() {
-            yield db.hospitalsCollection.insert(
-                {name: "RS 1", rsPhotoFileName : 'https://farm8.staticflickr.com/7584/16596141074_afeebb86ed_m_d.jpg'}
-            );
 
-            request
-                .get('/')
-                .expect(function (res) {
-                    res.text.should.containEql('<img src="https://farm8.staticflickr.com/7584/16596141074_afeebb86ed_m_d.jpg"');
-                })
-                .end(done);
+        it('images using filesnames gets the /img/hospitals prefix', function (done) {
+            co(function *() {
+                yield db.hospitalsCollection.insert(
+                    {name: "RS 1", rsPhotoFileName : 'rs1picture.jpg'}
+                );
+
+                request
+                    .get('/')
+                    .expect(function (res) {
+                        res.text.should.containEql('<img src="img/hospitals/rs1picture.jpg"');
+                    })
+                    .end(done);
+            });
         });
-    });
+        it('images using http-links are outputted raw', function (done) {
+            co(function *() {
+                yield db.hospitalsCollection.insert(
+                    {name: "RS 1", rsPhotoFileName : 'https://farm8.staticflickr.com/7584/16596141074_afeebb86ed_m_d.jpg'}
+                );
 
-    it('output clinics from database', function  (done) {
-        co(function *() {
-            yield [
-                db.clinicsCollection.insert({name: "Klinik 1"}),
-                db.clinicsCollection.insert({name: "Klinik 2"}),
-                db.clinicsCollection.insert({name: "Klinik 3"}),
-                db.clinicsCollection.insert({name: "Klinik 4"})
-            ];
-
-            request
-                .get('/')
-                .expect(function (res) {
-                    res.text.should.containEql("Klinik 1");
-                    res.text.should.containEql("Klinik 2");
-                    res.text.should.containEql("Klinik 3");
-                    res.text.should.containEql("Klinik 4");
-                })
-                .end(done);
+                request
+                    .get('/')
+                    .expect(function (res) {
+                        res.text.should.containEql('<img src="https://farm8.staticflickr.com/7584/16596141074_afeebb86ed_m_d.jpg"');
+                    })
+                    .end(done);
+            });
         });
     });
 
-    it('output texts from database', function  (done) {
-        co(function *() {
-            yield [
-                db.textsCollection.insert({slug: "ypkbk_name", text: "Yayasan"})
-            ];
+    describe('renders clinics', function () {
+        it('from database', function  (done) {
+            co(function *() {
+                yield [
+                    db.clinicsCollection.insert({name: "Klinik 1"}),
+                    db.clinicsCollection.insert({name: "Klinik 2"}),
+                    db.clinicsCollection.insert({name: "Klinik 3"}),
+                    db.clinicsCollection.insert({name: "Klinik 4"})
+                ];
 
-            request
-                .get('/')
-                .expect(function (res) {
-                    res.text.should.containEql("Yayasan");
-                })
-                .end(done);
+                request
+                    .get('/')
+                    .expect(function (res) {
+                        res.text.should.containEql("Klinik 1");
+                        res.text.should.containEql("Klinik 2");
+                        res.text.should.containEql("Klinik 3");
+                        res.text.should.containEql("Klinik 4");
+                    })
+                    .end(done);
+            });
         });
     });
 
+    describe('renders texts', function () {
+        it('from database', function  (done) {
+            co(function *() {
+                yield [
+                    db.textsCollection.insert({slug: "ypkbk_name", text: "Yayasan"})
+                ];
 
-    describe('Articles are special. They: ', function  () {
+                request
+                    .get('/')
+                    .expect(function (res) {
+                        res.text.should.containEql("Yayasan");
+                    })
+                    .end(done);
+            });
+        });
+    });
+
+    describe('renders articles, but they are special. They: ', function  () {
         let today = new Date();
         let tomorrow = new Date();
         let yesterday = new Date();
