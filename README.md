@@ -4,6 +4,7 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 # Kanban
 ## Later
 * Tests that **doesn't** verify the database content.
+* Add sharing buttons on all modal windows
 * The Yayasan Pelayan Kesehatan Bala Keselamatan needs to be smaller for medium sized screens
 * Set the app name of the site when doing Add to homescreen
 * Create list of old articles in admin-ui
@@ -14,8 +15,6 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 
 ## Todo
 * Google Analytics setup
-* Add sharing buttons on all modal windows
-
 * input data in production database
 
 
