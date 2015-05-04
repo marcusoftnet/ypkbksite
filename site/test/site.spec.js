@@ -31,10 +31,10 @@ describe('The main site', function () {
     it('output hospitals from database', function  (done) {
     	co(function *() {
     		yield [
-    			db.hospitalsCollection.insert({name: "RS 1"}),
-    			db.hospitalsCollection.insert({name: "RS 2"}),
-    			db.hospitalsCollection.insert({name: "RS 3"}),
-    			db.hospitalsCollection.insert({name: "RS 4"})
+    			db.hospitalsCollection.insert({name: "RS 1", rsPhotoFileName:""}),
+    			db.hospitalsCollection.insert({name: "RS 2", rsPhotoFileName:""}),
+    			db.hospitalsCollection.insert({name: "RS 3", rsPhotoFileName:""}),
+    			db.hospitalsCollection.insert({name: "RS 4", rsPhotoFileName:""})
     		];
 
     		request
@@ -47,6 +47,35 @@ describe('The main site', function () {
 	            })
 	            .end(done);
 	    });
+    });
+
+    it('hospital images using filesnames only gets the /img/hospitals prefix', function (done) {
+        co(function *() {
+            yield db.hospitalsCollection.insert(
+                {name: "RS 1", rsPhotoFileName : 'rs1picture.jpg'}
+            );
+
+            request
+                .get('/')
+                .expect(function (res) {
+                    res.text.should.containEql('<img src="img/hospitals/rs1picture.jpg"');
+                })
+                .end(done);
+        });
+    });
+    it('hospital images using http-links are outputted raw', function (done) {
+        co(function *() {
+            yield db.hospitalsCollection.insert(
+                {name: "RS 1", rsPhotoFileName : 'https://farm8.staticflickr.com/7584/16596141074_afeebb86ed_m_d.jpg'}
+            );
+
+            request
+                .get('/')
+                .expect(function (res) {
+                    res.text.should.containEql('<img src="https://farm8.staticflickr.com/7584/16596141074_afeebb86ed_m_d.jpg"');
+                })
+                .end(done);
+        });
     });
 
     it('output clinics from database', function  (done) {

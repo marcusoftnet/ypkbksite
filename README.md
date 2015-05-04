@@ -3,6 +3,7 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 
 # Kanban
 ## Later
+* Tests that **doesn't** verify the database content.
 * The Yayasan Pelayan Kesehatan Bala Keselamatan needs to be smaller for medium sized screens
 * Set the app name of the site when doing Add to homescreen
 * Create list of old articles in admin-ui
@@ -10,20 +11,22 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 * Test for sorting articles should verify that the articles are sorted
 * Consider move all pictures to flickr
 * Add copy URL button for sharing
-* Add sharing buttons on all modal windows
 
 ## Todo
+* split index.html to smaller views
 * Google Analytics setup
-* Make sure that clinics/hospitals can alternate between local and http images
-* List the pictures in folders on the page of the clinics/hosptials
-* Tests that **doesn't** verify the database content.
+* Add sharing buttons on all modal windows
+
+* input data in production database
+* Background pictures
+	* header image
+
 
 ## Refactoring ideas
 
 ## Doing (2)
-* input data in production database
-* Background pictures
-	* header image
+* Make sure that clinics/hospitals can alternate between local and http images
+* List the pictures in folders on the page of the clinics/hosptials
 
 ## Done
 * change css style name service-heading to be articles-heading

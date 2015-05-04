@@ -7,25 +7,41 @@ let render = require('./lib/render.js');
 let db = require('../lib/db.js');
 
 module.exports.renderSite = function *renderSite() {
-	let vm = {};
-	vm.hospitals = yield db.hospitalsCollection.find({});
-	vm.clinics = yield db.clinicsCollection.find({});
 
-	let textsArray = yield db.textsCollection.find({});
-	vm.texts = createTextsObject(textsArray);
+	let hospitalsFromDb = yield db.hospitalsCollection.find({});
+	let textsFromDb = yield db.textsCollection.find({});
+	let clinicsFromDb = yield db.clinicsCollection.find({});
+	let articlesFromDb = yield db.articlesCollection.find({
+			publishStart : { "$lte": getToday() },
+			publishEnd   : { "$gte": getToday() }
+		});
 
-	let today = new Date();
-	today.setHours(23,59,59,0);
+	let vm = {
+		hospitals : createHospitalsViewModel(hospitalsFromDb),
+		clinics : clinicsFromDb,
+		texts : createTextsObject(textsFromDb),
+		articles : prepareArticles(articlesFromDb)
+	};
 
-	let articleArray = yield db.articlesCollection.find(
-		{
-			publishStart : { "$lte": today },
-			publishEnd   : { "$gte": today }
-		}
-	);
-	vm.articles = prepareArticles(articleArray);
 
 	this.body = yield render('index', vm);
+};
+
+function getToday(){
+	let today = new Date();
+	today.setHours(23,59,59,0);
+	return today;
+};
+
+function createHospitalsViewModel(hospitals) {
+	for (var i = hospitals.length - 1; i >= 0; i--) {
+		if(hospitals[i].rsPhotoFileName.substring(0,4)!="http") {
+			hospitals[i].rsPhotoFileName =  
+				"img/hospitals/" + hospitals[i].rsPhotoFileName;
+		}
+	};
+
+	return hospitals;
 };
 
 module.exports.sendEmail = function *() {
