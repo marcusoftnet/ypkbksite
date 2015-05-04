@@ -25,6 +25,18 @@ describe('Hospital administration', function(){
 			.end(done);
 	});
 
+	it('lists the standard pictures for articles', function (done) {
+		request
+			.get('/hospital/')
+			.expect(200)
+			.expect(function (res) {
+				res.text.should.containEql('rswb-surabaya.jpg');
+				res.text.should.containEql('rscb-makasar.jpg');
+				res.text.should.containEql('rsbo-turen.jpg');
+			})
+			.end(done);
+	});
+
 	it('stores data for a new hospital in the database', function (done) {
 		co(function *() {
 			let examplePostData = {
