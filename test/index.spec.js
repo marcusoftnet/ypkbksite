@@ -1,7 +1,6 @@
 "use strict";
 
 let supertest = require('supertest');
-let staticNow = require('static-now');
 
 let app = require("../");
 let config = require('../config')();
