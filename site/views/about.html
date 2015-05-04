@@ -1,0 +1,127 @@
+<section id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Tentang</h2>
+                <h3 class="section-subheading text-muted">{{ texts.ypkbk_name | safe }}</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <center>
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-heart fa-stack-1x fa-inverse"></i>
+                    </span>
+                </center>
+                <h4 class="article-heading">Misi</h4>
+                <p class="text-muted">{{ texts.ypkbk_misi | safe }}</p>
+            </div>
+            <div class="col-md-6">
+                <center>
+                    <span class="fa-stack fa-4x">
+                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa fa-road fa-stack-1x fa-inverse"></i>
+                    </span>
+                </center>
+                <h4 class="article-heading">Visi</h4>
+                <p class="text-muted">{{ texts.ypkbk_visi | safe }}</p>
+            </div>
+        </div>
+        <div class="row"><div class="col-md-12"><hr></div></div>
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                    <span class="fa-stack fa-4x">
+                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                            <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+                    </span>
+                </center>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="panel-title">{{ texts.ypkbk_dewanPembina_name | safe }}</div>
+                    </div>
+                    <div class="panel-body">
+                        {{ texts.ypkbk_dewanPembina_members | safe }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="panel-title">{{ texts.ypkbk_dewanPengurus_name | safe }}</div>
+                    </div>
+                    <div class="panel-body">
+                        {{ texts.ypkbk_dewanPengurus_members | safe }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="panel-title">{{ texts.ypkbk_dewanPengawas_name | safe }}</div>
+                    </div>
+                    <div class="panel-body">
+                        {{ texts.ypkbk_dewanPengawas_members | safe }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row"><div class="col-md-12"><hr></div></div>
+        <div class="row">
+            <div class="col-lg-offset-4 col-md-offset-4 col-md-4">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="panel-title">Kontak</div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-lg-6 institutionDetailHeader">Alamat</div>
+                            <div class="col-lg-6">{{ texts.ypkbk_address | safe }}</div>
+                        </div>
+                        <div class="row"><hr></div>
+                        <div class="row">
+                            <div class="col-lg-6 institutionDetailHeader">Kantor</div>
+                            <div class="col-lg-6">{{ texts.ypkbk_kantor | safe }}</div>
+                        </div>
+                        <div class="row"><hr></div>
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <button type="button" class="btn btn-default btn-lg">
+                                    <a href="tel:{{ texts.ypkbk_telephone }}" target="_blank">
+                                        <span class="fa fa-phone fa-2x" aria-hidden="true"></span>
+                                    </a>
+                                </button>
+                            </div>
+                            <div class="col-xs-3">
+                                <button type="button" class="btn btn-default btn-lg">
+                                    <a href="mailto:{{ texts.ypkbk_email }}?subject=Dari website YPKBK" target="_blank">
+                                        <span class="fa fa-envelope fa-2x" aria-hidden="true"></span>
+                                    </a>
+                                </button>
+                            </div>
+                            <div class="col-xs-3">
+                                <button type="button" class="btn btn-default btn-lg">
+                                    <a href="{{ texts.ypkbk_website }}" target="_blank">
+                                        <span class="fa fa-globe fa-2x" aria-hidden="true"></span>
+                                    </a>
+                                </button>
+                            </div>
+                            <div class="col-xs-3">
+                                <button type="button" class="btn btn-default btn-lg">
+                                    <a href="{{ texts.ypkbk_googleMapUrl }}" target="_blank">
+                                        <span class="fa fa-map-marker fa-2x" aria-hidden="true"></span>
+                                    </a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

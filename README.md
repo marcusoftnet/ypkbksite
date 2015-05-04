@@ -24,9 +24,9 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 ## Doing (2)
 * Background pictures
 	* header image
-* split index.html to smaller views
 
 ## Done
+* split index.html to smaller views
 * improve speed of first load
 * List the pictures in folders on the page of the clinics/hosptials
 * Make sure that clinics/hospitals can alternate between local and http images

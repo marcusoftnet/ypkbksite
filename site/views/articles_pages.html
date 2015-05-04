@@ -1,0 +1,40 @@
+{% for article in articles %}
+<div class="institution-modal modal fade" id="article-{{ article.slug }}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <a href="#articles" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="modal-header">
+                        <h2>{{ article.title }}</h2>
+                        <div class="institutionHeaderImage">
+                            <img src="{{ article.imgURL }}" class="img-responsive">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="modal-body">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+                                <p class="text-muted">{{ article.intro }}</p>
+                                <p>{{ article.content }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="modal-body">
+                        <a href="#article" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

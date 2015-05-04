@@ -1,0 +1,137 @@
+{% for clinic in clinics %}
+<div class="institution-modal modal fade" id="institution-{{ clinic.slug }}" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <a href="#clinics" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="modal-header">
+                        <h2>{{ clinic.name }}</h2>
+                        <div class="col-lg-offset-2">
+                            <p class="item-intro text-muted">{{clinic.introText}}</p>
+                        </div>
+                        <div class="institutionHeaderImage">
+                            <img class="img-responsive" src="{{ clinic.clinicPhotoFileName }}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <div class="modal-body">
+                        <div class="col-lg-5">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading institution-panel">
+                                    <div class="panel-title">Kontak</div>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-lg-6 institutionDetailHeader">Bala Keselamatan Opsir Pembina</div>
+                                        <div class="col-lg-6"><a href="mailto:{{ clinic.opsirEmail }}?subject=Dari website YPKBK" target="_blank">{{ clinic.opsirName}}</a></div>
+                                    </div>
+                                    <div class="row"><hr></div>
+                                    <div class="row">
+                                        <div class="col-lg-6 institutionDetailHeader">Alamat</div>
+                                        <div class="col-lg-6">{{ clinic.address }}</div>
+                                    </div>
+                                    <div class="row">&nbsp;</div>
+                                    <div class="row">
+                                        {% if clinic.telephone %}
+                                        <div class="col-xs-3">
+                                            <button type="button" class="btn btn-default btn-lg">
+                                                <a href="tel:{{ clinic.telephone }}" target="_blank">
+                                                    <span class="fa fa-phone fa-2x" aria-hidden="true"></span>
+                                                </a>
+                                            </button>
+                                        </div>
+                                        {% endif %}
+                                        {% if clinic.clinicEmail %}
+                                        <div class="col-xs-3">
+                                            <button type="button" class="btn btn-default btn-lg">
+                                                <a href="mailto:{{ clinic.clinicEmail }}?subject=Dari website YPKBK" target="_blank">
+                                                    <span class="fa fa-envelope fa-2x" aria-hidden="true"></span>
+                                                </a>
+                                            </button>
+                                        </div>
+                                        {% endif %}
+                                        {% if clinic.clinicWebsite %}
+                                        <div class="col-xs-3">
+                                            <button type="button" class="btn btn-default btn-lg">
+                                                <a href="{{ clinic.clinicWebsite }}" target="_blank">
+                                                    <span class="fa fa-globe fa-2x" aria-hidden="true"></span>
+                                                </a>
+                                            </button>
+                                        </div>
+                                        {% endif %}
+                                        {% if clinic.googleMapUrl %}
+                                        <div class="col-xs-3">
+                                            <button type="button" class="btn btn-default btn-lg">
+                                                <a href="{{ clinic.googleMapUrl }}" target="_blank">
+                                                    <span class="fa fa-map-marker fa-2x" aria-hidden="true"></span>
+                                                </a>
+                                            </button>
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <div class="panel-title">Misi / Visi</div>
+                                </div>
+                                <div class="panel-body">
+                                    <h4>Misi</h4>
+                                    <p>{{ clinic.misiText | safe  }}</p>
+                                    <h4>Visi</h4>
+                                    <p>{{ clinic.visiText | safe  }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <div class="panel-title">Pelayanan</div>
+                                </div>
+                                <div class="panel-body">{{ clinic.pelayanan | safe }}</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <div class="panel-title">Rujukan</div>
+                                </div>
+                                <div class="panel-body">{{ clinic.cooperationOrgs | safe }}</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <div class="panel-title">Informasi lain</div>
+                                </div>
+                                <div class="panel-body">
+                                    <ul>
+                                        <li>BPJS: {{ clinic.bpjsStatus }}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <div class="modal-body">
+                        <div class="col-lg-5">
+                            <a href="#hospitals" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
