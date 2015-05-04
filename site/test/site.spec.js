@@ -65,6 +65,7 @@ describe('The main site', function () {
                     .end(done);
             });
         });
+
         it('images using http-links are outputted raw', function (done) {
             co(function *() {
                 yield db.hospitalsCollection.insert(
@@ -98,6 +99,36 @@ describe('The main site', function () {
                         res.text.should.containEql("Klinik 2");
                         res.text.should.containEql("Klinik 3");
                         res.text.should.containEql("Klinik 4");
+                    })
+                    .end(done);
+            });
+        });
+
+        it('images using filesnames gets the /img/hospitals prefix', function (done) {
+            co(function *() {
+                yield db.clinicsCollection.insert(
+                    {name: "Klinik 1", clinicPhotoFileName : 'klinik1picture.jpg'}
+                );
+
+                request
+                    .get('/')
+                    .expect(function (res) {
+                        res.text.should.containEql('<img src="img/clinics/klinik1picture.jpg"');
+                    })
+                    .end(done);
+            });
+        });
+        
+        it('images using http-links are outputted raw', function (done) {
+            co(function *() {
+                yield db.clinicsCollection.insert(
+                    {name: "Klinik 1", clinicPhotoFileName : 'https://farm8.staticflickr.com/7584/16596141074_afeebb86ed_m_d.jpg'}
+                );
+
+                request
+                    .get('/')
+                    .expect(function (res) {
+                        res.text.should.containEql('<img src="https://farm8.staticflickr.com/7584/16596141074_afeebb86ed_m_d.jpg"');
                     })
                     .end(done);
             });
