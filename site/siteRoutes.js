@@ -8,21 +8,24 @@ let db = require('../lib/db.js');
 
 module.exports.renderSite = function *renderSite() {
 
-	let hospitalsFromDb = yield db.hospitalsCollection.find({});
-	let textsFromDb = yield db.textsCollection.find({});
-	let clinicsFromDb = yield db.clinicsCollection.find({});
-	let articlesFromDb = yield db.articlesCollection.find({
-			publishStart : { "$lte": getToday() },
-			publishEnd   : { "$gte": getToday() }
-		});
-
-	let vm = {
-		hospitals : createHospitalsViewModel(hospitalsFromDb),
-		clinics : createClinicsViewModel(clinicsFromDb),
-		texts : createTextsObject(textsFromDb),
-		articles : prepareArticles(articlesFromDb)
+	let dbTasks = {
+		hospitalsFromDb : db.hospitalsCollection.find({}),
+		textsFromDb 	: db.textsCollection.find({}),
+		clinicsFromDb 	: yield db.clinicsCollection.find({}),
+		articlesFromDb 	: yield db.articlesCollection.find({
+					publishStart : { "$lte": getToday() },
+					publishEnd   : { "$gte": getToday() }
+				})
 	};
 
+	let result = yield dbTasks;
+
+	let vm = {
+		hospitals : createHospitalsViewModel(result.hospitalsFromDb),
+		clinics   : createClinicsViewModel(result.clinicsFromDb),
+		texts 	  : createTextsObject(result.textsFromDb),
+		articles  : prepareArticles(result.articlesFromDb)
+	};
 
 	this.body = yield render('index', vm);
 };

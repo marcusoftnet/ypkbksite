@@ -17,17 +17,18 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 * Add sharing buttons on all modal windows
 
 * input data in production database
-* Background pictures
-	* header image
 
 
 ## Refactoring ideas
 
 ## Doing (2)
+* Background pictures
+	* header image
 * split index.html to smaller views
-* List the pictures in folders on the page of the clinics/hosptials
 
 ## Done
+* improve speed of first load
+* List the pictures in folders on the page of the clinics/hosptials
 * Make sure that clinics/hospitals can alternate between local and http images
 * change css style name service-heading to be articles-heading
 * function getSlugFromName is duplicated
