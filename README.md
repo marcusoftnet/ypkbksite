@@ -3,7 +3,6 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 
 # Kanban
 ## Later
-* Tests that **doesn't** verify the database content.
 * Add sharing buttons on all modal windows
 * The Yayasan Pelayan Kesehatan Bala Keselamatan needs to be smaller for medium sized screens
 * Set the app name of the site when doing Add to homescreen
@@ -17,15 +16,15 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 * Google Analytics setup
 * input data in production database
 
-
 ## Refactoring ideas
 
 ## Doing (2)
-* Background pictures
-	* header image
+* Tests that **doesn't** verify the database content.
+
 
 ## Done
-* split index.html to smaller views
+* Background pictures
+	* header image* split index.html to smaller views
 * improve speed of first load
 * List the pictures in folders on the page of the clinics/hosptials
 * Make sure that clinics/hospitals can alternate between local and http images
