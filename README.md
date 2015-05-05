@@ -13,11 +13,11 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 * Add copy URL button for sharing
 
 ## Todo
-* input data in production database
 
 ## Refactoring ideas
 
 ## Doing (2)
+* input data in production database
 * Make fav-logo transparant
 
 ## Done
