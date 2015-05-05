@@ -54,8 +54,8 @@ describe('Articles administration', function(){
 					co(function *() {
 						let article = yield db.articlesCollection.findOne({ title: examplePostData.title});
 						article.intro.should.equal(examplePostData.intro);
-						// article.content.should.equal(examplePostData.content);
-						article.content.should.equal("ARNE");
+						article.content.should.equal(examplePostData.content);
+						// article.content.should.equal("ARNE");
 					}).then(done, done);
 				});
 		});
