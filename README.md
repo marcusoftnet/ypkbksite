@@ -18,13 +18,14 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 ## Refactoring ideas
 
 ## Doing (2)
-* Google Analytics setup
-
+* Make fav-logo transparant
 
 ## Done
+* Google Analytics setup
 * Tests that **doesn't** verify the database content.
 * Background pictures
-	* header image* split index.html to smaller views
+	* header image
+* split index.html to smaller views
 * improve speed of first load
 * List the pictures in folders on the page of the clinics/hosptials
 * Make sure that clinics/hospitals can alternate between local and http images
