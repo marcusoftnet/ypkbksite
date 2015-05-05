@@ -53,10 +53,10 @@ describe('Hospital administration', function(){
 				.expect('location', /\/hospital\/[0-9a-fA-F]+$/)
 				.end(function () {
 					co(function *() {
-						let hospital = yield db.hospitalsCollection.findOne({ name: hospitalName});
+						let hospital = yield db.hospitalsCollection.findOne({ name: examplePostData.name});
 						hospital.city.should.equal(examplePostData.city);
 						hospital.fokusArea.should.equal(examplePostData.fokusArea);
-					})(done());
+					}).then(done, done);
 				});
 		});
 	});
@@ -67,16 +67,14 @@ describe('Hospital administration', function(){
 				name : "Rumah Sakit William Booth Semarang"
 			};
 
-			// TODO: The expectation below doesn't work
-
 			request
 				.post("/hospital/")
 				.send(examplePostData)
 				.end(function () {
 					co(function *() {
-						let hospital = yield [db.hospitalsCollection.findOne({ name: hospitalName})];
+						let hospital = yield db.hospitalsCollection.findOne({ name: examplePostData.name });
 						hospital.slug.should.equal("Rumah-Sakit-William-Booth-Semarang");
-					})(done());
+					}).then(done, done);
 				});
 		});
 	});
@@ -115,7 +113,7 @@ describe('Hospital administration', function(){
 					co(function *() {
 						let hospital = yield db.hospitalsCollection.findById(insertedHospital._id);
 						hospital.name.should.equal('RS Bungsu');
-					})(done());
+					}).then(done, done);;
 				});
 		});
 	});

@@ -55,7 +55,6 @@ describe('Articles administration', function(){
 						let article = yield db.articlesCollection.findOne({ title: examplePostData.title});
 						article.intro.should.equal(examplePostData.intro);
 						article.content.should.equal(examplePostData.content);
-						// article.content.should.equal("ARNE");
 					}).then(done, done);
 				});
 		});
@@ -76,7 +75,7 @@ describe('Articles administration', function(){
 					co(function *() {
 						let article = yield db.articlesCollection.findOne({ title: examplePostData.title });
 						article.slug.should.equal("Title-Title-Title");
-					})(done());
+					}).then(done, done);
 				});
 		});
 	});
@@ -117,7 +116,7 @@ describe('Articles administration', function(){
 					co(function *() {
 						let article = yield db.articlesCollection.findById(insertedArticle._id);
 						article.title.should.equal('Title');
-					})(done());
+					}).then(done, done);
 				});
 		});
 	});
@@ -141,8 +140,8 @@ describe('Articles administration', function(){
 				.end(function () {
 					co(function *() {
 						let article = yield db.articlesCollection.findById(insertedArticle._id);
-						article.publishStart.should.equal(new Date(examplePostData.publishStartString));
-					})(done());
+						article.publishStart.should.eql(new Date(updatedArticlePostData.publishStartString));
+					}).then(done, done);
 				});
 		});
 	});
@@ -166,8 +165,8 @@ describe('Articles administration', function(){
 				.end(function () {
 					co(function *() {
 						let article = yield db.articlesCollection.findById(insertedArticle._id);
-						article.publishEnd.should.equal(new Date(examplePostData.publishEndString));
-					})(done());
+						article.publishEnd.should.eql(new Date(updatedArticlePostData.publishEndString));
+					}).then(done, done);
 				});
 		});
 	});

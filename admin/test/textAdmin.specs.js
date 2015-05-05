@@ -39,14 +39,13 @@ describe('Text administration', function(){
 				.expect('location', /\/text\/[0-9a-fA-F]+$/)
 				.end(function () {
 					co(function *() {
-						let text = yield db.textsCollection.findOne({ name: hospitalName});
+						let text = yield db.textsCollection.findOne({ slug: examplePostData.slug});
 						text.slug.should.equal(examplePostData.slug);
 						text.text.should.equal(examplePostData.text);
-					})(done());
+					}).then(done, done);
 				});
 		});
 	});
-
 
 	it('shows the edit page for an existing text', function  (done) {
 		co(function * () {
@@ -82,7 +81,7 @@ describe('Text administration', function(){
 					co(function *() {
 						let text = yield db.textsCollection.findById(insertedText._id);
 						text.slug.should.equal(updatedTextData.slug);
-					})(done());
+					}).then(done, done);
 				});
 		});
 	});

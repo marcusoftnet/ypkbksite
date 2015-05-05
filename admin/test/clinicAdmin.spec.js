@@ -56,7 +56,7 @@ describe('Clinic administration', function(){
 						let clinic = yield db.clinicsCollection.findOne({ name: examplePostData.name});
 						clinic.city.should.equal(examplePostData.city);
 						clinic.clinicPhotoFileName.should.equal(examplePostData.clinicPhotoFileName);
-					})(done());
+					}).then(done, done);
 				});
 		});
 	});
@@ -67,8 +67,6 @@ describe('Clinic administration', function(){
 				name : "Catherine Booth Ambon"
 			};
 
-			// TODO: The expectation below doesn't work
-
 			request
 				.post("/clinic/")
 				.send(examplePostData)
@@ -76,7 +74,7 @@ describe('Clinic administration', function(){
 					co(function *() {
 						let clinic = yield db.clinicsCollection.findOne({ name: examplePostData.name});
 						clinic.slug.should.equal("Catherine-Booth-Ambon");
-					})(done());
+					}).then(done, done);
 				});
 		});
 	});
@@ -115,7 +113,7 @@ describe('Clinic administration', function(){
 					co(function *() {
 						let clinic = yield db.clinicsCollection.findById(insertedClinic._id);
 						clinic.name.should.equal('Klinik Abmon II');
-					})(done());
+					}).then(done, done);
 				});
 		});
 	});

@@ -13,16 +13,16 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 * Add copy URL button for sharing
 
 ## Todo
-* Google Analytics setup
 * input data in production database
 
 ## Refactoring ideas
 
 ## Doing (2)
-* Tests that **doesn't** verify the database content.
+* Google Analytics setup
 
 
 ## Done
+* Tests that **doesn't** verify the database content.
 * Background pictures
 	* header image* split index.html to smaller views
 * improve speed of first load
