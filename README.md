@@ -10,6 +10,7 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 * Consider move all pictures to flickr
 
 ## Todo
+* Allow user to override slugname for clinics and hospitals
 
 ## Refactoring ideas
 
