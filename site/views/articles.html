@@ -7,11 +7,31 @@
         </div>
         <div class="row">
             {% for article in articles %}
-            <div class="col-md-4">
+            <!--<div class="col-md-4 col-sm-6 institution-item">
+                <a href="#article-{{ article.slug }}" class="modal-link" title="{{ article.title }}" data-toggle="modal">
+                    <div class="institution-hover">
+                        <div class="institution-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="{{ article.imgURL }}" class="img-responsive">
+                </a>
                 <h4 class="article-heading text-centered">{{ article.title }}</h4>
-                <img src="{{ article.imgURL }}" class="img-responsive">
                 <p class="text-muted">{{ article.intro }}</p>
-                <a href="#article-{{ article.slug }}" class="modal-link" title="{{ article.title }}" data-toggle="modal">Baca lagi...</a>
+            </div>-->
+            <div class="col-md-4 col-sm-6 article-item">
+                <a href="#article-{{ article.slug }}" title="{{ article.title }}" class="modal-link" data-toggle="modal">
+                    <div class="article-hover">
+                        <div class="article-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="{{ article.imgURL }}" class="img-responsive" alt="">
+                </a>
+                <div class="article-caption">
+                    <h4>{{ article.title }}</h4>
+                    <p class="text-muted">{{ article.intro }}</p>
+                </div>
             </div>
             {% endfor %}
         </div>
