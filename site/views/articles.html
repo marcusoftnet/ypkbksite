@@ -11,7 +11,7 @@
                 <h4 class="article-heading text-centered">{{ article.title }}</h4>
                 <img src="{{ article.imgURL }}" class="img-responsive">
                 <p class="text-muted">{{ article.intro }}</p>
-                <a href="#article-{{ article.slug }}" class="modal-link" data-toggle="modal">Baca lagi...</a>
+                <a href="#article-{{ article.slug }}" class="modal-link" title="{{ article.title }}" data-toggle="modal">Baca lagi...</a>
             </div>
             {% endfor %}
         </div>

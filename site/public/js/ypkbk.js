@@ -5,40 +5,59 @@
  */
 
 // jQuery for page scrolling feature - requires jQuery Easing plugin
-$(function() {
-    $('a.page-scroll').bind('click', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
-        }, 1500, 'easeInOutExpo');
-        event.preventDefault();
-    });
+$(function () {
+  $('a.page-scroll').bind('click', function (event) {
+    var $anchor = $(this);
+    $('html, body').stop().animate({
+      scrollTop: $($anchor.attr('href')).offset().top
+    }, 1500, 'easeInOutExpo');
+    event.preventDefault();
+  });
 });
 
 // Highlight the top nav as scrolling occurs
 $('body').scrollspy({
-    target: '.navbar-fixed-top'
+  target: '.navbar-fixed-top'
 })
 
 // Closes the Responsive Menu on Menu Item Click
-$('.navbar-collapse ul li a').click(function() {
-    $('.navbar-toggle:visible').click();
+$('.navbar-collapse ul li a').click(function () {
+  $('.navbar-toggle:visible').click();
 });
 
 // Set the url of the clicked link
-$(function(){
+$(function () {
   var hash = window.location.hash;
   $('a').click(function (e) {
     window.location.hash = this.hash;
   });
 });
 
+function gaTrack(path, title) {
+  $.getScript('//www.google-analytics.com/analytics.js'); // jQuery shortcut
+  window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
+  ga('create', 'UA-62590784-1', 'auto');
+
+  var track =  { page: path, title: title};
+  // console.log("TRACKING");
+  console.log(track);
+  ga('set', track);
+  ga('send', 'pageview');
+};
+
+$("a").click(function(evt) {
+  // console.log(evt);
+  var path = evt.currentTarget.pathname + evt.currentTarget.hash;
+  var title = evt.currentTarget.title || evt.currentTarget.text;
+  gaTrack(path, title);
+});
+
 // Opens modal windows for hospitals ... and clinics
-$(document).ready(function() {
-  if(
+$(document).ready(function () {
+  if (
     (window.location.href.indexOf('#modallink-') > 0) ||
     (window.location.href.indexOf('#institution-') > 0) ||
-  	(window.location.href.indexOf('#article-') > 0)) {
-      $(window.location.hash).modal('show');
+    (window.location.href.indexOf('#article-') > 0)) {
+    $(window.location.hash).modal('show');
   }
 });

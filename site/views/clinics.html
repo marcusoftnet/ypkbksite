@@ -9,7 +9,7 @@
         <div class="row">
             {% for clinic in clinics %}
             <div class="col-md-4 col-sm-6 institution-item">
-                <a href="#institution-{{ clinic.slug }}" class="modal-link" data-toggle="modal">
+                <a href="#institution-{{ clinic.slug }}" title="{{ clinic.name }}" class="modal-link" data-toggle="modal">
                     <div class="institution-hover">
                         <div class="institution-hover-content">
                             <i class="fa fa-plus fa-3x"></i>
