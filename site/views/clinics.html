@@ -8,16 +8,16 @@
         </div>
         <div class="row">
             {% for clinic in clinics %}
-            <div class="col-md-4 col-sm-6 institution-item">
+            <div class="col-md-4 col-sm-6 list-item">
                 <a href="#institution-{{ clinic.slug }}" title="{{ clinic.name }}" class="modal-link" data-toggle="modal">
-                    <div class="institution-hover">
-                        <div class="institution-hover-content">
+                    <div class="list-item-hover">
+                        <div class="list-item-hover-content">
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
                     <img src="{{ clinic.clinicPhotoFileName }}" class="img-responsive" alt="">
                 </a>
-                <div class="institution-caption">
+                <div class="list-item-caption">
                     <h4>{{ clinic.name }}</h4>
                     <p class="text-muted">{{ clinic.city }}</p>
                 </div>

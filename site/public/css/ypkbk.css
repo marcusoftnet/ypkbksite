@@ -358,239 +358,106 @@ section h3.section-subheading {
     }
 }
 
-.article-heading {
-    margin: 15px 0;
-    text-transform: none;
-}
-
-
 /* hospital formatting rules */
-#hospitals .institution-item {
-    right: 0;
-    margin: 0 0 15px;
-}
-
-#hospitals .institution-item .modal-link {
-    display: block;
-    position: relative;
-    margin: 0 auto;
-    max-width: 400px;
-}
-
-#hospitals .institution-item .modal-link .institution-hover {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    background: #ff3333;
-    -webkit-transition: all ease .5s;
-    -moz-transition: all ease .5s;
-    transition: all ease .5s;
-}
-
-#hospitals .institution-item .modal-link .institution-hover:hover {
-    opacity: 1;
-}
-
-#hospitals .institution-item .modal-link .institution-hover .institution-hover-content {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    height: 20px;
-    margin-top: -12px;
-    text-align: center;
-    font-size: 20px;
-    color: #fff;
-}
-
-#hospitals .institution-item .modal-link .institution-hover .institution-hover-content i {
-    margin-top: -12px;
-}
-
-#hospitals .institution-item .modal-link .institution-hover .institution-hover-content h3,
-#hospitals .institution-item .modal-link .institution-hover .institution-hover-content h4 {
-    margin: 0;
-}
-
-#hospitals .institution-item .institution-caption {
-    margin: 0 auto;
-    padding: 25px;
-    max-width: 400px;
-    text-align: center;
-    background-color: #fff;
-}
-
-#hospitals .institution-item .institution-caption h4 {
-    margin: 0;
-    text-transform: none;
-}
-
-#hospitals .institution-item .institution-caption p {
-    margin: 0;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 16px;
-    font-style: italic;
-}
-
 #hospitals * {
     z-index: 2;
 }
 
 @media(min-width:767px) {
-    #hospitals .institution-item {
+    #hospitals .list-item {
         margin: 0 0 30px;
     }
 }
 
 /* Clinics formatting rules */
-#clinics .institution-item {
-    right: 0;
-    margin: 0 0 15px;
-}
-
-#clinics .institution-item .modal-link {
-    display: block;
-    position: relative;
-    margin: 0 auto;
-    max-width: 400px;
-}
-
-#clinics .institution-item .modal-link .institution-hover {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    background: #ff3333;
-    -webkit-transition: all ease .5s;
-    -moz-transition: all ease .5s;
-    transition: all ease .5s;
-}
-
-#clinics .institution-item .modal-link .institution-hover:hover {
-    opacity: 1;
-}
-
-#clinics .institution-item .modal-link .institution-hover .institution-hover-content {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    height: 20px;
-    margin-top: -12px;
-    text-align: center;
-    font-size: 20px;
-    color: #fff;
-}
-
-#clinics .institution-item .modal-link .institution-hover .institution-hover-content i {
-    margin-top: -12px;
-}
-
-#clinics .institution-item .modal-link .institution-hover .institution-hover-content h3,
-#clinics .institution-item .modal-link .institution-hover .institution-hover-content h4 {
-    margin: 0;
-}
-
-#clinics .institution-item .institution-caption {
-    margin: 0 auto;
-    padding: 25px;
-    max-width: 400px;
-    text-align: center;
-    background-color: #fff;
-}
-
-#clinics .institution-item .institution-caption h4 {
-    margin: 0;
-    text-transform: none;
-}
-
-#clinics .institution-item .institution-caption p {
-    margin: 0;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 16px;
-    font-style: italic;
-}
-
 #clinics * {
     z-index: 2;
 }
 
+@media(min-width:767px) {
+    #clinics .list-item {
+        margin: 0 0 30px;
+    }
+}
 /* Articles formatting rules */
-#articles .article-item {
-    right: 0;
-    margin: 0 0 15px;
-}
-
-#articles .article-item .modal-link {
-    display: block;
-    position: relative;
-    margin: 0 auto;
-    max-width: 400px;
-}
-
-#articles .article-item .modal-link .article-hover {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    background: #ff3333;
-    -webkit-transition: all ease .5s;
-    -moz-transition: all ease .5s;
-    transition: all ease .5s;
-}
-
-#articles .article-item .modal-link .article-hover:hover {
-    opacity: 1;
-}
-
-#articles .article-item .modal-link .article-hover .article-hover-content {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    height: 20px;
-    margin-top: -12px;
-    text-align: center;
-    font-size: 20px;
-    color: #fff;
-}
-
-#articles .article-item .modal-link .article-hover .article-hover-content i {
-    margin-top: -12px;
-}
-
-#articles .article-item .modal-link .article-hover .article-hover-content h3,
-#articles .article-item .modal-link .article-hover .article-hover-content h4 {
-    margin: 0;
-}
-
-#articles .article-item .article-caption {
-    margin: 0 auto;
-    padding: 25px;
-    max-width: 400px;
-    text-align: center;
-    background-color: #fff;
-}
-
-#articles .article-item .article-caption h4 {
-    margin: 0;
-    text-transform: none;
-}
-
-#articles .article-item .article-caption p {
-    margin: 0;
-    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 16px;
-    font-style: italic;
-}
-
 #articles * {
     z-index: 2;
 }
 
 @media(min-width:767px) {
-    #clinics .institution-item {
+    #articles .list-item {
         margin: 0 0 30px;
     }
 }
+
+/* List item formatting rules */
+.list-item {
+    right: 0;
+    margin: 0 0 15px;
+}
+
+.list-item .modal-link {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+.list-item .modal-link .list-item-hover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background: #ff3333;
+    -webkit-transition: all ease .5s;
+    -moz-transition: all ease .5s;
+    transition: all ease .5s;
+}
+
+.list-item .modal-link .list-item-hover:hover {
+    opacity: 1;
+}
+
+.list-item .modal-link .list-item-hover .list-item-hover-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 20px;
+    margin-top: -12px;
+    text-align: center;
+    font-size: 20px;
+    color: #fff;
+}
+
+.list-item .modal-link .list-item-hover .list-item-hover-content i {
+    margin-top: -12px;
+}
+
+.list-item .modal-link .list-item-hover .list-item-hover-content h3,
+.list-item .modal-link .list-item-hover .list-item-hover-content h4 {
+    margin: 0;
+}
+
+.list-item .list-item-caption {
+    margin: 0 auto;
+    padding: 25px;
+    max-width: 400px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.list-item .list-item-caption h4 {
+    margin: 0;
+    text-transform: none;
+}
+
+.list-item .list-item-caption p {
+    margin: 0;
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-style: italic;
+}
+
 
 
 
@@ -712,7 +579,7 @@ ul.social-buttons li a:active {
 }
 
 
-.institution-modal .modal-content {
+.list-item-modal .modal-content {
     padding: 100px 0;
     min-height: 100%;
     border: 0;
@@ -722,33 +589,33 @@ ul.social-buttons li a:active {
     box-shadow: none;
 }
 
-.institution-modal .modal-content h2 {
+.list-item-modal .modal-content h2 {
     margin-bottom: 15px;
     font-size: 3em;
     text-align: center;
 }
 
-.institution-modal .modal-content p {
+.list-item-modal .modal-content p {
     margin-bottom: 30px;
 }
 
-.institution-modal .modal-content p.item-intro {
+.list-item-modal .modal-content p.item-intro {
     margin: 20px 0 30px;
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 16px;
     font-style: italic;
 }
 
-.institution-modal .modal-content ul.list-inline {
+.list-item-modal .modal-content ul.list-inline {
     margin-top: 0;
     margin-bottom: 30px;
 }
 
-.institution-modal .modal-content img {
+.list-item-modal .modal-content img {
     margin-bottom: 30px;
 }
 
-.institution-modal .close-modal {
+.list-item-modal .close-modal {
     position: absolute;
     top: 25px;
     right: 25px;
@@ -758,11 +625,11 @@ ul.social-buttons li a:active {
     cursor: pointer;
 }
 
-.institution-modal .close-modal:hover {
+.list-item-modal .close-modal:hover {
     opacity: .3;
 }
 
-.institution-modal .close-modal .lr {
+.list-item-modal .close-modal .lr {
     z-index: 1051;
     width: 1px;
     height: 75px;
@@ -773,7 +640,7 @@ ul.social-buttons li a:active {
     transform: rotate(45deg);
 }
 
-.institution-modal .close-modal .lr .rl {
+.list-item-modal .close-modal .lr .rl {
     z-index: 1052;
     width: 1px;
     height: 75px;
@@ -783,18 +650,18 @@ ul.social-buttons li a:active {
     transform: rotate(90deg);
 }
 
-.institution-modal .modal-backdrop {
+.list-item-modal .modal-backdrop {
     display: none;
     opacity: 0;
 }
 
-.institutionHeaderImage img {
+.list-item-header-image img {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
-.institutionDetailHeader {
+.list-item-detail-header {
     font-weight: bolder;
 }
 

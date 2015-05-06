@@ -1,5 +1,5 @@
 {% for hospital in hospitals %}
-<div class="institution-modal modal fade" id="institution-{{ hospital.slug }}" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="list-item-modal modal fade" id="institution-{{ hospital.slug }}" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
             <a href="#hospitals" title="Kembali ke rumah sakit" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
@@ -12,7 +12,7 @@
                         <div class="col-lg-offset-2">
                             <p class="item-intro text-muted">{{hospital.introText}}</p>
                         </div>
-                        <div class="institutionHeaderImage">
+                        <div class="list-item-header-image">
                             <img class="img-responsive" src="{{ hospital.rsPhotoFileName }}" alt="">
                         </div>
                     </div>
@@ -23,21 +23,21 @@
                     <div class="modal-body">
                         <div class="col-lg-5">
                             <div class="panel panel-primary">
-                                <div class="panel-heading institution-panel">
+                                <div class="panel-heading list-item-panel">
                                     <div class="panel-title">Kontak</div>
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
-                                        <div class="col-lg-6 institutionDetailHeader">Direktur</div>
+                                        <div class="col-lg-6 list-item-detail-header">Direktur</div>
                                         <div class="col-lg-6"><a href="mailto:{{ hospital.direkturEmail }}?subject=Dari website YPKBK" target="_blank">{{ hospital.direkturName}}</a></div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-lg-6 institutionDetailHeader">Bala Keselamatan Opsir Pembina</div>
+                                        <div class="col-lg-6 list-item-detail-header">Bala Keselamatan Opsir Pembina</div>
                                         <div class="col-lg-6"><a href="mailto:{{ hospital.opsirEmail }}?subject=Dari website YPKBK" target="_blank">{{ hospital.opsirName}}</a></div>
                                     </div>
                                     <div class="row"><hr></div>
                                     <div class="row">
-                                        <div class="col-lg-6 institutionDetailHeader">Alamat</div>
+                                        <div class="col-lg-6 list-item-detail-header">Alamat</div>
                                         <div class="col-lg-6">{{ hospital.address }}</div>
                                     </div>
                                     <div class="row">&nbsp;</div>

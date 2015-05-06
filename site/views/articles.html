@@ -7,28 +7,16 @@
         </div>
         <div class="row">
             {% for article in articles %}
-            <!--<div class="col-md-4 col-sm-6 institution-item">
-                <a href="#article-{{ article.slug }}" class="modal-link" title="{{ article.title }}" data-toggle="modal">
-                    <div class="institution-hover">
-                        <div class="institution-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img src="{{ article.imgURL }}" class="img-responsive">
-                </a>
-                <h4 class="article-heading text-centered">{{ article.title }}</h4>
-                <p class="text-muted">{{ article.intro }}</p>
-            </div>-->
-            <div class="col-md-4 col-sm-6 article-item">
+            <div class="col-md-4 col-sm-6 list-item">
                 <a href="#article-{{ article.slug }}" title="{{ article.title }}" class="modal-link" data-toggle="modal">
-                    <div class="article-hover">
-                        <div class="article-hover-content">
+                    <div class="list-item-hover">
+                        <div class="list-item-hover-content">
                             <i class="fa fa-plus fa-3x"></i>
                         </div>
                     </div>
                     <img src="{{ article.imgURL }}" class="img-responsive" alt="">
                 </a>
-                <div class="article-caption">
+                <div class="list-item-caption">
                     <h4>{{ article.title }}</h4>
                     <p class="text-muted">{{ article.intro }}</p>
                 </div>
