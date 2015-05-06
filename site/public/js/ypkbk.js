@@ -40,7 +40,7 @@ function gaTrack(path, title) {
 
   var track =  { page: path, title: title};
   // console.log("TRACKING");
-  console.log(track);
+  // console.log(track);
   ga('set', track);
   ga('send', 'pageview');
 };
