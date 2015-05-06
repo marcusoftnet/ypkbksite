@@ -4,13 +4,10 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 # Kanban
 ## Later
 * Add sharing buttons on all modal windows
-* The Yayasan Pelayan Kesehatan Bala Keselamatan needs to be smaller for medium sized screens
-* Set the app name of the site when doing Add to homescreen
-* Create list of old articles in admin-ui
-* Test for sorting texts should verify that the text are sorted
-* Test for sorting articles should verify that the articles are sorted
-* Consider move all pictures to flickr
 * Add copy URL button for sharing
+* The Yayasan Pelayan Kesehatan Bala Keselamatan needs to be smaller for medium sized screens
+* Create list of old articles in admin-ui
+* Consider move all pictures to flickr
 
 ## Todo
 
@@ -18,9 +15,10 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 
 ## Doing (2)
 * input data in production database
-* Make fav-logo transparant
 
 ## Done
+* Make fav-logo transparant
+* Set the app name of the site when doing Add to homescreen
 * Google Analytics setup
 * Tests that **doesn't** verify the database content.
 * Background pictures
