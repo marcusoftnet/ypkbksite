@@ -15,6 +15,7 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 ## Refactoring ideas
 
 ## Doing (2)
+* Clean up HTML from validation error https://validator.w3.org/check?uri=http%3A%2F%2Fypkbksite.herokuapp.com%2F&charset=%28detect+automatically%29&doctype=Inline&group=0
 * input data in production database
 
 ## Done
