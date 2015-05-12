@@ -41,7 +41,7 @@ a {
 a:hover,
 a:focus,
 a:active,
-a.btn {
+a[role='button'] {
     color: #ff3333;
 }
 a.active {

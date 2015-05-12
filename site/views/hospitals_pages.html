@@ -44,38 +44,30 @@
                                     <div class="row">
                                         {% if hospital.telephone %}
                                         <div class="col-xs-3">
-                                            <button type="button" class="btn btn-default btn-lg">
-                                                <a href="tel:{{ hospital.telephone }}" target="_blank">
-                                                    <span class="fa fa-phone fa-2x" aria-hidden="true"></span>
-                                                </a>
-                                            </button>
+                                            <a href="tel:{{ hospital.telephone }}" target="_blank" role="button" class="btn btn-default btn-lg">
+                                                <span class="fa fa-phone fa-2x" aria-hidden="true"></span>
+                                            </a>
                                         </div>
                                         {% endif %}
                                         {% if hospital.rsEmail %}
                                         <div class="col-xs-3">
-                                            <button type="button" class="btn btn-default btn-lg">
-                                                <a href="mailto:{{ hospital.rsEmail }}?subject=Dari+website+YPKBK" target="_blank">
-                                                    <span class="fa fa-envelope fa-2x" aria-hidden="true"></span>
-                                                </a>
-                                            </button>
+                                            <a href="mailto:{{ hospital.rsEmail }}?subject=Dari+website+YPKBK" target="_blank" role="button" class="btn btn-default btn-lg">
+                                                <span class="fa fa-envelope fa-2x" aria-hidden="true"></span>
+                                            </a>
                                         </div>
                                         {% endif %}
                                         {% if hospital.rsWebsite %}
                                         <div class="col-xs-3">
-                                            <button type="button" class="btn btn-default btn-lg">
-                                                <a href="{{ hospital.rsWebsite }}" target="_blank">
-                                                    <span class="fa fa-globe fa-2x" aria-hidden="true"></span>
-                                                </a>
-                                            </button>
+                                            <a href="{{ hospital.rsWebsite }}" target="_blank" role="button" class="btn btn-default btn-lg">
+                                                <span class="fa fa-globe fa-2x" aria-hidden="true"></span>
+                                            </a>
                                         </div>
                                         {% endif %}
                                         {% if hospital.googleMapUrl %}
                                         <div class="col-xs-3">
-                                            <button type="button" class="btn btn-default btn-lg">
-                                                <a href="{{ hospital.googleMapUrl }}" target="_blank">
-                                                    <span class="fa fa-map-marker fa-2x" aria-hidden="true"></span>
-                                                </a>
-                                            </button>
+                                            <a href="{{ hospital.googleMapUrl }}" target="_blank" role="button" class="btn btn-default btn-lg">
+                                                <span class="fa fa-map-marker fa-2x" aria-hidden="true"></span>
+                                            </a>
                                         </div>
                                         {% endif %}
                                     </div>
