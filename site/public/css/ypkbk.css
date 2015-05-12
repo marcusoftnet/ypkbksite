@@ -41,9 +41,13 @@ a {
 a:hover,
 a:focus,
 a:active,
+a.btn {
+    color: #ff3333;
+}
 a.active {
     color: #cc2828;
 }
+
 
 h1,
 h2,
