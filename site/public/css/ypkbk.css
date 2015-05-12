@@ -700,3 +700,7 @@ img.logo {
 body {
     webkit-tap-highlight-color: #ff3333;
 }
+
+.centered{
+    text-align:center
+}
