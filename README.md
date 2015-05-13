@@ -11,14 +11,17 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 
 ## Todo
 * Allow user to override slugname for clinics and hospitals
+* Get content for modal windows as shown http://stackoverflow.com/questions/12190119/bootstrap-modal-show-event. Don't need to return everything on first request. But what is reloaded?
+* Set up caching for images
+* Consider moving CDN-stuff to heroku and cache it
 
 ## Refactoring ideas
 
 ## Doing (2)
-* Clean up HTML from validation error https://validator.w3.org/check?uri=http%3A%2F%2Fypkbksite.herokuapp.com%2F&charset=%28detect+automatically%29&doctype=Inline&group=0
 * input data in production database
 
 ## Done
+* Clean up HTML from validation error https://validator.w3.org/check?uri=http%3A%2F%2Fypkbksite.herokuapp.com%2F&charset=%28detect+automatically%29&doctype=Inline&group=0
 * Make fav-logo transparant
 * Set the app name of the site when doing Add to homescreen
 * Google Analytics setup
