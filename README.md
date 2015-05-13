@@ -12,7 +12,7 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 ## Todo
 * Allow user to override slugname for clinics and hospitals
 * Get content for modal windows as shown http://stackoverflow.com/questions/12190119/bootstrap-modal-show-event. Don't need to return everything on first request. But what is reloaded?
-* Set up caching for images
+* Set up caching for static content (http://www.webpagetest.org/result/150513_G3_4RD/1/performance_optimization/#cache_static_content)
 * Consider moving CDN-stuff to heroku and cache it
 
 ## Refactoring ideas
