@@ -21,7 +21,7 @@
                         <div class="panel panel-primary">
                             <div class="panel-body">
                                 <p class="text-muted">{{ article.intro }}</p>
-                                <p>{{ article.content }}</p>
+                                <p>{{ article.content | safe }}</p>
                             </div>
                         </div>
                     </div>
