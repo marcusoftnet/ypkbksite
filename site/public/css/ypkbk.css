@@ -42,7 +42,8 @@ a:hover,
 a:focus,
 a:active,
 a[role='button'] {
-    color: #ff3333;
+    color: #fff;
+    background-color: #ff3333;
 }
 a.active {
     color: #cc2828;
@@ -211,7 +212,7 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .nav li a {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 400;
+    font-weight: 100;
     letter-spacing: 1px;
     color: #fff;
 }
@@ -243,7 +244,7 @@ fieldset[disabled] .btn-xl.active {
   float: left;
   height: 50px;
   padding: 1px 15px;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 20px;
 }
 
@@ -258,7 +259,7 @@ fieldset[disabled] .btn-xl.active {
     }
 
     .navbar-default .navbar-brand {
-        font-size: 2em;
+        font-size: 1.6em;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
