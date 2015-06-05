@@ -20,6 +20,7 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 * input data in production database
 
 ## Done
+* Wider kontakt information well
 * Set up caching for static content
 * Clean up HTML from validation error https://validator.w3.org/check?uri=http%3A%2F%2Fypkbksite.herokuapp.com%2F&charset=%28detect+automatically%29&doctype=Inline&group=0
 * Make fav-logo transparant
