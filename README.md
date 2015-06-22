@@ -15,13 +15,14 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 * Consider moving CDN-stuff to heroku and cache it instead
 
 ## Refactoring ideas
-* Allow non-URLs in photoUrl-field for articles
 
 ## Doing (2)
-* Understand why pictures are funky on articles
+* Remove clinics
 * input data in production database
 
 ## Done
+* Understand why pictures are funky on articles
+* Allow non-URLs in photoUrl-field for articles
 * Wider kontakt information well
 * Set up caching for static content
 * Clean up HTML from validation error https://validator.w3.org/check?uri=http%3A%2F%2Fypkbksite.herokuapp.com%2F&charset=%28detect+automatically%29&doctype=Inline&group=0
