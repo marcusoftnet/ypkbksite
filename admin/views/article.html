@@ -27,8 +27,8 @@
         <input type="text" name="title" value="{{ article.title }}" placeholder="Cth. Klinik baru di Kendari" />
     </p>
     <p>
-        <label for="intro">Intro</label>
-        <input type="text" name="intro" value="{{ article.intro }}" placeholder="Cth. Klinik baru di Kendari" />
+        <label for="intro">Intro (max 100 character)</label>
+        <input type="text" name="intro" value="{{ article.intro }}" placeholder="Cth. Klinik baru di Kendari" maxlength="100" />
     </p>
     <p>
         <label for="content">Konten</label>
@@ -41,7 +41,7 @@
     </p>
     <p>
         <label for="imgURL">URL Foto</label>
-        <input type="url" name="imgURL" value="{{ article.imgURL }}" placeholder="Cth. https://dl.dropboxusercontent.com/u/2408484/YPKBKSite/yayasan.png" />
+        <input type="text" name="imgURL" value="{{ article.imgURL }}" placeholder="Cth. https://dl.dropboxusercontent.com/u/2408484/YPKBKSite/yayasan.png" />
     </p>
     <p>
         <label>Foto standard</label>

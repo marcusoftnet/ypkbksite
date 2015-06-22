@@ -15,8 +15,10 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 * Consider moving CDN-stuff to heroku and cache it instead
 
 ## Refactoring ideas
+* Allow non-URLs in photoUrl-field for articles
 
 ## Doing (2)
+* Understand why pictures are funky on articles
 * input data in production database
 
 ## Done
