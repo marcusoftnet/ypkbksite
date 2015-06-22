@@ -27,6 +27,6 @@ pushHeroku:
 	git push heroku master
 
 launch:
-	open http://ypkbk.id
+	open http://www.ypkbk.id
 
 deployProd: test createMinorRelease pushGithub pushHeroku launch
