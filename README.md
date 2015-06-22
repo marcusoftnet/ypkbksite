@@ -17,10 +17,10 @@ The source code of [website of YPKBK](http://ypkbksite.herokuapp.com), including
 ## Refactoring ideas
 
 ## Doing (2)
-* Remove clinics
 * input data in production database
 
 ## Done
+* Remove clinics
 * Understand why pictures are funky on articles
 * Allow non-URLs in photoUrl-field for articles
 * Wider kontakt information well
