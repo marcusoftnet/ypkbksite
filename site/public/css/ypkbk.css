@@ -607,8 +607,9 @@ ul.social-buttons li a:active {
 .list-item-modal .modal-content p.item-intro {
     margin: 20px 0 30px;
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     font-style: italic;
+    text-align: justify;
 }
 
 .list-item-modal .modal-content ul.list-inline {
