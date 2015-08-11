@@ -1,38 +1,50 @@
-<div class="list-item-modal modal fade" id="article-{{ slug }}" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <a href="#articles" title="Kembali ke artikel" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="modal-header">
-                        <h2>{{ title }}</h2>
-                        <div class="list-item-header-image">
-                            <img src="{{ imgURL }}" class="img-responsive" title="{{ title }}" alt="{{ title }}" />
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="list-item-modal col-lg-12" id="article-{{ slug }}" role="dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <a href="/#articles" title="Kembali ke artikel" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="modal-header">
+                                <h2>{{ title }}</h2>
+                                <div class="list-item-header-image">
+                                    <img src="{{ imgURL }}" class="img-responsive" title="{{ title }}" alt="{{ title }}" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="modal-body">
-                        <div class="panel panel-primary">
-                            <div class="panel-body">
-                                <p class="text-muted">{{ intro }}</p>
-                                <p>{{ content | safe }}</p>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="modal-body">
+                                <div class="panel panel-primary">
+                                    <div class="panel-body">
+                                        <p class="text-muted">{{ intro }}</p>
+                                        <p>{{ content | safe }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="modal-body">
+                                <a href="/#article" title="Kembali ke artikel" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="modal-body">
-                        <a href="#article"  title="Kembali ke artikel" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
-</div>
+</div>    
+{% endblock %}
