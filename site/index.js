@@ -18,5 +18,5 @@ app.use(staticCache(path.join(__dirname, 'public'), {
 
 // routes
 let siteRoutes = require("./siteRoutes.js");
-app.use(route.get('/', siteRoutes.renderSite));
+app.use(route.get('/', siteRoutes.home));
 app.use(route.post('/sendemail', siteRoutes.sendEmail));

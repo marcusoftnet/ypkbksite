@@ -6,7 +6,7 @@ let config = require('../config')();
 let render = require('./lib/render.js');
 let db = require('../lib/db.js');
 
-module.exports.renderSite = function *renderSite() {
+module.exports.home = function *home() {
 
 	let dbTasks = {
 		hospitalsFromDb : db.hospitalsCollection.find({}),
