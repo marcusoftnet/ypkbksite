@@ -28,7 +28,7 @@ describe('The main site', function () {
             .end(done);
     });
 
-    describe('renders hospital', function () {
+    describe('renders hospitals on home page', function () {
             
         it('from database', function  (done) {
         	co(function *() {
@@ -82,7 +82,7 @@ describe('The main site', function () {
         });
     });
 
-    describe('renders clinics', function () {
+    describe('renders clinics on home page', function () {
         it('from database', function  (done) {
             co(function *() {
                 yield [
@@ -135,7 +135,7 @@ describe('The main site', function () {
         });
     });
 
-    describe('renders texts', function () {
+    describe('renders texts on home page', function () {
         it('from database', function  (done) {
             co(function *() {
                 yield [
@@ -261,6 +261,7 @@ describe('The main site', function () {
                     .end(done);
             });
         });
+        
         it('uses the start of the content as intro if no intro is supplied', function (done) {
             co(function *() {
                 yield [
