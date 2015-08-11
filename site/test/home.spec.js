@@ -11,7 +11,7 @@ let testHelpers = require('../../test/testHelpers.js');
 
 let request = supertest.agent(app.listen());
 
-describe('The main site', function () {
+describe('The home page', function () {
 
 	beforeEach(function (done) {
 		testHelpers.removeAllDocs(done);

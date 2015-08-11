@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/mocha/bin/mocha test ./site/test ./admin/test -u bdd -R spec",
+    "test:watch": "./node_modules/mocha/bin/mocha test ./site/test ./admin/test -u bdd -R dot -w",
     "start": "node index.js prod",
     "testing": "nodemon -w ./site -e js,html index.js testing"
   },

@@ -30,34 +30,6 @@ module.exports.home = function *home() {
 	this.body = yield render('index', vm);
 };
 
-function getToday(){
-	let today = new Date();
-	today.setHours(23,59,59,0);
-	return today;
-};
-
-function createHospitalsViewModel(hospitals) {
-	for (var i = hospitals.length - 1; i >= 0; i--) {
-		if(hospitals[i].rsPhotoFileName.substring(0,4)!="http") {
-			hospitals[i].rsPhotoFileName =  
-				"img/hospitals/" + hospitals[i].rsPhotoFileName;
-		}
-	};
-
-	return hospitals;
-};
-
-function createClinicsViewModel(clinics) {
-	for (var i = clinics.length - 1; i >= 0; i--) {
-		if(clinics[i].clinicPhotoFileName.substring(0,4)!="http") {
-			clinics[i].clinicPhotoFileName =  
-				"img/clinics/" + clinics[i].clinicPhotoFileName;
-		}
-	};
-
-	return clinics;
-};
-
 module.exports.sendEmail = function *() {
 	let parsedEmailForm = yield parse(this);
 
@@ -87,6 +59,41 @@ module.exports.sendEmail = function *() {
 
 	this.body = bodyText;
 	this.status = status;
+};
+
+module.exports.getDetails = function *(section, slugToFind) {
+	let vm = {};
+	vm = yield db.articlesCollection.findOne({ slug: slugToFind });
+	this.body = yield render('article_page', vm);
+};
+
+
+function getToday(){
+	let today = new Date();
+	today.setHours(23,59,59,0);
+	return today;
+};
+
+function createHospitalsViewModel(hospitals) {
+	for (var i = hospitals.length - 1; i >= 0; i--) {
+		if(hospitals[i].rsPhotoFileName.substring(0,4)!="http") {
+			hospitals[i].rsPhotoFileName =  
+				"img/hospitals/" + hospitals[i].rsPhotoFileName;
+		}
+	};
+
+	return hospitals;
+};
+
+function createClinicsViewModel(clinics) {
+	for (var i = clinics.length - 1; i >= 0; i--) {
+		if(clinics[i].clinicPhotoFileName.substring(0,4)!="http") {
+			clinics[i].clinicPhotoFileName =  
+				"img/clinics/" + clinics[i].clinicPhotoFileName;
+		}
+	};
+
+	return clinics;
 };
 
 function prepareArticles (articles) {
