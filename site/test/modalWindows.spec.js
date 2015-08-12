@@ -68,5 +68,23 @@ describe('The site has modal windows ', function () {
                 .end(done);
         });
     });
-	it('for clinics');
+	it('for clinics', function (done) {
+         co(function *() {
+            yield db.clinicsCollection.insert(
+                {
+                    name: "Klinik 1", 
+                    slug: "klinik-1-slug",
+                    clinicPhotoFileName : "/img/clinic/klini1.jpg"
+                }
+            );
+
+            request
+                .get('/clinic/klinik-1-slug')
+                .expect(function (res) {
+                    res.text.should.containEql("Klinik 1");
+                    res.text.should.containEql("/img/clinic/klini1.jpg");
+                })
+                .end(done);
+        });
+    });
 });

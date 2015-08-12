@@ -1,4 +1,4 @@
-<!-- <section id="clinics" class="bg-light-gray">
+<section id="clinics" class="bg-light-gray">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
@@ -9,7 +9,7 @@
         <div class="row">
             {% for clinic in clinics %}
             <div class="col-md-4 col-sm-6 list-item">
-                <a href="#institution-{{ clinic.slug }}" title="{{ clinic.name }}" class="modal-link" data-toggle="modal">
+                <a href="/clinic/{{ clinic.slug }}" title="{{ clinic.name }}" class="modal-link" data-toggle="modal">
                     <div class="list-item-hover">
                         <div class="list-item-hover-content">
                             <i class="fa fa-plus fa-3x"></i>
@@ -24,6 +24,6 @@
             </div>
             {% endfor %}
         </div> 
-        <!-- Clinics listing end -->
+        <!-- Clinics listing end
     <!-- </div>
 </section> -->

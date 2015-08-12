@@ -71,6 +71,9 @@ module.exports.getDetails = function *(section, slugToFind) {
 	if(section === "hospital") 
 		vm = yield db.hospitalsCollection.findOne({ slug: slugToFind });
 
+	if(section === "clinic") 
+		vm = yield db.clinicsCollection.findOne({ slug: slugToFind });
+
 	this.body = yield render(pageName, vm);
 	
 };
