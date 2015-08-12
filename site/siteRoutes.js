@@ -63,11 +63,16 @@ module.exports.sendEmail = function *() {
 
 module.exports.getDetails = function *(section, slugToFind) {
 	let vm = {};
+	let pageName = `${section}_page`;
 
-	if(section === "article") 
+	if(section === "article")
 		vm = yield db.articlesCollection.findOne({ slug: slugToFind });
 
-	this.body = yield render('article_page', vm);
+	if(section === "hospital") 
+		vm = yield db.hospitalsCollection.findOne({ slug: slugToFind });
+
+	this.body = yield render(pageName, vm);
+	
 };
 
 

@@ -1,0 +1,138 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{ name }}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="list-item-modal col-lg-12" id="hospital-{{ slug }}" role="dialog">
+		    <div class="modal-content">
+		        <div class="close-modal" data-dismiss="modal">
+		            <a href="/#hospitals" title="Kembali ke rumah sakit" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
+		        </div>
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-lg-12">
+		                    <div class="modal-header">
+		                        <h2>{{ name }}</h2>
+		                        <div class="col-lg-offset-2 col-lg-8">
+		                            <p class="item-intro text-muted">
+		                                {{ introText}}
+		                            </p>
+		                        </div>
+		                        <div class="list-item-header-image">
+		                            <img class="img-responsive" src="/img/hospitals/{{ rsPhotoFileName }}" alt="">
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-lg-10 col-lg-offset-2">
+		                    <div class="modal-body">
+		                        <div class="col-lg-5">
+		                            <div class="panel panel-primary">
+		                                <div class="panel-heading list-item-panel">
+		                                    <div class="panel-title">Kontak</div>
+		                                </div>
+		                                <div class="panel-body">
+		                                    <div class="row">
+		                                        <div class="col-lg-6 list-item-detail-header">Direktur</div>
+		                                        <div class="col-lg-6"><a href="mailto:{{ direkturEmail }}?subject=Dari+website+YPKBK" target="_blank">{{ direkturName}}</a></div>
+		                                    </div>
+		                                    <div class="row">
+		                                        <div class="col-lg-6 list-item-detail-header">Bala Keselamatan Opsir Pembina</div>
+		                                        <div class="col-lg-6"><a href="mailto:{{ opsirEmail }}?subject=Dari+website+YPKBK" target="_blank">{{ opsirName}}</a></div>
+		                                    </div>
+		                                    <div class="row"><hr></div>
+		                                    <div class="row">
+		                                        <div class="col-lg-6 list-item-detail-header">Alamat</div>
+		                                        <div class="col-lg-6">{{ address }}</div>
+		                                    </div>
+		                                    <div class="row">&nbsp;</div>
+		                                    <div class="row">
+		                                        {% if telephone %}
+		                                        <div class="col-xs-3">
+		                                            <a href="tel:{{ telephone }}" target="_blank" role="button" class="btn btn-default btn-lg">
+		                                                <span class="fa fa-phone fa-2x" aria-hidden="true"></span>
+		                                            </a>
+		                                        </div>
+		                                        {% endif %}
+		                                        {% if rsEmail %}
+		                                        <div class="col-xs-3">
+		                                            <a href="mailto:{{ rsEmail }}?subject=Dari+website+YPKBK" target="_blank" role="button" class="btn btn-default btn-lg">
+		                                                <span class="fa fa-envelope fa-2x" aria-hidden="true"></span>
+		                                            </a>
+		                                        </div>
+		                                        {% endif %}
+		                                        {% if rsWebsite %}
+		                                        <div class="col-xs-3">
+		                                            <a href="{{ rsWebsite }}" target="_blank" role="button" class="btn btn-default btn-lg">
+		                                                <span class="fa fa-globe fa-2x" aria-hidden="true"></span>
+		                                            </a>
+		                                        </div>
+		                                        {% endif %}
+		                                        {% if googleMapUrl %}
+		                                        <div class="col-xs-3">
+		                                            <a href="{{ googleMapUrl }}" target="_blank" role="button" class="btn btn-default btn-lg">
+		                                                <span class="fa fa-map-marker fa-2x" aria-hidden="true"></span>
+		                                            </a>
+		                                        </div>
+		                                        {% endif %}
+		                                    </div>
+		                                </div>
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-5">
+		                            <div class="panel panel-primary">
+		                                <div class="panel-heading">
+		                                    <div class="panel-title">Misi / Visi</div>
+		                                </div>
+		                                <div class="panel-body">
+		                                    <h4>Misi</h4>
+		                                    <p>{{ misiText | safe  }}</p>
+		                                    <h4>Visi</h4>
+		                                    <p>{{ visiText | safe  }}</p>
+		                                </div>
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-5">
+		                            <div class="panel panel-primary">
+		                                <div class="panel-heading">
+		                                    <div class="panel-title">Pelayanan</div>
+		                                </div>
+		                                <div class="panel-body">{{ pelayanan | safe }}</div>
+		                            </div>
+		                        </div>
+		                        <div class="col-lg-5">
+		                            <div class="panel panel-primary">
+		                                <div class="panel-heading">
+		                                    <div class="panel-title">Informasi lain</div>
+		                                </div>
+		                                <div class="panel-body">
+		                                    <ul>
+		                                        <li>BPJS: {{ bpjsStatus }}</li>
+		                                        <li>Akreditasi: {{ accreditationStatus }}</li>
+		                                    </ul>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="row">
+		                <div class="col-lg-10 col-lg-offset-2">
+		                    <div class="modal-body">
+		                        <div class="col-lg-5">
+		                            <a href="/#hospitals"  title="Kembali ke rumah sakit" class="btn btn-primary" role="button" data-dismiss="modal"><i class="fa fa-times"></i> Tutup</a>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+</div>
+{% endblock %}

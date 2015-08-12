@@ -49,6 +49,24 @@ describe('The site has modal windows ', function () {
         });
 	});
 
-	it('for hospitals');
+	it('for hospitals', function  (done) {
+        co(function *() {
+            yield db.hospitalsCollection.insert(
+                {
+                    name: "RS 1", 
+                    slug: "RS-1-CSWB",
+                    rsPhotoFileName:"/img/hospitals/rs1.jpg"
+                }
+            );
+
+            request
+                .get('/hospital/RS-1-CSWB')
+                .expect(function (res) {
+                    res.text.should.containEql("RS 1");
+                    res.text.should.containEql("/img/hospitals/rs1.jpg");
+                })
+                .end(done);
+        });
+    });
 	it('for clinics');
 });

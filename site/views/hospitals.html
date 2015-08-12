@@ -9,7 +9,7 @@
         <div class="row">
             {% for hospital in hospitals %}
             <div class="col-md-4 col-sm-6 list-item">
-                <a href="#institution-{{ hospital.slug }}" title="{{ hospital.name }}" class="modal-link" data-toggle="modal">
+                <a href="/hospital/{{ hospital.slug }}" title="{{ hospital.name }}" class="modal-link" data-toggle="modal">
                     <div class="list-item-hover">
                         <div class="list-item-hover-content">
                             <i class="fa fa-plus fa-3x"></i>
