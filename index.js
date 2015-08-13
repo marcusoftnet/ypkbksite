@@ -17,8 +17,8 @@ let adminApp = require('./admin/');
 let siteApp = require('./site/');
 
 // mount'em
-app.use(mount('/', siteApp));
 app.use(mount('/admin', adminApp));
+app.use(mount('/', siteApp));
 
 
 // listen and all of that
