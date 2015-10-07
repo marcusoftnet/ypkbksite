@@ -1,6 +1,6 @@
 {
   "name": "YPKBKWeb",
-  "version": "1.85.0",
+  "version": "1.86.0",
   "description": "The website of the Yayasan Pelayan Kesehatan Bala Keselamatan (YPKBK)",
   "main": "index.js",
   "scripts": {
@@ -38,7 +38,7 @@
   "dependencies": {
     "co-body": "1.1.0",
     "co-fs": "^1.2.0",
-    "co-monk": "1.0.0",
+    "co-monk": "^1.0.0",
     "co-views": "^2.0.0",
     "koa": "^0.19.1",
     "koa-basic-auth": "^1.1.2",
@@ -47,8 +47,8 @@
     "koa-route": "^2.4.1",
     "koa-static": "^1.4.9",
     "koa-static-cache": "^3.1.1",
-    "mongodb": "1.4.4",
-    "monk": "1.0.1",
+    "mongodb": "^2.0.45",
+    "monk": "^1.0.1",
     "sendgrid": "^1.6.1",
     "swig": "^1.4.2"
   }
