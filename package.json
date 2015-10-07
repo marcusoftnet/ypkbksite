@@ -23,9 +23,8 @@
   ],
   "author": "Marcus Hammarberg <marcusoft.net@gmail.com> (http://www.marcusoft.net)",
   "license": "MIT",
-  "engineStrict": true,
   "engines": {
-    "iojs": "~3.0.0"
+    "npm": "~4.0.0"
   },
   "devDependencies": {
     "co": "^4.5.1",
