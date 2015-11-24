@@ -18,7 +18,7 @@ createMinorRelease:
 	@$(call release,minor)
 
 test:
-	npm test
+	npm test -- -R dot
 
 pushGithub:
 	git push --tags origin HEAD:master
