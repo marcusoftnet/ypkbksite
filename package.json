@@ -46,7 +46,7 @@
     "koa-route": "^2.4.1",
     "koa-static": "^1.4.9",
     "koa-static-cache": "^3.1.1",
-    "mongodb": "^1.4.4",
+    "mongodb": "^3.6.1",
     "monk": "^1.0.1",
     "sendgrid": "^1.6.1",
     "swig": "^1.4.2"
